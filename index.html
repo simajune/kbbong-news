@@ -48,6 +48,9 @@
   .yt.hot{border-color:#ef4444;background:rgba(239,68,68,.08);color:var(--txt)}
   .yt.hot b{color:#ef4444}
   .yt-chip.on{background:#ef4444;border-color:#ef4444;color:#fff}
+  .econ{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
+    background:rgba(16,185,129,.14);color:#10b981;border:1px solid rgba(16,185,129,.4)}
+  .econ-chip.on{background:#10b981;border-color:#10b981;color:#fff}
   .rel{font-size:12.5px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);padding:2px 10px}
   .rel summary{cursor:pointer;padding:7px 0;color:var(--sub);font-weight:600;user-select:none}
   .rel summary:hover{color:var(--txt)}
@@ -77,7 +80,7 @@
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
     <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
-    <div class="stat"><div class="n">2회/일</div><div class="l">자동 수집 주기</div></div>
+    <div class="stat"><div class="n" id="s-econ">0</div><div class="l">💰 경제 채널 적합</div></div>
     <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
   </div>
 
@@ -114,7 +117,7 @@ const NEWS = [
    src:"코리아넷", url:"https://korean-culture.org/koreanet/view.do?seq=1054123",
    yt:2, ytnote:"지도+수치 시각화하면 짧은 정보 클립 가능"},
 
-  {cat:"tech", pride:true, title:"한국, AI 시대 핵심 '메모리 반도체' 세계 1위 수성",
+  {cat:"tech", econ:true, pride:true, title:"한국, AI 시대 핵심 '메모리 반도체' 세계 1위 수성",
    desc:"인공지능 시대의 핵심 산업인 메모리 반도체에서 한국 기업이 세계 1위 자리를 지켜냄.",
    src:"한국경제", url:"https://www.hankyung.com/article/202607304610i",
    yt:4, ytnote:"AI 시대·미중 경쟁 구도로 풀면 강력한 설명 콘텐츠",
@@ -124,7 +127,7 @@ const NEWS = [
      {t:"세계가 의존하는 한국 반도체 기업의 정체", u:"https://www.youtube.com/watch?v=dwK_sIbIHCU"}],
    related:[
      {t:"삼성과 맞서 세계 1등 찍은 '한미반도체' / 소비더머니", u:"https://www.youtube.com/watch?v=rS5q2rCF1RQ"}]},
-  {cat:"tech", pride:true, title:"1회 충전 800km·12분 급속충전…세계 최초 신규 전해액 개발",
+  {cat:"tech", econ:true, pride:true, title:"1회 충전 800km·12분 급속충전…세계 최초 신규 전해액 개발",
    desc:"국내 연구팀이 덴드라이트 근본 원인을 규명하고 응집 억제형 액체 전해액을 세계 최초 개발, 꿈의 배터리 성능 구현.",
    src:"삼일PwC경영연구원", url:"https://www.pwc.com/kr/ko/insights/industry-focus/pwckorea_all-solid-state-battery.pdf",
    yt:5, ytnote:"‘꿈의 배터리’ 서사 완벽. 기술 설명형 롱폼 강추",
@@ -135,7 +138,7 @@ const NEWS = [
      {t:"‘꿈의 배터리’ 전고체 전지, 성능 높이는 신소재 / YTN 사이언스", u:"https://www.youtube.com/watch?v=DDNcQCT6G8g"},
      {t:"세계 상위 1% 한국 과학자가 만든 첨단 배터리 / YTN 사이언스", u:"https://www.youtube.com/watch?v=7MZjt3FSNXI"},
      {t:"충전 5분·수명 1만회 '꿈의 배터리' 한국이 해냈다", u:"https://www.youtube.com/watch?v=mZy3bRWuAE8"}]},
-  {cat:"tech", pride:false, title:"K-배터리 3사, 전기차 배터리 세계 50% 점유",
+  {cat:"tech", econ:true, pride:false, title:"K-배터리 3사, 전기차 배터리 세계 50% 점유",
    desc:"한국 3개사가 기술력과 가격경쟁력으로 글로벌 전기차 배터리 시장의 절반을 점유하며 시장 주도.",
    src:"Bain & Company", url:"https://www.bain.com/ko/insights/jsc-and-nik-byline-on-k-battery/",
    yt:3, ytnote:"반도체와 묶어 ‘K-기술 패권’ 한 편으로 통합 추천"},
@@ -167,21 +170,29 @@ const NEWS = [
 /* ====== 렌더링 ====== */
 let active = "all";
 let ytOnly = false;
+let econOnly = false;
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
 document.getElementById('s-total').textContent = NEWS.length;
 const ytCount = NEWS.filter(n=>(n.yt||0)>=4).length;
 document.getElementById('s-yt').textContent = ytCount;
+document.getElementById('s-econ').textContent = NEWS.filter(n=>n.econ).length;
 
 function makeFilters(){
   const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
   filters.innerHTML = all.map(([k,label])=>
     `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('')
-    + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`;
+    + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`
+    + `<div class="chip econ-chip" id="econchip" onclick="toggleEconOnly()">💰 경제 채널용만</div>`;
 }
 function toggleYtOnly(){
   ytOnly=!ytOnly;
   document.getElementById('ytchip').classList.toggle('on',ytOnly);
+  render();
+}
+function toggleEconOnly(){
+  econOnly=!econOnly;
+  document.getElementById('econchip').classList.toggle('on',econOnly);
   render();
 }
 function setFilter(k){
@@ -225,6 +236,7 @@ function fallbackCopy(text,done){
 function render(){
   let list = NEWS.filter(n=>active==='all'||n.cat===active);
   if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
+  if(econOnly) list = list.filter(n=>n.econ);
   list = list.slice().sort((a,b)=>(b.yt||0)-(a.yt||0));
   grid.innerHTML = list.map(n=>{
     const c = CATS[n.cat];
@@ -232,6 +244,7 @@ function render(){
       <span class="tag" style="background:${c.color}">${c.name}</span>
       <h3>${n.title}</h3>
       <p>${n.desc}</p>
+      ${n.econ?'<span class="econ">💰 경제 채널 적합</span>':''}
       ${ytBadge(n)}
       ${relatedBlock(n)}
       <div class="foot">

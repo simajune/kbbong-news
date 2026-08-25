@@ -6,11 +6,12 @@
 ## 1단계: 검색·평가
 - WebSearch로 각 주제별 '오늘 기준 최신' 기사(검색어에 현재 연월 포함). 총 8~12건. 실제 제목·요약·출처·URL만 사용(지어내지 말 것).
 - 각 기사: pride(국뽕 강하면 true), yt(유튜브 콘텐츠 각 1~5), ytnote(한줄 기획).
+- econ(경제 채널 적합 true/false): 반도체·배터리·조선·방산·수출·기업실적·산업/투자 등 '경제 앵글'로 풀 수 있으면 true. 순수 K-팝·스포츠·연예는 false. 음식/우주는 '수출·산업' 관점이면 true.
 - yt>=4인 모든 기사는 WebSearch allowed_domains=["youtube.com"]로 관련 영상 2~3개(실제 watch?v= 또는 /shorts/ URL)와 다른 언론 연관기사 1~2개를 반드시 찾는다.
 
 ## 2단계: index.html 갱신
 1. index.html Read.
-2. `const NEWS = [ ... ];` 배열 통째 교체(Edit). 항목: {cat:"tech|kpop|culture|sports", pride, title, desc, src, url, yt, ytnote, videos:[{t,u}], related:[{t,u}]}. cat은 반드시 tech/kpop/culture/sports 중 하나.
+2. `const NEWS = [ ... ];` 배열 통째 교체(Edit). 항목: {cat:"tech|kpop|culture|sports", econ:true|false, pride, title, desc, src, url, yt, ytnote, videos:[{t,u}], related:[{t,u}]}. cat은 반드시 tech/kpop/culture/sports 중 하나.
 3. id="updated" 날짜를 오늘 날짜로 변경. NEWS와 updated만 수정, CSS/함수는 건드리지 말 것.
 
 ## 3단계: push
