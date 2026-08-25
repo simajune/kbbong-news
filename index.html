@@ -42,6 +42,12 @@
   .card a.read{font-size:12.5px;color:var(--brand);text-decoration:none;font-weight:600}
   .card a.read:hover{text-decoration:underline}
   .pride{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);font-weight:700}
+  .yt{font-size:12px;color:var(--sub);background:var(--panel2);border:1px solid var(--line);
+    border-radius:10px;padding:6px 10px;line-height:1.35}
+  .yt b{color:#f59e0b;letter-spacing:1px}
+  .yt.hot{border-color:#ef4444;background:rgba(239,68,68,.08);color:var(--txt)}
+  .yt.hot b{color:#ef4444}
+  .yt-chip.on{background:#ef4444;border-color:#ef4444;color:#fff}
   footer{margin-top:34px;color:var(--sub);font-size:12px;text-align:center;line-height:1.7}
   .toggle{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
     padding:6px 12px;font-size:12px;cursor:pointer}
@@ -60,9 +66,9 @@
 
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
+    <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
     <div class="stat"><div class="n">2회/일</div><div class="l">자동 수집 주기</div></div>
     <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
-    <div class="stat"><div class="n">9년</div><div class="l">K팝 대표 이미지 1위 연속</div></div>
   </div>
 
   <div class="filters" id="filters"></div>
@@ -83,62 +89,91 @@ const CATS = {
   sports: {name:"스포츠/기타", color:"#10b981"},
 };
 
+/* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
   {cat:"kpop", pride:true, title:"외국인 10명 중 7명 “한류에 매료”…한국 대표 이미지 'K-팝'",
    desc:"30개국 2만7400명 조사에서 한국 문화콘텐츠 호감도 69.7%. K-팝이 9년 연속 대표 이미지 1위, 가장 영향력 있는 스타는 BTS.",
-   src:"서울신문 / 문체부", url:"https://www.seoul.co.kr/news/life/2026/03/30/20260330500110"},
+   src:"서울신문 / 문체부", url:"https://www.seoul.co.kr/news/life/2026/03/30/20260330500110",
+   yt:3, ytnote:"통계 나열형. 인포그래픽 영상으로 편집하면 무난"},
   {cat:"kpop", pride:true, title:"K팝 글로벌 등용문에 한류 비즈니스 허브까지…K영토 넓힌 15년",
    desc:"세계 음악 시장 변방에서 주류로 도약한 K팝. 제작 시스템의 글로벌 이식으로 질적 성장 단계 진입.",
-   src:"한국경제", url:"https://www.hankyung.com/article/202608071120i"},
+   src:"한국경제", url:"https://www.hankyung.com/article/202608071120i",
+   yt:2, ytnote:"배경 자료용. 단독 영상보단 참고"},
   {cat:"kpop", pride:false, title:"필리핀 87%·인도 83.8%…서구권 호감도도 가파른 상승",
    desc:"영국 +8.0%p, 스페인 +6.2%p, 미국 +6.1%p, 호주 +6.0%p 등 주요 서구 국가에서 한류 호감도 급등.",
-   src:"코리아넷", url:"https://korean-culture.org/koreanet/view.do?seq=1054123"},
+   src:"코리아넷", url:"https://korean-culture.org/koreanet/view.do?seq=1054123",
+   yt:2, ytnote:"지도+수치 시각화하면 짧은 정보 클립 가능"},
 
   {cat:"tech", pride:true, title:"한국, AI 시대 핵심 '메모리 반도체' 세계 1위 수성",
    desc:"인공지능 시대의 핵심 산업인 메모리 반도체에서 한국 기업이 세계 1위 자리를 지켜냄.",
-   src:"한국경제", url:"https://www.hankyung.com/article/202607304610i"},
+   src:"한국경제", url:"https://www.hankyung.com/article/202607304610i",
+   yt:4, ytnote:"AI 시대·미중 경쟁 구도로 풀면 강력한 설명 콘텐츠"},
   {cat:"tech", pride:true, title:"1회 충전 800km·12분 급속충전…세계 최초 신규 전해액 개발",
    desc:"국내 연구팀이 덴드라이트 근본 원인을 규명하고 응집 억제형 액체 전해액을 세계 최초 개발, 꿈의 배터리 성능 구현.",
-   src:"삼일PwC경영연구원", url:"https://www.pwc.com/kr/ko/insights/industry-focus/pwckorea_all-solid-state-battery.pdf"},
+   src:"삼일PwC경영연구원", url:"https://www.pwc.com/kr/ko/insights/industry-focus/pwckorea_all-solid-state-battery.pdf",
+   yt:5, ytnote:"‘꿈의 배터리’ 서사 완벽. 기술 설명형 롱폼 강추"},
   {cat:"tech", pride:false, title:"K-배터리 3사, 전기차 배터리 세계 50% 점유",
    desc:"한국 3개사가 기술력과 가격경쟁력으로 글로벌 전기차 배터리 시장의 절반을 점유하며 시장 주도.",
-   src:"Bain & Company", url:"https://www.bain.com/ko/insights/jsc-and-nik-byline-on-k-battery/"},
+   src:"Bain & Company", url:"https://www.bain.com/ko/insights/jsc-and-nik-byline-on-k-battery/",
+   yt:3, ytnote:"반도체와 묶어 ‘K-기술 패권’ 한 편으로 통합 추천"},
 
   {cat:"culture", pride:true, title:"'세계 게 요리' 1위에 한국 간장게장 선정",
    desc:"글로벌 푸드 매거진 테이스트아틀라스가 세계 게 요리 순위에서 한국 간장게장을 1위로 선정.",
-   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026070315451758933"},
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026070315451758933",
+   yt:5, ytnote:"음식 비주얼+외국인 반응+의외성. 숏폼·롱폼 둘 다 최강"},
   {cat:"culture", pride:true, title:"외국인이 경험한 한류 1위는 '음식'…78%가 한식 먹어봤다",
    desc:"음식이 자국 내 가장 인기 있는 한류 분야(55.1%). 한식 경험률 78%로 영화·드라마·음악보다 높아. 치킨·김치·비빔밥 순 인기.",
-   src:"코리아넷", url:"https://www.korean-culture.org/koreanet/view.do?seq=1053154"},
+   src:"코리아넷", url:"https://www.korean-culture.org/koreanet/view.do?seq=1053154",
+   yt:4, ytnote:"치킨·김치·비빔밥 랭킹형 콘텐츠로 딱"},
   {cat:"culture", pride:false, title:"“떡볶이 식감 싫어하던 외국인… K분식, 지금은 세계가 주목”",
    desc:"과거 거부감 있던 K분식이 하나의 문화로 자리잡으며, 정부협의체가 K푸드 수출 활성화 추진.",
-   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202606161828310699"},
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202606161828310699",
+   yt:3, ytnote:"스토리는 좋으나 위 한식 기사와 소재 겹침"},
 ];
 
 /* ====== 렌더링 ====== */
 let active = "all";
+let ytOnly = false;
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
 document.getElementById('s-total').textContent = NEWS.length;
+const ytCount = NEWS.filter(n=>(n.yt||0)>=4).length;
+document.getElementById('s-yt').textContent = ytCount;
 
 function makeFilters(){
   const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
   filters.innerHTML = all.map(([k,label])=>
-    `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('');
+    `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('')
+    + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`;
+}
+function toggleYtOnly(){
+  ytOnly=!ytOnly;
+  document.getElementById('ytchip').classList.toggle('on',ytOnly);
+  render();
 }
 function setFilter(k){
   active=k;
   document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.k===k));
   render();
 }
+function ytBadge(n){
+  if(!n.yt) return '';
+  const stars = '★'.repeat(n.yt)+'☆'.repeat(5-n.yt);
+  const hot = n.yt>=4 ? ' hot' : '';
+  const note = n.ytnote ? ` title="${n.ytnote.replace(/"/g,'&quot;')}"` : '';
+  return `<div class="yt${hot}"${note}>🎬 유튜브 각 <b>${stars}</b>${n.ytnote?` · ${n.ytnote}`:''}</div>`;
+}
 function render(){
-  const list = NEWS.filter(n=>active==='all'||n.cat===active);
+  let list = NEWS.filter(n=>active==='all'||n.cat===active);
+  if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
+  list = list.slice().sort((a,b)=>(b.yt||0)-(a.yt||0));
   grid.innerHTML = list.map(n=>{
     const c = CATS[n.cat];
     return `<div class="card">
       <span class="tag" style="background:${c.color}">${c.name}</span>
       <h3>${n.title}</h3>
       <p>${n.desc}</p>
+      ${ytBadge(n)}
       <div class="foot">
         <span class="src">${n.pride?'<span class="pride">🔥 국뽕</span> · ':''}${n.src}</span>
         <a class="read" href="${n.url}" target="_blank" rel="noopener">기사 보기 →</a>
