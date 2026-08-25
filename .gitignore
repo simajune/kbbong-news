@@ -1,0 +1,8 @@
+.DS_Store
+.bkit/
+.ruff_cache/
+ebook/
+ref/
+ai_office_dashboard.html
+*.log
+com.taejune.kbbongnews.plist

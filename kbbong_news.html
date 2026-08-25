@@ -1,0 +1,155 @@
+<title>국뽕 뉴스 대시보드</title>
+<style>
+  :root{
+    --bg:#0b0d12; --panel:#141821; --panel2:#1b2130; --line:#242c3a;
+    --txt:#e8ecf3; --sub:#93a0b5; --brand:#3b82f6; --accent:#f43f5e;
+    --k1:#ef4444; --k2:#3b82f6; --k3:#f59e0b; --k4:#10b981; --k5:#a855f7;
+  }
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f4f6fb;--panel:#ffffff;--panel2:#f0f3f9;--line:#e2e7f0;--txt:#141821;--sub:#5a6678;}
+  }
+  :root[data-theme="dark"]{--bg:#0b0d12;--panel:#141821;--panel2:#1b2130;--line:#242c3a;--txt:#e8ecf3;--sub:#93a0b5;}
+  :root[data-theme="light"]{--bg:#f4f6fb;--panel:#ffffff;--panel2:#f0f3f9;--line:#e2e7f0;--txt:#141821;--sub:#5a6678;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",Segoe UI,Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  h1{font-size:26px;margin:0;letter-spacing:-.5px}
+  h1 .flag{filter:saturate(1.2)}
+  .meta{color:var(--sub);font-size:13px;margin-top:4px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 8px}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .stat .n{font-size:24px;font-weight:700}
+  .stat .l{font-size:12px;color:var(--sub);margin-top:2px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}
+  .chip{border:1px solid var(--line);background:var(--panel);color:var(--sub);
+    padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{color:var(--txt)}
+  .chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;
+    display:flex;flex-direction:column;gap:10px;transition:.15s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-2px);border-color:var(--brand)}
+  .card .tag{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff}
+  .card h3{margin:0;font-size:16px;letter-spacing:-.3px}
+  .card p{margin:0;color:var(--sub);font-size:13.5px}
+  .card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:6px}
+  .card .src{font-size:12px;color:var(--sub)}
+  .card a.read{font-size:12.5px;color:var(--brand);text-decoration:none;font-weight:600}
+  .card a.read:hover{text-decoration:underline}
+  .pride{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);font-weight:700}
+  footer{margin-top:34px;color:var(--sub);font-size:12px;text-align:center;line-height:1.7}
+  .toggle{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
+    padding:6px 12px;font-size:12px;cursor:pointer}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1><span class="flag">🇰🇷</span> 국뽕 뉴스 대시보드</h1>
+      <div class="meta">한국 기술 · K-팝 · K-문화 · 스포츠 성과 — 자부심이 느껴지는 뉴스 모음</div>
+    </div>
+    <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
+  </header>
+
+  <div class="meta" id="updated">최종 업데이트: 2026-08-25</div>
+
+  <div class="stats">
+    <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
+    <div class="stat"><div class="n">2회/일</div><div class="l">자동 수집 주기</div></div>
+    <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
+    <div class="stat"><div class="n">9년</div><div class="l">K팝 대표 이미지 1위 연속</div></div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    자동 수집 대시보드 · 출처 링크는 각 카드의 &ldquo;기사 보기&rdquo;를 확인하세요.<br>
+    데이터는 <code>news_data.js</code>에 저장되며 하루 2회 자동 갱신됩니다.
+  </footer>
+</div>
+
+<script>
+/* ====== 뉴스 데이터 (자동 수집 시 이 배열이 갱신됩니다) ====== */
+const CATS = {
+  tech:   {name:"한국 기술", color:"#3b82f6"},
+  kpop:   {name:"K-팝/한류", color:"#ef4444"},
+  culture:{name:"K-문화/음식", color:"#f59e0b"},
+  sports: {name:"스포츠/기타", color:"#10b981"},
+};
+
+const NEWS = [
+  {cat:"kpop", pride:true, title:"외국인 10명 중 7명 “한류에 매료”…한국 대표 이미지 'K-팝'",
+   desc:"30개국 2만7400명 조사에서 한국 문화콘텐츠 호감도 69.7%. K-팝이 9년 연속 대표 이미지 1위, 가장 영향력 있는 스타는 BTS.",
+   src:"서울신문 / 문체부", url:"https://www.seoul.co.kr/news/life/2026/03/30/20260330500110"},
+  {cat:"kpop", pride:true, title:"K팝 글로벌 등용문에 한류 비즈니스 허브까지…K영토 넓힌 15년",
+   desc:"세계 음악 시장 변방에서 주류로 도약한 K팝. 제작 시스템의 글로벌 이식으로 질적 성장 단계 진입.",
+   src:"한국경제", url:"https://www.hankyung.com/article/202608071120i"},
+  {cat:"kpop", pride:false, title:"필리핀 87%·인도 83.8%…서구권 호감도도 가파른 상승",
+   desc:"영국 +8.0%p, 스페인 +6.2%p, 미국 +6.1%p, 호주 +6.0%p 등 주요 서구 국가에서 한류 호감도 급등.",
+   src:"코리아넷", url:"https://korean-culture.org/koreanet/view.do?seq=1054123"},
+
+  {cat:"tech", pride:true, title:"한국, AI 시대 핵심 '메모리 반도체' 세계 1위 수성",
+   desc:"인공지능 시대의 핵심 산업인 메모리 반도체에서 한국 기업이 세계 1위 자리를 지켜냄.",
+   src:"한국경제", url:"https://www.hankyung.com/article/202607304610i"},
+  {cat:"tech", pride:true, title:"1회 충전 800km·12분 급속충전…세계 최초 신규 전해액 개발",
+   desc:"국내 연구팀이 덴드라이트 근본 원인을 규명하고 응집 억제형 액체 전해액을 세계 최초 개발, 꿈의 배터리 성능 구현.",
+   src:"삼일PwC경영연구원", url:"https://www.pwc.com/kr/ko/insights/industry-focus/pwckorea_all-solid-state-battery.pdf"},
+  {cat:"tech", pride:false, title:"K-배터리 3사, 전기차 배터리 세계 50% 점유",
+   desc:"한국 3개사가 기술력과 가격경쟁력으로 글로벌 전기차 배터리 시장의 절반을 점유하며 시장 주도.",
+   src:"Bain & Company", url:"https://www.bain.com/ko/insights/jsc-and-nik-byline-on-k-battery/"},
+
+  {cat:"culture", pride:true, title:"'세계 게 요리' 1위에 한국 간장게장 선정",
+   desc:"글로벌 푸드 매거진 테이스트아틀라스가 세계 게 요리 순위에서 한국 간장게장을 1위로 선정.",
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026070315451758933"},
+  {cat:"culture", pride:true, title:"외국인이 경험한 한류 1위는 '음식'…78%가 한식 먹어봤다",
+   desc:"음식이 자국 내 가장 인기 있는 한류 분야(55.1%). 한식 경험률 78%로 영화·드라마·음악보다 높아. 치킨·김치·비빔밥 순 인기.",
+   src:"코리아넷", url:"https://www.korean-culture.org/koreanet/view.do?seq=1053154"},
+  {cat:"culture", pride:false, title:"“떡볶이 식감 싫어하던 외국인… K분식, 지금은 세계가 주목”",
+   desc:"과거 거부감 있던 K분식이 하나의 문화로 자리잡으며, 정부협의체가 K푸드 수출 활성화 추진.",
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202606161828310699"},
+];
+
+/* ====== 렌더링 ====== */
+let active = "all";
+const grid = document.getElementById('grid');
+const filters = document.getElementById('filters');
+document.getElementById('s-total').textContent = NEWS.length;
+
+function makeFilters(){
+  const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
+  filters.innerHTML = all.map(([k,label])=>
+    `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('');
+}
+function setFilter(k){
+  active=k;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.k===k));
+  render();
+}
+function render(){
+  const list = NEWS.filter(n=>active==='all'||n.cat===active);
+  grid.innerHTML = list.map(n=>{
+    const c = CATS[n.cat];
+    return `<div class="card">
+      <span class="tag" style="background:${c.color}">${c.name}</span>
+      <h3>${n.title}</h3>
+      <p>${n.desc}</p>
+      <div class="foot">
+        <span class="src">${n.pride?'<span class="pride">🔥 국뽕</span> · ':''}${n.src}</span>
+        <a class="read" href="${n.url}" target="_blank" rel="noopener">기사 보기 →</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur==='light'?'dark':(cur==='dark'?'light':'light');
+  document.documentElement.setAttribute('data-theme',next);
+}
+makeFilters(); render();
+</script>
