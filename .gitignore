@@ -6,3 +6,7 @@ ref/
 ai_office_dashboard.html
 *.log
 com.taejune.kbbongnews.plist
+.claude/
+jeongseok_mall/
+tnc_crm/
+kbbong_collector_prompt.md
