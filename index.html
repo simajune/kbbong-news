@@ -48,6 +48,12 @@
   .yt.hot{border-color:#ef4444;background:rgba(239,68,68,.08);color:var(--txt)}
   .yt.hot b{color:#ef4444}
   .yt-chip.on{background:#ef4444;border-color:#ef4444;color:#fff}
+  .rel{font-size:12.5px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);padding:2px 10px}
+  .rel summary{cursor:pointer;padding:7px 0;color:var(--sub);font-weight:600;user-select:none}
+  .rel summary:hover{color:var(--txt)}
+  .rel ul{margin:2px 0 8px;padding-left:2px;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .rel a{color:var(--brand);text-decoration:none}
+  .rel a:hover{text-decoration:underline}
   footer{margin-top:34px;color:var(--sub);font-size:12px;text-align:center;line-height:1.7}
   .toggle{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
     padding:6px 12px;font-size:12px;cursor:pointer}
@@ -111,7 +117,14 @@ const NEWS = [
   {cat:"tech", pride:true, title:"1회 충전 800km·12분 급속충전…세계 최초 신규 전해액 개발",
    desc:"국내 연구팀이 덴드라이트 근본 원인을 규명하고 응집 억제형 액체 전해액을 세계 최초 개발, 꿈의 배터리 성능 구현.",
    src:"삼일PwC경영연구원", url:"https://www.pwc.com/kr/ko/insights/industry-focus/pwckorea_all-solid-state-battery.pdf",
-   yt:5, ytnote:"‘꿈의 배터리’ 서사 완벽. 기술 설명형 롱폼 강추"},
+   yt:5, ytnote:"‘꿈의 배터리’ 서사 완벽. 기술 설명형 롱폼 강추",
+   related:[
+     {t:"KAIST '저비용' 전고체 배터리 핵심기술 개발…상용화 성큼 (KBS)", u:"https://www.youtube.com/watch?v=c9xrbYcjOaI"},
+     {t:"삼성SDI 전고체 배터리 세계 최초 양산 선언", u:"https://www.youtube.com/watch?v=eXuKgiZAkBI"}],
+   videos:[
+     {t:"‘꿈의 배터리’ 전고체 전지, 성능 높이는 신소재 / YTN 사이언스", u:"https://www.youtube.com/watch?v=DDNcQCT6G8g"},
+     {t:"세계 상위 1% 한국 과학자가 만든 첨단 배터리 / YTN 사이언스", u:"https://www.youtube.com/watch?v=7MZjt3FSNXI"},
+     {t:"충전 5분·수명 1만회 '꿈의 배터리' 한국이 해냈다", u:"https://www.youtube.com/watch?v=mZy3bRWuAE8"}]},
   {cat:"tech", pride:false, title:"K-배터리 3사, 전기차 배터리 세계 50% 점유",
    desc:"한국 3개사가 기술력과 가격경쟁력으로 글로벌 전기차 배터리 시장의 절반을 점유하며 시장 주도.",
    src:"Bain & Company", url:"https://www.bain.com/ko/insights/jsc-and-nik-byline-on-k-battery/",
@@ -120,7 +133,11 @@ const NEWS = [
   {cat:"culture", pride:true, title:"'세계 게 요리' 1위에 한국 간장게장 선정",
    desc:"글로벌 푸드 매거진 테이스트아틀라스가 세계 게 요리 순위에서 한국 간장게장을 1위로 선정.",
    src:"아시아경제", url:"https://view.asiae.co.kr/article/2026070315451758933",
-   yt:5, ytnote:"음식 비주얼+외국인 반응+의외성. 숏폼·롱폼 둘 다 최강"},
+   yt:5, ytnote:"음식 비주얼+외국인 반응+의외성. 숏폼·롱폼 둘 다 최강",
+   videos:[
+     {t:"이번엔 간장게장… / 스브스뉴스", u:"https://www.youtube.com/watch?v=DB9bBHiNAG0"},
+     {t:"한국 간장게장 우습게 본 일본 1500만 유튜버 시식 후 충격", u:"https://www.youtube.com/watch?v=InhAcnMWOpo"},
+     {t:"드디어 게장 1등 맛집을 발견했습니다", u:"https://www.youtube.com/watch?v=gSDQn7j6x1o"}]},
   {cat:"culture", pride:true, title:"외국인이 경험한 한류 1위는 '음식'…78%가 한식 먹어봤다",
    desc:"음식이 자국 내 가장 인기 있는 한류 분야(55.1%). 한식 경험률 78%로 영화·드라마·음악보다 높아. 치킨·김치·비빔밥 순 인기.",
    src:"코리아넷", url:"https://www.korean-culture.org/koreanet/view.do?seq=1053154",
@@ -163,6 +180,16 @@ function ytBadge(n){
   const note = n.ytnote ? ` title="${n.ytnote.replace(/"/g,'&quot;')}"` : '';
   return `<div class="yt${hot}"${note}>🎬 유튜브 각 <b>${stars}</b>${n.ytnote?` · ${n.ytnote}`:''}</div>`;
 }
+function relatedBlock(n){
+  const vids = n.videos||[], rels = n.related||[];
+  if(!vids.length && !rels.length) return '';
+  const vLis = vids.map(v=>`<li>▶️ <a href="${v.u}" target="_blank" rel="noopener">${v.t}</a></li>`).join('');
+  const rLis = rels.map(r=>`<li>📰 <a href="${r.u}" target="_blank" rel="noopener">${r.t}</a></li>`).join('');
+  return `<details class="rel">
+    <summary>🔗 관련 자료 · 유튜브 ${vids.length} · 연관 ${rels.length}</summary>
+    <ul>${vLis}${rLis}</ul>
+  </details>`;
+}
 function render(){
   let list = NEWS.filter(n=>active==='all'||n.cat===active);
   if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
@@ -174,6 +201,7 @@ function render(){
       <h3>${n.title}</h3>
       <p>${n.desc}</p>
       ${ytBadge(n)}
+      ${relatedBlock(n)}
       <div class="foot">
         <span class="src">${n.pride?'<span class="pride">🔥 국뽕</span> · ':''}${n.src}</span>
         <a class="read" href="${n.url}" target="_blank" rel="noopener">기사 보기 →</a>
