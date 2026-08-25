@@ -54,6 +54,10 @@
   .rel ul{margin:2px 0 8px;padding-left:2px;list-style:none;display:flex;flex-direction:column;gap:6px}
   .rel a{color:var(--brand);text-decoration:none}
   .rel a:hover{text-decoration:underline}
+  .copybtn{margin:2px 0 8px;border:1px solid var(--brand);background:transparent;color:var(--brand);
+    border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s}
+  .copybtn:hover{background:var(--brand);color:#fff}
+  .copybtn.ok{border-color:#10b981;color:#10b981;background:rgba(16,185,129,.1)}
   footer{margin-top:34px;color:var(--sub);font-size:12px;text-align:center;line-height:1.7}
   .toggle{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
     padding:6px 12px;font-size:12px;cursor:pointer}
@@ -185,10 +189,26 @@ function relatedBlock(n){
   if(!vids.length && !rels.length) return '';
   const vLis = vids.map(v=>`<li>▶️ <a href="${v.u}" target="_blank" rel="noopener">${v.t}</a></li>`).join('');
   const rLis = rels.map(r=>`<li>📰 <a href="${r.u}" target="_blank" rel="noopener">${r.t}</a></li>`).join('');
+  const links = [n.url, ...vids.map(v=>v.u), ...rels.map(r=>r.u)];
+  const enc = encodeURIComponent(links.join('\n'));
   return `<details class="rel">
     <summary>🔗 관련 자료 · 유튜브 ${vids.length} · 연관 ${rels.length}</summary>
     <ul>${vLis}${rLis}</ul>
+    <button class="copybtn" data-links="${enc}" onclick="copyLinks(this)">📋 링크 전체 복사 (${links.length})</button>
   </details>`;
+}
+function copyLinks(btn){
+  const text = decodeURIComponent(btn.dataset.links);
+  const done = ()=>{ const o=btn.textContent; btn.textContent='✅ 복사됨!'; btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent=o; btn.classList.remove('ok');},1500); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  } else fallbackCopy(text,done);
+}
+function fallbackCopy(text,done){
+  const ta=document.createElement('textarea'); ta.value=text;
+  ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
+  ta.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(ta);
 }
 function render(){
   let list = NEWS.filter(n=>active==='all'||n.cat===active);
