@@ -78,7 +78,7 @@
     <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
   </header>
 
-  <div class="meta" id="updated">최종 업데이트: 2026-08-27</div>
+  <div class="meta" id="updated">최종 업데이트: 2026-08-28</div>
 
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
@@ -131,16 +131,6 @@ const NEWS = [
      {t:"S. Korea’s mid-August chip exports hit record $26bn (Kazinform)", u:"https://qazinform.com/news/s-koreas-mid-august-chip-exports-hit-record-26bn-3cf575"},
      {t:"South Korea Exports Hit Record, Exceed $80 Billion (Trading Economics)", u:"https://tradingeconomics.com/south-korea/exports-yoy/news/538027"}]},
 
-  {cat:"tech", econ:true, intl:false, pride:true, title:"8월 1~20일 수출 552억 달러 56% 급증…반도체 260억 달러로 역대 최대",
-   desc:"관세청 집계 8월 1~20일 수출이 552억 달러로 전년 대비 56% 늘었고, 반도체는 260억 달러로 거의 3배가 됐다. 8월 20일 기준으로는 역대 최고 기록.",
-   src:"코리아헤럴드", url:"https://www.koreaherald.com/article/10847622",
-   yt:3, ytnote:"숫자 팩트체크용 기본 소스. 외신 기사와 묶어서 ‘같은 뉴스, 다른 반응’ 구성"},
-
-  {cat:"tech", econ:true, intl:true, country:"미국", pride:true, title:"[외신] 네이버·엔비디아·브룩필드 10조원 딜…한국 AI 팩토리 200MW로 3배 확대",
-   desc:"네이버가 엔비디아·브룩필드와 함께 세종 각(GAK) 데이터센터의 엔비디아 DSX AI 팩토리를 55MW에서 2028년까지 200MW로 키운다. 100억 달러 규모로, 한국 소버린 AI 인프라의 핵심축이 된다. (원제: NAVER and NVIDIA Triple Korea’s AI Factory to 200 Megawatts in $10 Billion Deal With Brookfield)",
-   src:"TechTimes", url:"https://www.techtimes.com/articles/321630/20260726/naver-nvidia-triple-koreas-ai-factory-200-megawatts-10-billion-deal-brookfield.htm",
-   yt:3, ytnote:"‘한국이 자기 AI를 갖는다’ 소버린 AI 설명 편. GPU 26만 장 규모 시각화"},
-
   {cat:"tech", econ:true, intl:false, pride:true, title:"‘ESS 골드러시’ 미국 시장 4배 커진다…K배터리, 라인 전환 속도전",
    desc:"AI 데이터센터 전력 수요로 미국 ESS 시장이 4배 규모로 커질 전망. LG에너지솔루션·삼성SDI가 전기차 라인을 ESS로 전환하며 조 단위 수주를 잇달아 따내고 있다. 2분기 ESS 비중은 LG엔솔 28%, 삼성SDI 20%까지 확대됐다.",
    src:"머니투데이", url:"https://www.mt.co.kr/industry/2026/08/26/2026082613504916301",
@@ -165,15 +155,34 @@ const NEWS = [
      {t:"South Korea signs $6.5B arms export deal with Poland (Anadolu Agency)", u:"https://www.aa.com.tr/en/economy/south-korea-signs-65b-arms-export-deal-with-poland/3648352"},
      {t:"현대로템, 폴란드 K2전차 3차계약 윤곽…‘방산 수출 랠리’ 정조준 (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202607091020398407"}]},
 
-  {cat:"tech", econ:true, intl:true, country:"미국", pride:true, title:"[외신] 한국 첫 양산형 관측위성 5기 최종시험 통과…10월 누리호 5차 발사",
-   desc:"한국이 처음으로 양산한 상용 지구관측위성 5기가 최종 시험을 통과해 10월 누리호 5차 발사를 준비 중이다. 고도 500km 태양동기궤도가 목표이며, 이번 발사에는 역대 최다인 15기의 위성이 실린다. (원제: Korea’s First Mass-Produced Satellites Clear Final Test Before October Nuri Rocket Launch)",
-   src:"TechTimes", url:"https://www.techtimes.com/articles/324295/20260813/koreas-first-mass-produced-satellites-clear-final-test-before-october-nuri-rocket-launch.htm",
-   yt:3, ytnote:"‘위성을 공장에서 찍어내는 나라’ 앵글. 발사 D-데이 예고편으로 활용"},
+  {cat:"tech", econ:true, intl:false, pride:true, title:"케이조선, 5100억 규모 석유화학제품운반선 6척 수주…유럽·중동서 잇단 발주",
+   desc:"케이조선이 8월 26일 유럽·중동 선사로부터 5만t급 2척, 7만4000t급 4척 등 총 6척, 약 5100억 원 규모의 석유화학제품운반선 건조 계약을 체결했다고 27일 밝혔다. 2028년 상반기부터 순차 인도된다. 중형 조선사까지 수주 랠리가 확산되는 모습이다.",
+   src:"헤럴드경제", url:"https://biz.heraldcorp.com/article/10852398",
+   yt:3, ytnote:"‘대형사만 잘 나가는 게 아니다’ 중형 조선 낙수효과 편"},
 
-  {cat:"tech", econ:true, intl:false, pride:true, title:"K-조선, 반년 만에 연간 수주 목표 70% 채웠다…LNG선 호황",
-   desc:"글로벌 해운 병목으로 탱커·LNG선 발주가 몰리면서 한국 조선 3사가 상반기에만 연간 목표의 70%를 채웠다. 고부가 친환경 선박에 발주가 집중되며 한국 조선소가 사실상 독점 구도를 굳히고 있다.",
-   src:"Seoul Economic Daily", url:"https://en.sedaily.com/finance/2026/07/18/k-shipbuilders-fill-70-percent-of-annual-orders-in-half",
-   yt:3, ytnote:"‘중국이 못 만드는 배’ 편. LNG선 기술 장벽 설명형"},
+  {cat:"tech", econ:true, intl:false, pride:true, title:"조선 빅3 수주잔고 12년 만에 200조 돌파…가스·해양·방산 3중 호황",
+   desc:"HD한국조선해양·한화오션·삼성중공업의 합산 수주잔고가 12년 만에 처음으로 200조 원(1450억 달러)을 넘어섰다. LNG선과 해양 플랜트, 미 해군 MRO까지 겹치며 ‘슈퍼 사이클’ 진입이라는 평가가 나온다.",
+   src:"KED Global", url:"https://www.kedglobal.com/shipping-shipbuilding/newsView/ked202608100003",
+   yt:4, ytnote:"‘중국이 못 만드는 배’ 편. 200조 수주잔고를 연 단위 일감으로 환산해 시각화",
+   videos:[
+     {t:"조선 빅3 수주잔고 200조원 돌파…K-조선 이례적 ‘슈퍼 사이클’ 조짐", u:"https://www.youtube.com/watch?v=XkKQW9Xd4ZY"},
+     {t:"반도체 다음은 조선, 20년 만의 호황 왔다 (신영증권 엄경아 연구위원)", u:"https://www.youtube.com/watch?v=bz5SAPymEgQ"},
+     {t:"절박한 日 조선업, K조선에 LNG선 기술협력 요청…40년 만에 판이 뒤집혔다", u:"https://www.youtube.com/shorts/s9C3fEEjXis"}],
+   related:[
+     {t:"K-Shipbuilders Fill 70% of Annual Orders in Half Year on LNG Boom (Seoul Economic Daily)", u:"https://en.sedaily.com/finance/2026/07/18/k-shipbuilders-fill-70-percent-of-annual-orders-in-half"},
+     {t:"HD Korea Shipbuilding Books $507M Order for Two LNG Carriers (MarineLink)", u:"https://www.marinelink.com/news/hd-korea-shipbuilding-books-m-order-two-532565"}]},
+
+  {cat:"tech", econ:true, intl:true, country:"영국", pride:true, title:"[외신] HD현대, 미국 조선소 인수 검토…‘MASGA’로 미 해군 시장 직접 진입",
+   desc:"HD현대가 8월 21일 한미 조선협력 프로젝트 MASGA의 실행을 위해 미국 조선소 인수와 지분 투자를 포함한 다양한 방안을 검토 중이라고 밝혔다. 한국이 미국 조선업 재건에 최대 1500억 달러를 투입하는 구상의 핵심 축이다. (원제: HD Hyundai eyes US shipyard acquisition to boost MASGA project)",
+   src:"Riviera Maritime Media", url:"https://www.rivieramm.com/news-content-hub/hd-hyundai-eyes-us-shipyard-acquisition-to-boost-masga-project-89753",
+   yt:4, ytnote:"‘미국이 배를 못 만들어서 한국을 부른다’ 서사. 필리조선소 사례와 묶어 롱폼",
+   videos:[
+     {t:"HD현대 ‘공룡조선사’, 미 군함 건조 노린다 [방산인사이드] / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=d_GQZlzRgKs"},
+     {t:"‘제2의 필리조선소 될까’…HD현대중공업, 美 조선소 인수 협상", u:"https://www.youtube.com/watch?v=-FfYeOfAMxo"},
+     {t:"HD현대, 미국 조선시장 진출 가속…현지 조선소 지분 매입·직접 건립 검토", u:"https://www.youtube.com/shorts/_bNYLuI3wcY"}],
+   related:[
+     {t:"Korean shipbuilders expand U.S. partnerships under MASGA push (Korea JoongAng Daily)", u:"https://www.koreajoongangdaily.com/business/koreaus-shipbuilding-partnership-center-opens-as-korean-firms-step-up-joint-projects/12790366"},
+     {t:"Hanwha wins first US Navy contract under MASGA push (The Korea Herald)", u:"https://www.koreaherald.com/article/10706777"}]},
 
   {cat:"kpop", econ:false, intl:false, pride:true, title:"스트레이 키즈, 빌보드200 9연속 1위…비틀스 이어 역사상 두 번째",
    desc:"스트레이 키즈가 미니앨범 ‘THIS & THAT’으로 빌보드 메인 앨범 차트 200에서 9연속 1위를 달성. 발매 앨범 9장을 연속으로 1위에 올린 그룹은 비틀스에 이어 두 번째로, 21세기 신기록이다.",
@@ -198,11 +207,6 @@ const NEWS = [
      {t:"Katseye tops Billboard 200 for first time with ‘Wild’ (Korea JoongAng Daily)", u:"https://www.koreajoongangdaily.com/entertainment/katseye-snags-its-first-no-1-on-billboard-200/12839018"},
      {t:"KATSEYE’s ‘WILD’ Tops Billboard 200 (STARNEWS)", u:"https://www.starnewskorea.com/en/music/2026/08/24/2026082407274343688"}]},
 
-  {cat:"kpop", econ:false, intl:true, country:"인도", pride:true, title:"[외신] BTS ‘ARIRANG’ 투어, 2026년 최고 흥행 투어…통산 매출 5억 달러 돌파",
-   desc:"BTS의 ARIRANG 월드투어가 단일 집계 1억2400만 달러를 기록하며 2026년 최고 흥행 투어에 올랐다. 통산 박스스코어 매출은 5억31만 달러, 누적 관객 330만 명. 롤링스톤스가 7년간 지켜온 기록도 넘어섰다. (원제: BTS is The Top Touring Act of 2026: ARIRANG World Tour Makes $124M)",
-   src:"Outlook Respawn", url:"https://respawn.outlookindia.com/pop-culture/pop-culture-news/bts-arirang-world-tour-124m-billboard-top-touring-act-2026-bts-top-touring-act-2026-arirang-tour-bts-highest-grossing-kpop-tour-2026",
-   yt:3, ytnote:"‘아리랑으로 세계를 돌다’ 제목 자체가 국뽕. 투어 지도 애니메이션 숏폼"},
-
   {cat:"culture", econ:false, intl:false, pride:true, title:"이창동 ‘가능한 사랑’ 베니스 경쟁 진출…24년 만의 귀환, 한국 영화 12번째",
    desc:"이창동 감독의 신작 ‘가능한 사랑’이 제83회 베니스국제영화제 경쟁 부문에 초청됐다. 2002년 ‘오아시스’ 이후 24년 만의 경쟁 진출이며 한국 영화로는 12번째. 설경구·전도연·조인성·조여정이 주연을 맡았고 넷플릭스가 글로벌 배급한다.",
    src:"헤럴드경제", url:"https://biz.heraldcorp.com/article/10818553",
@@ -215,10 +219,27 @@ const NEWS = [
      {t:"24년만에 베니스 가는 이창동 감독… 외신 “작가주의 영화에 무게 둬” (오마이뉴스)", u:"https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003254049&PAGE_CD=N0002&CMPT_CD=M0112"},
      {t:"Netflix Movies and Series Heading to the 2026 Venice and Toronto Film Festivals (What’s on Netflix)", u:"https://www.whats-on-netflix.com/coming-soon/netflix-fall-2026-festival-lineup-venice-tiff/"}]},
 
-  {cat:"culture", econ:true, intl:false, pride:true, title:"K-푸드+ 상반기 수출 70억5000만 달러 ‘역대 최대’…라면·과자·아이스크림이 견인",
-   desc:"올해 상반기 K-푸드+ 수출이 70억5000만 달러로 역대 최대를 기록. 라면이 9억3500만 달러로 27.9% 늘었고, 미국은 상반기 처음으로 10억 달러를 돌파했다. 정부는 연간 160억 달러 수출을 목표로 잡았다.",
-   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260703000745",
-   yt:3, ytnote:"‘라면 한 봉지가 반도체를 닮았다’ 수출 산업으로서의 K푸드 해설"},
+  {cat:"culture", econ:false, intl:true, country:"미국", pride:true, title:"[외신] 넷플릭스 K드라마 ‘참교육’ 6주 만에 5490만 뷰…오징어게임 다음 기록 눈앞",
+   desc:"넷플릭스 한국 드라마 ‘참교육(Teach You A Lesson)’이 공개 6주 만에 글로벌 누적 5490만 뷰를 기록, 오징어게임에 이어 넷플릭스 역대 두 번째로 많이 본 한국 시리즈에 오를 궤도에 들어섰다. 2026년 상반기 넷플릭스 최상위 시리즈 중 하나다. (원제: Netflix K-Drama ‘Teach You A Lesson’ Among Top Series In H1 2026)",
+   src:"Deadline", url:"https://deadline.com/2026/07/netflix-teach-you-a-lesson-k-drama-ratings-first-half-2026-1236984436/",
+   yt:4, ytnote:"‘오징어게임은 사고가 아니었다’ K드라마 글로벌 흥행 계보 정리 롱폼",
+   videos:[
+     {t:"넷플릭스 ‘참교육’ 전세계 압도적 1위…“한국이 또 위대한 드라마를 만들었다”", u:"https://www.youtube.com/watch?v=k_UcHx00h7c"},
+     {t:"한국 영화·드라마, 넷플릭스 1위 동시 석권 [잇슈 연예] / KBS", u:"https://www.youtube.com/watch?v=JP-vavhGi4U"},
+     {t:"오징어게임 잇는 K드라마 탄생…넷플릭스 2026년은 한국이 다했다", u:"https://www.youtube.com/watch?v=UFXZtIgn2YQ"}],
+   related:[
+     {t:"Netflix K-Drama Rankings for August 2026: Global Hits & Korea’s Favorites (KoreanTopik)", u:"https://www.koreantopik.com/2026/08/netflix-k-drama-rankings-for-first-week.html"},
+     {t:"K-Dramas To Watch In August 2026: Netflix, Disney+ And More (Forbes)", u:"https://www.forbes.com/sites/hannahabraham/2026/08/01/kdramas-to-watch-in-august-2026-netflix-disney-hbo-max-and-more/"}]},
+
+  {cat:"culture", econ:true, intl:false, pride:true, title:"KCON LA 2026에 사흘간 14만2000명…K팝 넘어 ‘K컬처 플랫폼’으로",
+   desc:"CJ ENM의 케이콘 엘에이 2026이 8월 14~16일 LA컨벤션센터와 크립토닷컴 아레나에서 열려 사흘간 14만2000여 명을 모았다. K팝 공연을 넘어 뷰티·푸드·콘텐츠까지 아우르는 복합 문화 축제로 확장되며 한류 소비의 산업화를 보여줬다.",
+   src:"K News LA", url:"https://knewsla.com/kcommunity/20260816170170352320/",
+   yt:3, ytnote:"‘한류는 이제 축제가 아니라 유통망’ 앵글. 티켓·굿즈·식음 매출 구조 해설"},
+
+  {cat:"sports", econ:false, intl:false, pride:true, title:"여자배구 대표팀, 아시아선수권 8강 진출…홍콩 3-1 제압하고 태국과 격돌",
+   desc:"한국 여자배구 대표팀이 8월 26일 중국 톈진에서 열린 조별리그 3차전에서 홍콩을 세트스코어 3-1로 역전 제압하고 조 2위로 8강에 올랐다. 27일 태국과 4강 진출을 다툰다. 우승팀은 2028 LA올림픽 본선 직행권을 얻는다.",
+   src:"스포츠경향", url:"https://sports.khan.co.kr/article/202608271138003",
+   yt:3, ytnote:"‘세대교체 이후 첫 시험대’ 여자배구 리빌딩 스토리"},
 
   {cat:"sports", econ:false, intl:false, pride:true, title:"안세영, 세계배드민턴선수권 3년 만에 정상 탈환…6경기 무실세트 ‘퍼펙트 우승’",
    desc:"안세영이 인도 뉴델리 세계선수권 여자단식 결승에서 세계 2위 야마구치 아카네를 2-0(21-17, 21-14)으로 꺾고 우승했다. 6경기 내내 단 한 세트도 내주지 않은 완벽한 우승이며, 세계 1위는 96주 연속 유지 중이다.",
