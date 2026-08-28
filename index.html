@@ -39,6 +39,10 @@
   .card p{margin:0;color:var(--sub);font-size:13.5px}
   .card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:6px}
   .card .src{font-size:12px;color:var(--sub)}
+  .date{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;color:var(--sub);
+    background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;align-self:flex-start}
+  .date.fresh{color:#ef4444;border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
+  .date.old{opacity:.65}
   .card a.read{font-size:12.5px;color:var(--brand);text-decoration:none;font-weight:600}
   .card a.read:hover{text-decoration:underline}
   .pride{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);font-weight:700}
@@ -260,6 +264,7 @@ let active = "all";
 let ytOnly = false;
 let econOnly = false;
 let intlOnly = false;
+let sortMode = "yt";
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
 document.getElementById('s-total').textContent = NEWS.length;
@@ -274,7 +279,8 @@ function makeFilters(){
     `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('')
     + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`
     + `<div class="chip econ-chip" id="econchip" onclick="toggleEconOnly()">💰 경제 채널용만</div>`
-    + `<div class="chip intl-chip" id="intlchip" onclick="toggleIntlOnly()">🌍 외신만</div>`;
+    + `<div class="chip intl-chip" id="intlchip" onclick="toggleIntlOnly()">🌍 외신만</div>`
+    + `<div class="chip" id="sortchip" onclick="toggleSort()">🎬 유튜브 각 순</div>`;
 }
 function toggleYtOnly(){
   ytOnly=!ytOnly;
@@ -284,6 +290,24 @@ function toggleYtOnly(){
 function toggleEconOnly(){
   econOnly=!econOnly;
   document.getElementById('econchip').classList.toggle('on',econOnly);
+  render();
+}
+function daysAgo(d){
+  if(!d) return null;
+  const t = new Date(d+'T00:00:00'); if(isNaN(t)) return null;
+  const now = new Date(); const today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  return Math.round((today-t)/86400000);
+}
+function dateBadge(n){
+  const g = daysAgo(n.date);
+  if(g===null) return '';
+  const label = g<=0 ? '오늘' : g===1 ? '어제' : g+'일 전';
+  const cls = g<=2 ? ' fresh' : g>14 ? ' old' : '';
+  return `<span class="date${cls}">📅 ${n.date} · ${label}</span>`;
+}
+function toggleSort(){
+  sortMode = sortMode==='yt' ? 'date' : 'yt';
+  document.getElementById('sortchip').textContent = sortMode==='yt' ? '🎬 유튜브 각 순' : '🕒 최신 날짜 순';
   render();
 }
 function toggleIntlOnly(){
@@ -334,12 +358,15 @@ function render(){
   if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
   if(econOnly) list = list.filter(n=>n.econ);
   if(intlOnly) list = list.filter(n=>n.intl);
-  list = list.slice().sort((a,b)=>(b.yt||0)-(a.yt||0));
+  list = list.slice().sort((a,b)=> sortMode==='date'
+    ? String(b.date||'').localeCompare(String(a.date||''))
+    : (b.yt||0)-(a.yt||0));
   grid.innerHTML = list.map(n=>{
     const c = CATS[n.cat];
     return `<div class="card">
       <span class="tag" style="background:${c.color}">${c.name}</span>
       <h3>${n.title}</h3>
+      ${dateBadge(n)}
       <p>${n.desc}</p>
       ${n.econ?'<span class="econ">💰 경제 채널 적합</span>':''}
       ${n.intl?`<span class="intl">🌍 외신${n.country?' · '+n.country:''}</span>`:''}
