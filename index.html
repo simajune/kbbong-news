@@ -112,12 +112,24 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
+  {cat:"tech", date:"2026-08-21", econ:true, intl:false, pride:true, title:"8월 1~20일 수출 56% 급증…반도체 260억 달러 '역대 최대'",
+   desc:"8월 1~20일 수출액이 552억 달러로 전년 동기 대비 56.0% 급증했다. 반도체는 3배 가까이 늘어난 약 260억 달러로 같은 기간 역대 최대치를 기록했고, 전체 수출에서 차지하는 비중도 47.2%로 신기록을 세웠다.",
+   src:"아시아경제", url:"https://www.asiae.co.kr/article/2026082109241661133",
+   yt:5, ytnote:"숫자로 보는 수출 폭주 — 반도체가 수출의 절반, 이게 지속 가능한가",
+   videos:[{t:"[이슈] \"무려 176% 증가\" 반도체 수출 파죽지세 / KBS 2026.08.18", u:"https://www.youtube.com/watch?v=POcoZZQbE9M"},{t:"[여의도튜브] 미·중·독 이어 4번째 수출 쾌거…땡큐! K반도체", u:"https://www.youtube.com/watch?v=kqGxhLkOZXU"}],
+   related:[{t:"Exports up 56% in first 20 days of Aug. on robust chip shipments (Korea Times)", u:"https://www.koreatimes.co.kr/amp/economy/20260821/exports-up-56-in-first-20-days-of-aug-on-robust-chip-shipments"},{t:"반도체 수출 3배 폭증…8월 1~20일 수출 역대 최대 (경향신문)", u:"https://www.khan.co.kr/article/202608210931001"}]},
+
   {cat:"tech", date:"2026-08-24", econ:true, intl:true, country:"대만", pride:true, title:"핫칩스 2026 \"삼성 zHBM 전력효율 70%↑\"…SK하이닉스는 인텔 EMIB 검토",
    desc:"8월 23~25일 스탠퍼드대에서 열린 반도체 학회 핫칩스 2026에서 삼성전자는 표준 HBM4e 대비 전력효율 70%, 대역폭 230% 향상을 내세운 zHBM 로드맵을 공개했다. SK하이닉스는 차세대 HBM 패키징에 인텔 EMIB 적용을 검토 중이라고 밝혔다. AI 메모리 기술 논의의 중심에 한국 두 기업이 나란히 섰다. (원제: Hot Chips 2026: Samsung's zHBM Claims 70% Power-Efficiency Gain; SK hynix Evaluates Intel EMIB)",
    src:"TrendForce", url:"https://www.trendforce.com/news/2026/08/24/news-hot-chips-2026-samsungs-zhbm-claims-70-power-efficiency-gain-sk-hynix-evaluates-intel-emib/",
    yt:4, ytnote:"'AI 메모리 전쟁 3라운드' — PIM vs HBM, 한국이 판을 짜는 이유 10분 해설",
    videos:[{t:"[이슈] 반도체 수출 176% 증가…한국 경제 성장률 '경악' / KBS", u:"https://www.youtube.com/watch?v=POcoZZQbE9M"},{t:"[여의도튜브] 미·중·독 이어 4번째 수출 쾌거…땡큐! K반도체", u:"https://www.youtube.com/watch?v=kqGxhLkOZXU"}],
    related:[{t:"Samsung bets on PIM as SK hynix advances cooler HBM (코리아중앙데일리)", u:"https://www.koreajoongangdaily.com/business/samsung-bets-on-pim-while-sk-hynix-keeps-eye-on-hbm/12846274"},{t:"Samsung, SK Hynix Take Divergent HBM Paths (Electronic Times)", u:"https://en.etnews.com/20260825200005"}]},
+
+  {cat:"tech", date:"2026-08-25", econ:true, intl:true, country:"대만", pride:true, title:"엔비디아 서버값 15% 인상 추진…\"HBM 가격 내년 50%↑, 삼성·SK 수혜\"",
+   desc:"트렌드포스는 엔비디아가 2027년 초 베라 루빈·그레이스 블랙웰 서버 가격을 15% 이상 올릴 것으로 알려지면서 메모리 공급사의 협상력이 커졌다고 분석했다. HBM 계약가는 2026년 대비 50% 이상 오를 전망이며, UBS는 2027년 HBM 평균판매가가 79% 상승할 것으로 봤다. 삼성전자와 SK하이닉스가 최대 수혜로 지목됐다. (원제: NVIDIA's Reported 15% Server Hike Boosts Samsung, SK hynix)",
+   src:"TrendForce", url:"https://www.trendforce.com/news/2026/08/25/news-nvidias-reported-15-server-hike-boosts-samsung-sk-hynix-with-hbm-prices-potentially-up-50-in-2027/",
+   yt:3, ytnote:"HBM 가격의 정치학 — 엔비디아가 값을 올리면 왜 한국이 웃나"},
 
   {cat:"tech", date:"2026-08-26", econ:true, intl:true, country:"대만", pride:true, title:"삼성, 업계 최초 LPDDR5X-PIM 실물 공개…HBM 원가 부담 넘는 카드",
    desc:"디지타임스는 삼성전자가 핫칩스 2026에서 AI 추론용 LPDDR 기반 PIM(프로세싱 인 메모리) 소자를 업계 최초로 실물·성능 데이터와 함께 공개했다고 보도했다. HBM 원가 부담이 커지는 국면에서 메모리 자체가 연산하는 새 노선을 제시했다는 평가다. (원제: Hot Chips 2026: Samsung advances LPDDR5X-PIM as HBM costs mount)",
@@ -129,34 +141,17 @@ const NEWS = [
    src:"CNBC", url:"https://www.cnbc.com/2026/08/13/inside-sk-hynixs-720-billion-bet-to-build-enough-memory-for-ai.html",
    yt:3, ytnote:"외신 카메라에 잡힌 K-반도체 — 해외가 놀란 건 규모가 아니라 속도"},
 
-  {cat:"tech", date:"2026-08-17", econ:true, intl:true, country:"대만", pride:true, title:"삼성·SK하이닉스 상반기 반도체 설비투자 35% 증가…43조원 투입",
-   desc:"트렌드포스는 삼성전자와 SK하이닉스가 2026년 상반기 반도체 설비에 합산 43조1980억원을 투자해 전년 동기 대비 35.1% 늘렸다고 분석했다. AI 수요에 맞춘 증설과 선단공정 전환이 동시에 진행되고 있다. (원제: Samsung, SK hynix 1H26 Chip Facility Investment Up 35%)",
-   src:"TrendForce", url:"https://www.trendforce.com/news/2026/08/17/news-samsung-sk-hynix-1h26-chip-facility-investment-up-35-nvidia-not-among-samsungs-top-five-customers/",
-   yt:3, ytnote:"설비투자 43조의 행선지 — 평택·청주·용인 라인별 정리"},
-
-  {cat:"tech", date:"2026-08-21", econ:true, intl:false, pride:true, title:"8월 1~20일 수출 56% 급증…반도체 260억 달러 '역대 최대'",
-   desc:"8월 1~20일 수출액이 552억 달러로 전년 동기 대비 56.0% 급증했다. 반도체는 3배 가까이 늘어난 약 260억 달러로 같은 기간 역대 최대치를 기록했고, 전체 수출에서 차지하는 비중도 47.2%로 신기록을 세웠다. 무역수지는 140억 달러 흑자.",
-   src:"아시아경제", url:"https://www.asiae.co.kr/article/2026082109241661133",
-   yt:5, ytnote:"숫자로 보는 수출 폭주 — 반도체가 수출의 절반, 이게 지속 가능한가",
-   videos:[{t:"[이슈] \"무려 176% 증가\" 반도체 수출 파죽지세 / KBS 2026.08.18", u:"https://www.youtube.com/watch?v=POcoZZQbE9M"},{t:"Korea's exports during first 10 days of August hit record high on chip boom", u:"https://www.youtube.com/watch?v=4-qOONfnjOs"},{t:"[iM브리핑] 반도체가 끌어올린 8월 수출…초순부터 역대 최대", u:"https://www.youtube.com/shorts/1Qdm3CFSW2c"}],
-   related:[{t:"Exports up 56% in first 20 days of Aug. on robust chip shipments (Korea Herald)", u:"https://www.koreaherald.com/article/10847622"},{t:"South Korea exports jump 56% in early August as chip shipments hit record", u:"https://www.koreajoongangdaily.com/business/exports-up-56-in-first-20-days-of-august-on-robust-chip-shipments/12836385"}]},
-
-  {cat:"tech", date:"2026-08-11", econ:true, intl:false, pride:true, title:"8월 1~10일 수출 213억 달러…같은 기간 '역대 최대'",
-   desc:"8월 1~10일 수출액이 213억 달러로 전년 동기 대비 45.3% 늘며 같은 기간 기준 역대 최대를 기록했다. 반도체 수출은 155.4% 급증한 99억5000만 달러로 8월 초 기준 신기록을 세웠고, 전체 수출에서의 비중은 46.8%에 달했다.",
-   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202608111824038195",
-   yt:3, ytnote:"열흘마다 갱신되는 기록 — 관세청 통계로 실시간 수출 읽는 법"},
+  {cat:"tech", date:"2026-08-19", econ:true, intl:false, pride:true, title:"한화, 미 육군에 K9 차륜형 자주포 시제 6문 공급…한국 무기 첫 미국 수출",
+   desc:"한화디펜스USA가 미 육군에 K9 차륜형 자주포 시제 6문을 공급하는 계약을 따냈다. 국내에서 독자 개발한 완성 무기체계가 미국 시장에 수출되는 첫 사례로, 계약 규모는 최대 2억6290만 달러까지 확대될 수 있다. 세계 최대 방산시장의 문이 열렸다. (원제: Hanwha K9 Wheeled Howitzer Wins First U.S. Army Deal for Korean Arms)",
+   src:"서울경제(영문)", url:"https://en.sedaily.com/finance/2026/08/19/hanwha-k9-wheeled-howitzer-wins-first-u-s-army-deal-for",
+   yt:3, ytnote:"미군이 한국 자주포를 시험한다 — K9이 넘은 진입장벽 3가지"},
 
   {cat:"tech", date:"2026-08-28", econ:true, intl:false, pride:true, title:"한화오션, 해군 이지스구축함 MRO 수주…K-정비 벨트 확장",
    desc:"한화오션이 해군 이지스구축함 유지·보수·정비(MRO) 사업을 따냈다. 국내 조선사들은 올해 미 해군 군수지원함 MRO도 잇달아 수주하며 '건조'를 넘어 연간 20조원 규모로 추산되는 함정 정비 시장까지 영역을 넓히고 있다.",
    src:"한국경제", url:"https://www.hankyung.com/article/2026082800951",
    yt:4, ytnote:"K-조선의 두 번째 무기, MRO — 왜 미 해군이 한국 도크를 찾는가",
-   videos:[{t:"한화오션, 미 해군 MRO 첫 수주…20조 신시장 개척 / 한국경제TV", u:"https://www.youtube.com/watch?v=FX5TKPJ47Lo"},{t:"HD현대중공업, 미 군수지원함 MRO 수주 / SBS", u:"https://www.youtube.com/watch?v=tn5qtkgTgWo"},{t:"HD현대, 첫 MRO 수주…마스가 무기는 '군산항' [방산인사이드]", u:"https://www.youtube.com/watch?v=qdqAQtrXQys"}],
-   related:[{t:"U.S. Navy Eyes South Korean Yards for Tankers and Destroyers (Naval News)", u:"https://www.navalnews.com/naval-news/2026/07/us-navy-rfi-south-korea-shipbuilding-destroyers/"},{t:"“건조 넘어 정비까지”…K-조선, 美 함정 MRO 시장 본격 공략", u:"https://v.daum.net/v/20260430050108554"}]},
-
-  {cat:"tech", date:"2026-08-07", econ:true, intl:false, pride:true, title:"누리호 엔진 부품 5기분 수주…9월 5차 발사 준비 착착",
-   desc:"비츠로넥스텍이 한화에어로스페이스와 누리호 FM7~FM11호기용 액체로켓엔진 핵심 구성품 공급 계약을 맺었다. 발사체 1기당 약 107억원, 총 535억원 규모다. 누리호 5호는 올해 9월 발사가 예정돼 있다.",
-   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260807000873",
-   yt:3, ytnote:"누리호 반복발사 시대 — 부품 국산화 공급망 지도 그리기"},
+   videos:[{t:"한화오션, 미 해군 MRO 첫 수주…20조 신시장 개척 / 한국경제TV", u:"https://www.youtube.com/watch?v=FX5TKPJ47Lo"},{t:"한화오션, MRO 싹쓸이…'미·영·캐나다 해군' 3연타 수주", u:"https://www.youtube.com/watch?v=YDFOHeeQlxA"},{t:"HD현대, 첫 MRO 수주…마스가 무기는 '군산항' [방산인사이드]", u:"https://www.youtube.com/watch?v=qdqAQtrXQys"}],
+   related:[{t:"U.S. Navy Expands Maintenance and Repair Work with South Korea's Shipyards (Maritime Executive)", u:"https://maritime-executive.com/article/u-s-navy-expands-maintenance-and-repair-work-with-south-korea-s-shipyards"},{t:"Is US Navy MRO real growth market for Korean shipbuilders? (Korea Herald)", u:"https://www.koreaherald.com/article/10658377"}]},
 
   {cat:"tech", date:"2026-08-14", econ:true, intl:false, pride:true, title:"코스피 6900선 후반 마감…외국인 4거래일 연속 순매수",
    desc:"코스피가 반도체 투자심리 개선에 힘입어 6900선 후반에서 마감하며 외국인이 4거래일 연속 순매수를 이어갔다. 8월 중 장중 7000선을 돌파하기도 했고, 지수는 1년 전 대비 두 배 넘게 올랐다.",
@@ -165,29 +160,43 @@ const NEWS = [
    videos:[{t:"언제까지 외국인 수급에 휘둘려야 하나 | 인포맥스라이브 2026.08.06", u:"https://www.youtube.com/watch?v=SXpcrGMHGHc"},{t:"반도체 이후의 판이 열렸다… 2026년 새 주도주 후보는?", u:"https://www.youtube.com/watch?v=sqwwo9zkHFo"}],
    related:[{t:"Explaining South Korea's Stock Market Boom (KEI)", u:"https://keia.org/analysis/explaining-south-koreas-stock-market-boom/"}]},
 
+  {cat:"kpop", date:"2026-08-24", econ:false, intl:false, pride:true, title:"캣츠아이, 美 빌보드 200 1위…데뷔 2년 만에 역대 걸그룹 최고 성적",
+   desc:"하이브와 게펜 레코드의 글로벌 걸그룹 캣츠아이(KATSEYE)가 세 번째 EP 'WILD'로 8월 29일 자 빌보드 200 정상에 올랐다. 블랙핑크(2022)·뉴진스(2023)·트와이스(2025)에 이어 2020년대 빌보드 200 1위에 오른 네 번째 여성 그룹으로, 한국식 아이돌 육성 시스템이 다국적 그룹으로도 통한다는 것을 입증했다.",
+   src:"뉴시스", url:"https://www.newsis.com/view/NISX20260824_0003759126",
+   yt:5, ytnote:"K-팝 방법론의 수출 — 캣츠아이는 K-팝인가, 그 논쟁이 중요한 이유",
+   videos:[{t:"캣츠아이, 데뷔 2년 만에 빌보드200 정상에…'K팝 묶기' 논쟁도｜지금 이 장면", u:"https://www.youtube.com/watch?v=8onHi2W2Pk8"},{t:"캣츠아이 '빌보드 200' 정상...달라진 'K팝 성공 공식' / YTN", u:"https://www.youtube.com/watch?v=pxeRgTY8V_k"},{t:"Katseye scores its first No. 1 on Billboard 200", u:"https://www.youtube.com/watch?v=rvkbflG-HFQ"}],
+   related:[{t:"캣츠아이, 美 빌보드 1위…데뷔 2년 만에 역대 걸그룹 최고 성적 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10849686"},{t:"Billboard Korea Global K-Songs 차트", u:"https://www.billboard.com/charts/billboard-korea-global-k-songs/"}]},
+
+  {cat:"kpop", date:"2026-08-26", econ:false, intl:true, country:"미국", pride:true, title:"시카고 솔저필드 6만 명 운집…일리노이 주지사, 8월 27·28일 'BTS의 날' 선포",
+   desc:"미국 공영방송 WBEZ는 BTS의 월드투어 '아리랑' 시카고 공연을 앞두고 도시 전체가 들썩였다고 전했다. 7년 만의 시카고 공연에 솔저필드 6만여 석이 이틀 연속 매진됐고, JB 프리츠커 일리노이 주지사는 8월 27·28일을 'BTS의 날'로 선포했다. (원제: K-pop band BTS world tour 'Arirang' in Chicago unites fans)",
+   src:"WBEZ Chicago", url:"https://www.wbez.org/music/2026/08/26/bts-fans-army-chicago-arirang-tour",
+   yt:5, ytnote:"주지사가 '기념일'을 만든 콘서트 — BTS 아리랑 투어의 도시 경제 효과",
+   videos:[{t:"[FULL] 방탄소년단 \"북미에 울려 퍼질 '아리랑' 투어 시작\" [공항]", u:"https://www.youtube.com/watch?v=9MOAZgM6xrQ"},{t:"K-pop fans take over Chicago for BTS World Tour 'Arirang' at Soldier Field", u:"https://www.youtube.com/watch?v=rnfguFatNv8"},{t:"BTS fans descend on Soldier Field for first Chicago concerts in 7 years", u:"https://www.youtube.com/watch?v=NQ0Y-t6Pg50"}],
+   related:[{t:"BTS fans descend on Soldier Field for first Chicago concerts in 7 years (CBS Chicago)", u:"https://www.cbsnews.com/chicago/news/bts-soldier-field-chicago-concerts-arirang-world-tour/"},{t:"BTS arrives in Chicago for Arirang World Tour at Soldier Field (WGN-TV)", u:"https://wgntv.com/news/chicago-news/bts-arirang-world-tour-soldier-field-chicago/amp/"}]},
+
   {cat:"kpop", date:"2026-08-28", econ:false, intl:false, pride:true, title:"스트레이 키즈, 도쿄 국립경기장 입성…해외 남성 아티스트 최초",
    desc:"스트레이 키즈가 8월 29~30일 일본 도쿄 국립경기장(MUFG 스타디움)에서 단독 공연을 열며 해외 남성 아티스트 최초 기록을 세웠다. 7월 서울 KSPO돔 5회 전석 매진에 이은 월드투어 'RUN IT'의 첫 해외 일정으로, 일본 7회 공연에 37만 명 동원이 예상된다.",
    src:"텐아시아", url:"https://www.tenasia.co.kr/article/2026082889644",
    yt:5, ytnote:"K-팝 스타디움 시대 — 도쿄 국립경기장 문을 연 한국 아티스트 계보",
    videos:[{t:"Stray Kids World Tour ＜RUN IT SEOUL＞ DAY1", u:"https://www.youtube.com/watch?v=KH9zXVPp10I"},{t:"Stray Kids World Tour ＜RUN IT SEOUL＞ DAY2", u:"https://www.youtube.com/watch?v=sFpEJwm8MCA"},{t:"Stray Kids World Tour ＜RUN IT SEOUL＞ DAY5", u:"https://www.youtube.com/watch?v=UoEmFM_eNc4"}],
-   related:[{t:"트와이스 이어 스트레이 키즈도 최초…日 도쿄 국립경기장 입성 (한국경제)", u:"https://www.hankyung.com/article/202608288965H"},{t:"Stray Kids To Hold First Solo Concert By Overseas Male Artist At Tokyo National Stadium (allkpop)", u:"https://www.allkpop.com/article/2026/08/stray-kids-to-hold-first-solo-concert-by-overseas-male-artist-at-tokyo-national-stadium"}]},
-
-  {cat:"kpop", date:"2026-08-26", econ:false, intl:false, pride:true, title:"스트레이 키즈, 빌보드 200 3위…2주 연속 톱3",
-   desc:"스트레이 키즈가 미국 빌보드 메인 앨범 차트 '빌보드 200'에서 3위를 기록하며 2주 연속 톱3를 지켰다. 앞서 신곡 'THIS & THAT'은 빌보드 핫100 38위에 오르며 자체 기록을 새로 썼다.",
-   src:"스타뉴스(영문)", url:"https://www.starnewskorea.com/en/music/2026/08/26/2026082611131476469",
-   yt:3, ytnote:"빌보드 200 톱3에 상주하는 K-팝 — 미국 차트 구조로 뜯어보기"},
+   related:[{t:"트와이스 이어 스트레이 키즈도 최초…日 도쿄 국립경기장 입성 (한국경제)", u:"https://www.hankyung.com/article/202608288965H"},{t:"Stray Kids' Dominate World Tour Sets K-pop Boxscore Records (Billboard)", u:"https://www.billboard.com/pro/stray-kids-dominate-world-tour-k-pop-boxscore-records/"}]},
 
   {cat:"sports", date:"2026-08-23", econ:false, intl:false, pride:true, title:"안세영, 3년 만에 세계선수권 정상…한국 배드민턴 종합 1위",
-   desc:"안세영이 인도 뉴델리에서 열린 2026 BWF 세계개인선수권 여자단식 결승에서 야마구치 아카네를 2-0으로 꺾고 개인 통산 두 번째 금메달을 따냈다. 64강부터 결승까지 단 한 세트도 내주지 않은 완벽한 우승. 한국은 금2·동1로 3년 만에 종합 메달 1위에 올랐다.",
-   src:"올림픽닷컴", url:"https://www.olympics.com/ko/news/an-seyoung-claim-gold-womens-singles-bwf-badminton-world-championships-new-delhi-2026",
+   desc:"안세영이 인도 뉴델리에서 열린 2026 BWF 세계개인선수권 여자단식 결승에서 야마구치 아카네를 2-0(21-17, 21-14)으로 꺾고 세계 챔피언에 복귀했다. 6경기 내내 단 한 세트도 내주지 않은 완벽한 우승. 한국은 여자복식 금메달까지 더해 금2·동1로 종합 메달 1위에 올랐다.",
+   src:"올림픽닷컴", url:"https://www.olympics.com/ko/news/team-korea-all-results-bwf-badminton-world-championships-new-delhi-2026",
    yt:5, ytnote:"무실세트 우승의 해부 — 안세영 수비 라인이 야마구치를 무너뜨린 방식",
    videos:[{t:"안세영이 해냈다! 야마구치 2-0 제압하고 다시 세계 챔피언!", u:"https://www.youtube.com/watch?v=Mp4fWTbCAMc"},{t:"진정한 세계 챔피언‼️ 안세영 vs 야마구치 | 세계선수권 2026", u:"https://www.youtube.com/watch?v=PVqkAVAjMTQ"},{t:"[배드민턴 세계선수권] 안세영, 6경기 무실세트 '퍼펙트 우승'", u:"https://www.youtube.com/shorts/-aGqlnpvuQU"}],
-   related:[{t:"배드민턴 세계개인선수권 2026 한국 대표팀 결과 모아보기 (금2·동1)", u:"https://www.olympics.com/ko/news/team-korea-all-results-bwf-badminton-world-championships-new-delhi-2026"}]},
+   related:[{t:"France and Korea shine at the 2026 BWF World Championships in Delhi (RevSportz)", u:"https://revsportz.in/france-and-korea-shine-at-the-2026-bwf-world-championships-in-delhi/"},{t:"한국 배드민턴, 세계선수권 금2 동1 쾌거…금의환향 (중앙이코노미뉴스)", u:"https://www.joongangenews.com/news/articleView.html?idxno=542679"}]},
 
-  {cat:"culture", date:"2026-08-28", econ:false, intl:false, pride:true, title:"제8회 뉴시스 한류엑스포…'AI와 팬덤이 만드는 새로운 문화'",
-   desc:"제8회 뉴시스 한류엑스포가 8월 28일 롯데호텔 서울에서 'Beyond K: AI와 팬덤이 만드는 새로운 문화'를 주제로 열렸다. 한 해 동안 K-컬처 확산에 기여한 인물과 기업을 시상하며, 버추얼 아티스트와 글로벌 팬덤 확장 등 한류의 다음 단계를 조명했다.",
-   src:"뉴시스", url:"https://k-expo.newsis.com/",
-   yt:3, ytnote:"한류 3.0 — AI 버추얼 아티스트와 팬덤 경제, 어디까지 왔나"}
+  {cat:"sports", date:"2026-08-25", econ:false, intl:true, country:"인도", pride:true, title:"근대5종 세계선수권 혼성계주 금메달…성승민·서창완 조",
+   desc:"인도 통신사 IANS는 한국의 성승민·서창완 조가 중국 구이양에서 열린 2026 근대5종 세계선수권 혼성계주에서 1096점으로 벨라루스를 18점 차로 제치고 금메달을 따냈다고 보도했다. 성승민은 2024 세계챔피언이자 파리올림픽 동메달리스트다. (원제: South Korea wins mixed relay gold at Modern Pentathlon World Championships)",
+   src:"IANS", url:"https://ianslive.in/south-korea-wins-mixed-relay-gold-at-modern-pentathlon-world-championships--20260825231407",
+   yt:2, ytnote:"5개 종목을 하루에 — 근대5종 강국이 된 한국의 훈련 시스템"},
+
+  {cat:"culture", date:"2026-08-09", econ:true, intl:false, pride:true, title:"'K-푸드' 넘어 'K-라이프'…미국 내 한국 브랜드 매장 5년 새 2배",
+   desc:"미국 내 한국 식품기업 매장이 최근 5년 사이 두 배 넘게 늘었다. 지난해 대미 K-푸드 수출은 18억 달러를 넘어 2년 연속 최대 수출시장 자리를 지켰고, 식품·뷰티·유통 기업들이 온라인 판매를 넘어 현지 생산·물류 거점을 세우며 오프라인 확장에 나서고 있다.",
+   src:"미주 한국일보", url:"http://www.koreatimes.com/article/20260809/1624889",
+   yt:3, ytnote:"라면·김치 다음은 '생활양식' — K-라이프스타일의 미국 상륙 지도"}
 ];
 
 
