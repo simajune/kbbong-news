@@ -84,6 +84,7 @@
 
   <div class="meta" id="updated">최종 업데이트: 2026-08-31</div>
 
+
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
     <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
@@ -112,6 +113,12 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
+  {cat:"culture", date:"2026-08-21", econ:true, intl:true, country:"미국", pride:true, title:"K뷰티, 세계 1위 프랑스 코앞…해외 소비자까지 사로잡은 'K신뢰'",
+   desc:"한국 화장품이 세계 1위 프랑스를 코앞에 두고 있다는 분석이 나왔다. 상반기 화장품 수출액은 약 7조9857억원(57억2453만달러)으로, 미국 화장품 수입 시장에서는 한국이 프랑스를 제치고 2년 연속 1위 수출국에 올랐다. 외국인 소비자 사이에서 'K제품은 믿을 수 있다'는 신뢰가 확산되며 수요를 밀어올리고 있다. (\"Is It Really This Big?\" World Number One in Sight... K-Beauty's Surge Captivates Foreign Consumers)",
+   src:"The Asia Business Daily(아시아경제)", url:"https://www.asiae.co.kr/en/article/distribution/2026082109143820627",
+   yt:3, ytnote:"프랑스 코앞까지 온 K뷰티 — 미국 수입시장 1위 등극의 이유",
+   videos:[], related:[{t:"South Korea Climbs to Second Place in Global Beauty Exports (BeautyMatter)", u:"https://beautymatter.com/articles/k-beautys-export-boom-is-no-longer-a-trend-story"}]},
+
   {cat:"sports", date:"2026-08-24", econ:false, intl:false, pride:true, title:"안세영, 야마구치 꺾고 3년 만에 세계선수권 정상…6경기 전승 '무실 세트' 우승",
    desc:"세계랭킹 1위 안세영이 인도 뉴델리 BWF 세계배드민턴선수권 여자 단식 결승에서 세계 2위 야마구치 아카네를 2-0(21-17, 21-14)으로 제압하고 3년 만에 정상을 탈환했다. 6경기 모두 2-0 완승으로 단 한 세트도 내주지 않았고, 세계랭킹 1위를 97주 연속 지키며 올 시즌 44승 1패를 기록 중이다.",
    src:"머니투데이", url:"https://www.mt.co.kr/sports/2026/08/24/2026082405031456275",
@@ -152,11 +159,11 @@ const NEWS = [
    related:[{t:"Exports up 56% in first 20 days of Aug. on robust chip shipments (Korea Herald)", u:"https://www.koreaherald.com/article/10847622"},
             {t:"반도체 수출 3배 폭증…8월 1~20일 수출 역대 최대 (경향신문)", u:"https://www.khan.co.kr/article/202608210931001"}]},
 
-  {cat:"tech", date:"2026-08-11", econ:true, intl:true, country:"미국", pride:true, title:"한국 8월 초순 수출 45.3% 급증…8월 1~10일 기준 역대 최대 212억 달러",
-   desc:"8월 1~10일 수출이 212억9000만 달러로 전년 대비 45.3% 늘어 해당 기간 역대 최대를 기록했다. 2022년의 156억 달러 기록을 크게 넘어섰다. 반도체 수요가 성장을 견인했으며, 금리 정책 논의에도 영향을 주는 지표로 해석됐다. (Korea's Early-August Exports Jump 45% to Record on Chip Surge)",
-   src:"Seoul Economic Daily", url:"https://en.sedaily.com/finance/2026/08/11/koreas-early-august-exports-jump-45-percent-to-record-on",
-   yt:3, ytnote:"열흘 단위 수출 지표로 경기를 읽는 법 — 초보자용 해설",
-   videos:[], related:[]},
+  {cat:"tech", date:"2026-08-11", econ:true, intl:true, country:"미국", pride:true, title:"한국 국부펀드, AI·로봇 글로벌 경쟁 뛰어든다…내년 1조원 신규 투입",
+   desc:"한국이 한국투자공사(KIC) 산하에 AI·반도체·데이터센터를 겨냥한 새 국부펀드를 조성해 내년 최대 1조원(약 7억700만달러)을 투입한다. 민경설 기재부 혁신성장국장은 블룸버그TV 인터뷰에서 투자 규모가 6000억~1조원대가 될 것이라 밝혔으며, 이후 로봇·에너지·양자·우주 등으로 대상을 넓힐 계획이다. AI·반도체 패권 경쟁에서 앞서가려는 각국 정부 움직임에 한국도 본격 합류한 것이다. (Korea Sovereign Wealth Fund to Join Global Race for AI, Robotics)",
+   src:"Bloomberg", url:"https://www.bloomberg.com/news/articles/2026-08-11/korea-sovereign-wealth-fund-to-join-global-race-for-ai-robotics",
+   yt:3, ytnote:"국부펀드가 AI에 베팅한다는 것의 의미 — 각국 소버린 펀드 경쟁 지도",
+   videos:[], related:[{t:"Korea Plans $14 Billion for Wealth Fund's AI Bets After Rout (Bloomberg)", u:"https://www.bloomberg.com/news/articles/2026-07-30/korea-plans-14-billion-for-wealth-fund-s-ai-bets-after-rout"}]},
 
   {cat:"tech", date:"2026-08-14", econ:true, intl:false, pride:true, title:"코스피 6,900선 마감…외국인 4거래일 연속 순매수, 장중 7,000 돌파",
    desc:"코스피가 외국인 4거래일 연속 순매수에 힘입어 6,900대 후반에서 마감했다. 장중에는 7,000선을 넘어서기도 했다. 미 연준 금리 우려가 완화되고 반도체 투자 심리가 강해진 것이 배경이다. 코스피는 1년 전 대비 두 배 넘게 올랐다.",
@@ -166,26 +173,17 @@ const NEWS = [
            {t:"하루 1000P 사상 최대 '폭등'.. 외인 5조 '싹쓸이' 반도체 상한가·코스피 '불기둥' / MBC뉴스", u:"https://www.youtube.com/watch?v=oWtoMVL2PBs"}],
    related:[{t:"Explaining South Korea's Stock Market Boom (Korea Economic Institute of America)", u:"https://keia.org/analysis/explaining-south-koreas-stock-market-boom/"}]},
 
-  {cat:"tech", date:"2026-07-24", econ:true, intl:true, country:"미국", pride:true, title:"엔비디아, 네이버에 10억 달러 투자…한국 '소버린 AI' 데이터센터 4배 증설",
-   desc:"엔비디아가 네이버에 약 10억 달러를 투자해 건설 중인 AI 데이터센터 용량을 55MW에서 200MW로 늘린다. 브룩필드도 최대 90억 달러 투자를 검토한다. 2027년 상반기 55MW 가동을 시작해 2028년 200MW에 도달하는 일정으로, 한국을 기가와트급 소버린 AI 인프라 보유국으로 올려놓는 프로젝트다. (Nvidia to Invest $1 Billion in Naver and Expand SK Group Accord)",
-   src:"Bloomberg", url:"https://www.bloomberg.com/news/articles/2026-07-24/nvidia-to-invest-1-billion-in-naver-and-expand-sk-group-accord",
-   yt:4, ytnote:"'소버린 AI'가 뭐길래 — 26만 GPU가 한국에 깔리면 무엇이 달라지나",
-   videos:[{t:"수출 역대 최대, 코스피 상승… 대한민국 경제가 달라졌다", u:"https://www.youtube.com/watch?v=SAgiwbzJuCw"},
-           {t:"[12시에 만나요] 역대급 수출실적 또 나왔다! 열일하는 K-반도체!", u:"https://www.youtube.com/watch?v=mmxueBfOKh4"}],
-   related:[{t:"NAVER, NVIDIA and Brookfield to Expand Korea's National AI Factory Infrastructure Buildout (NVIDIA)", u:"https://nvidianews.nvidia.com/news/naver-nvidia-and-brookfield-to-expand-koreas-national-ai-factory-infrastructure-buildout"},
-            {t:"Nvidia plans $1B investment in South Korea's Naver (UPI)", u:"https://www.upi.com/Top_News/World-News/2026/07/27/nvidia-naver-ai-factories/7831785195985/"}]},
-
   {cat:"kpop", date:"2026-08-28", econ:false, intl:true, country:"미국", pride:true, title:"키키(KiiiKiii) '팝 오프 팝 오프', K팝 차트 2주 연속 1위",
    desc:"키키의 신보 'WhyKiiiKiii' 타이틀곡 '팝 오프 팝 오프'가 숨피 K팝 뮤직차트에서 2주 연속 1위를 지켰다. 두 달 넘게 정상을 지키던 코르티스(CORTIS)의 'REDRED'를 끌어내리며 데뷔 주 1위로 진입한 뒤 자리를 유지 중이다. 레드벨벳·에스파·빅뱅·엔하이픈도 상위권에 올랐다. (Soompi's K-Pop Music Chart 2026, August Week 5)",
    src:"Soompi", url:"https://www.soompi.com/article/1866753wpp/soompis-k-pop-music-chart-2026-august-week-5",
    yt:3, ytnote:"신인 그룹이 2개월 왕좌를 뒤집는 법 — 2026년 K팝 차트 역학 정리",
    videos:[], related:[{t:"Soompi's K-Pop Music Chart 2026, August Week 4 (Soompi)", u:"https://www.soompi.com/article/1864825wpp/soompis-k-pop-music-chart-2026-august-week-4"}]},
 
-  {cat:"kpop", date:"2026-08-06", econ:false, intl:true, country:"미국", pride:true, title:"BTS 월드투어 '아리랑', 질레트 스타디움 사상 최대 K팝 공연",
-   desc:"BTS가 8월 5~6일 미국 폭스버러 질레트 스타디움에서 공연했다. 이 경기장 역사상 최초이자 최대 규모의 K팝 헤드라이닝 공연이다. 360도 인더라운드 무대로 수용 인원을 늘렸으며, 34개 지역 79회 공연으로 역대 최대 규모의 글로벌 K팝 투어로 기록될 전망이다.",
-   src:"Gillette Stadium", url:"https://www.gillettestadium.com/events/bts-world-tour/",
-   yt:3, ytnote:"79회 스타디움 투어의 경제학 — 티켓·굿즈·관광까지 얼마가 움직이나",
-   videos:[], related:[{t:"K-Pop Concerts 2026: A Full List of Artists, Shows and Ticket Info (Billboard)", u:"https://www.billboard.com/culture/product-recommendations/current-k-pop-concerts-1236234463/"}]},
+  {cat:"kpop", date:"2026-08-13", econ:false, intl:true, country:"미국", pride:true, title:"스트레이 키즈 'THIS & THAT', 빌보드 200 9연속 1위…역대 최다 신기록",
+   desc:"스트레이 키즈의 새 앨범 'THIS & THAT'이 빌보드 200에 1위로 데뷔하며 데뷔작부터 9연속 1위라는 빌보드 역사상 최초의 기록을 세웠다. 집계 주간(8월 13일 마감) 36만9000 앨범 등가 단위를 기록했다. 그룹 기준으로는 통산 1위 횟수에서 롤링 스톤스와 공동 2위(19회 1위 비틀스에 이어)에 올랐다. (Stray Kids Score Ninth No. 1 on Billboard 200 With 'THIS & THAT')",
+   src:"Billboard", url:"https://www.billboard.com/music/chart-beat/stray-kids-this-and-that-number-one-billboard-200-chart-1236317298/",
+   yt:4, ytnote:"'첫 9장 전부 1위' 빌보드 역사를 새로 쓴 스트레이 키즈, 그 팬덤의 힘",
+   videos:[], related:[{t:"\"First in Billboard Chart History\"... Stray Kids Enter U.S. 'Billboard 200' for Ninth Consecutive Week (STARNEWS)", u:"https://www.starnewskorea.com/en/star/2026/08/17/2026081710350661556"}]},
 
   {cat:"culture", date:"2026-08-29", econ:false, intl:true, country:"미국", pride:true, title:"넷플릭스 '우리의 끈적한 사랑' 글로벌 상위권·한국 1위…K드라마 8월 강세",
    desc:"정해인·하영 주연 '우리의 끈적한 사랑(Our Sticky Love)'이 넷플릭스 글로벌 상위권과 한국 1위를 동시에 차지했다. 8월 18일 공개된 류준열·설경구 주연 웹툰 원작 범죄 스릴러 '마우스트랩', 8월 29일 공개된 송강·이준영 주연 '네 개의 손, 두 개의 소나타'까지 겹치며 K드라마가 8월 넷플릭스를 채웠다.",
@@ -193,19 +191,6 @@ const NEWS = [
    yt:3, ytnote:"웹툰 → 드라마 → 글로벌 1위, K콘텐츠 파이프라인이 굳어진 이유",
    videos:[], related:[{t:"Netflix K-Drama Rankings for the First Week of August 2026: Global Hits & Korea's Favorites", u:"https://www.koreantopik.com/2026/08/netflix-k-drama-rankings-for-first-week.html"},
             {t:"New K-Dramas on Netflix in August 2026 (What's on Netflix)", u:"https://www.whats-on-netflix.com/news/k-dramas/new-k-dramas-netflix-august-2026/"}]},
-
-  {cat:"culture", date:"2026-07-05", econ:true, intl:false, pride:true, title:"상반기 K-푸드+ 수출 70억5000만 달러…역대 최대, 증가율 1위는 중동",
-   desc:"2026년 상반기 K-푸드+ 수출액이 전년 대비 4.1% 늘어난 70억5000만 달러로 상반기 기준 역대 최대를 기록했다. 농식품 53억8000만 달러, 농산업 16억6000만 달러다. 권역별 증가율은 중동 25.2%, 중남미 19.5%, 유럽 17.9% 순이었고, 미국 시장은 10억4000만 달러로 상반기 만에 10억 달러를 넘겼다.",
-   src:"위키트리", url:"https://www.wikitree.co.kr/articles/1144809",
-   yt:3, ytnote:"라면·김치가 중동을 뚫었다 — K푸드 수출 지도 다시 그리기",
-   videos:[], related:[{t:"미국, 중국 제치고 'K-푸드' 해외 최대 시장 부상 (Radio Seoul)", u:"https://www.radioseoul1650.com/archives/150569"}]},
-
-  {cat:"culture", date:"2026-07-02", econ:true, intl:true, country:"미국", pride:true, title:"K뷰티 상반기 수출 70억 달러 사상 최대…미국 비중 20% 돌파",
-   desc:"한국 화장품 상반기 수출이 전년 대비 27.3% 늘어난 70억 달러로 반기 기준 역대 최대를 기록했다. 미국 비중이 20%를 넘어섰고 1분기 대미 수출은 6억2000만 달러(+40.9%)였다. 지난해 연간 수출은 114억 달러로 한국은 미국을 제치고 프랑스에 이은 세계 2위 화장품 수출국이 됐다. (K-Beauty Exports Hit Record $7 Billion in First Half, US Share Tops 20%)",
-   src:"Seoul Economic Daily", url:"https://en.sedaily.com/markets/2026/07/02/k-beauty-exports-hit-record-7-billion-in-first-half-us",
-   yt:3, ytnote:"프랑스만 남았다 — K뷰티가 미국 화장품 수출을 제친 과정",
-   videos:[], related:[{t:"Korea overtakes US to become world's No. 2 cosmetics exporter (Korea Biomedical Review)", u:"https://www.koreabiomed.com/news/articleView.html?idxno=31790"},
-            {t:"South Korea Climbs to Second Place in Global Beauty Exports (BeautyMatter)", u:"https://beautymatter.com/articles/k-beautys-export-boom-is-no-longer-a-trend-story"}]},
 
   {cat:"sports", date:"2026-08-27", econ:false, intl:false, pride:true, title:"분데스리가 개막…김민재·이재성 출격, 유럽 무대 '코리안 시즌' 시작",
    desc:"2026~2027 독일 분데스리가가 막을 올리며 바이에른 뮌헨 김민재와 마인츠 이재성이 새 시즌에 나선다. 스페인에서는 아틀레티코 마드리드로 옮긴 이강인이 먼저 힘차게 출발했다. 북중미 월드컵을 치른 태극전사들이 유럽 리그로 복귀하며 주말마다 한국 선수 경기를 볼 수 있게 됐다.",
