@@ -58,6 +58,9 @@
   .intl{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
     background:rgba(59,130,246,.14);color:#3b82f6;border:1px solid rgba(59,130,246,.4)}
   .intl-chip.on{background:#3b82f6;border-color:#3b82f6;color:#fff}
+  .classic{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
+    background:rgba(168,85,247,.14);color:#a855f7;border:1px solid rgba(168,85,247,.4)}
+  .classic-chip.on{background:#a855f7;border-color:#a855f7;color:#fff}
   .rel{font-size:12.5px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);padding:2px 10px}
   .rel summary{cursor:pointer;padding:7px 0;color:var(--sub);font-weight:600;user-select:none}
   .rel summary:hover{color:var(--txt)}
@@ -90,6 +93,7 @@
     <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
     <div class="stat"><div class="n" id="s-econ">0</div><div class="l">💰 경제 채널 적합</div></div>
     <div class="stat"><div class="n" id="s-intl">0</div><div class="l">🌍 외신 보도</div></div>
+    <div class="stat"><div class="n" id="s-classic">0</div><div class="l">🏛️ 명예의 전당</div></div>
     <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
   </div>
 
@@ -218,6 +222,7 @@ let active = "all";
 let ytOnly = false;
 let econOnly = false;
 let intlOnly = false;
+let classicOnly = false;
 let sortMode = "yt";
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
@@ -226,6 +231,7 @@ const ytCount = NEWS.filter(n=>(n.yt||0)>=4).length;
 document.getElementById('s-yt').textContent = ytCount;
 document.getElementById('s-econ').textContent = NEWS.filter(n=>n.econ).length;
 document.getElementById('s-intl').textContent = NEWS.filter(n=>n.intl).length;
+document.getElementById('s-classic').textContent = NEWS.filter(n=>n.classic).length;
 
 function makeFilters(){
   const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
@@ -234,6 +240,7 @@ function makeFilters(){
     + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`
     + `<div class="chip econ-chip" id="econchip" onclick="toggleEconOnly()">💰 경제 채널용만</div>`
     + `<div class="chip intl-chip" id="intlchip" onclick="toggleIntlOnly()">🌍 외신만</div>`
+    + `<div class="chip classic-chip" id="classicchip" onclick="toggleClassicOnly()">🏛️ 명예의 전당만</div>`
     + `<div class="chip" id="sortchip" onclick="toggleSort()">🎬 유튜브 각 순</div>`;
 }
 function toggleYtOnly(){
@@ -255,6 +262,7 @@ function daysAgo(d){
 function dateBadge(n){
   const g = daysAgo(n.date);
   if(g===null) return '';
+  if(n.classic) return `<span class="date">📅 ${n.date}</span>`;
   const label = g<=0 ? '오늘' : g===1 ? '어제' : g+'일 전';
   const cls = g<=2 ? ' fresh' : g>14 ? ' old' : '';
   return `<span class="date${cls}">📅 ${n.date} · ${label}</span>`;
@@ -267,6 +275,11 @@ function toggleSort(){
 function toggleIntlOnly(){
   intlOnly=!intlOnly;
   document.getElementById('intlchip').classList.toggle('on',intlOnly);
+  render();
+}
+function toggleClassicOnly(){
+  classicOnly=!classicOnly;
+  document.getElementById('classicchip').classList.toggle('on',classicOnly);
   render();
 }
 function setFilter(k){
@@ -312,6 +325,7 @@ function render(){
   if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
   if(econOnly) list = list.filter(n=>n.econ);
   if(intlOnly) list = list.filter(n=>n.intl);
+  if(classicOnly) list = list.filter(n=>n.classic);
   list = list.slice().sort((a,b)=> sortMode==='date'
     ? String(b.date||'').localeCompare(String(a.date||''))
     : (b.yt||0)-(a.yt||0));
@@ -324,6 +338,7 @@ function render(){
       <p>${n.desc}</p>
       ${n.econ?'<span class="econ">💰 경제 채널 적합</span>':''}
       ${n.intl?`<span class="intl">🌍 외신${n.country?' · '+n.country:''}</span>`:''}
+      ${n.classic?'<span class="classic">🏛️ 명예의 전당</span>':''}
       ${ytBadge(n)}
       ${relatedBlock(n)}
       <div class="foot">
