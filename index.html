@@ -82,7 +82,7 @@
     <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
   </header>
 
-  <div class="meta" id="updated">최종 업데이트: 2026-08-31</div>
+  <div class="meta" id="updated">최종 업데이트: 2026-09-01</div>
 
 
   <div class="stats">
@@ -113,97 +113,104 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
-  {cat:"culture", date:"2026-08-21", econ:true, intl:true, country:"미국", pride:true, title:"K뷰티, 세계 1위 프랑스 코앞…해외 소비자까지 사로잡은 'K신뢰'",
-   desc:"한국 화장품이 세계 1위 프랑스를 코앞에 두고 있다는 분석이 나왔다. 상반기 화장품 수출액은 약 7조9857억원(57억2453만달러)으로, 미국 화장품 수입 시장에서는 한국이 프랑스를 제치고 2년 연속 1위 수출국에 올랐다. 외국인 소비자 사이에서 'K제품은 믿을 수 있다'는 신뢰가 확산되며 수요를 밀어올리고 있다. (\"Is It Really This Big?\" World Number One in Sight... K-Beauty's Surge Captivates Foreign Consumers)",
-   src:"The Asia Business Daily(아시아경제)", url:"https://www.asiae.co.kr/en/article/distribution/2026082109143820627",
-   yt:3, ytnote:"프랑스 코앞까지 온 K뷰티 — 미국 수입시장 1위 등극의 이유",
-   videos:[], related:[{t:"South Korea Climbs to Second Place in Global Beauty Exports (BeautyMatter)", u:"https://beautymatter.com/articles/k-beautys-export-boom-is-no-longer-a-trend-story"}]},
+  {cat:"tech", date:"2026-09-01", econ:true, intl:false, pride:true, title:"8월 수출 982.5억 달러…반도체 467억 달러 '월간 사상 최대', 연내 1조 달러 청신호",
+   desc:"산업통상부는 8월 수출이 전년 동월 대비 68.7% 늘어난 982억5000만 달러라고 1일 발표했다. 반도체는 209% 급증한 467억 달러로 월간 기준 사상 최대, 3개월 연속 400억 달러를 넘겼다. 컴퓨터(SSD·낸드)도 419.5% 늘어난 62억4000만 달러로 역대 최대. 무역수지는 347억5000만 달러 흑자로 3개월 연속 300억 달러대다. 올해 전체 수출 1조 달러 달성 가능성이 거론된다.",
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026090112133586170",
+   yt:5, ytnote:"'수출의 절반이 반도체' — 1조 달러 수출국이 된다는 것의 진짜 의미",
+   videos:[{t:"수출 '역대 8월 중 최대' 기록…\"반도체가 해냈다\" / 연합뉴스TV", u:"https://www.youtube.com/watch?v=c-gaFu8bN5E"},
+           {t:"'반도체의 힘' 수출, 11개월 연속 날았다...역대 8월 최대 실적 / YTN", u:"https://www.youtube.com/watch?v=ZeaLhlLTrAo"},
+           {t:"[이슈] \"무려 176% 증가\" 반도체 수출 '파죽지세'…한국 경제 성장률 '경악' / KBS", u:"https://www.youtube.com/watch?v=POcoZZQbE9M"}],
+   related:[{t:"8월 수출 983억달러, 전년 대비 68.7%↑…연내 1조 달러 청신호 (머니투데이)", u:"https://www.mt.co.kr/economy/2026/09/01/2026090109111899663"},
+            {t:"8월 수출 982.5억달러 '역대 3위'…반도체 467억달러 사상 최대 (아시아투데이)", u:"https://www.asiatoday.co.kr/kn/view.php?key=20260901010000101"}]},
+
+  {cat:"tech", date:"2026-09-01", econ:true, intl:true, country:"중국", pride:true, title:"중국 신화통신 \"한국 8월 수출 68.7% 급증…기록적 반도체 수요\"",
+   desc:"중국 관영 신화통신이 한국의 8월 수출 실적을 비중 있게 보도했다. 수출은 전년 대비 68.7% 늘어난 982억5000만 달러, 반도체는 209% 늘어난 466억5000만 달러로 3개월 연속 400억 달러를 돌파했다. 구글·아마존 등 하이퍼스케일러의 AI 인프라 투자가 수요를 떠받치고 있다고 분석했다. (S. Korea's Aug. exports surge 68.7 pct on record-breaking chip demand)",
+   src:"Xinhua(신화통신)", url:"https://english.news.cn/asiapacific/20260901/fc4a44f61ace4aa4817f73fd1516df3a/c.html",
+   yt:3, ytnote:"한국 수출 폭증을 외신은 어떻게 읽나 — 중국·일본 매체 반응 비교",
+   videos:[], related:[{t:"Korea's August exports jump 68.7% to $98.25 billion on strong chip demand (The Korea Times)", u:"https://www.koreatimes.co.kr/economy/20260901/koreas-august-exports-jump-687-to-9825-billion-on-strong-chip-demand"}]},
+
+  {cat:"tech", date:"2026-08-31", econ:true, intl:false, pride:true, title:"한화에어로스페이스, 스페인에 K9 자주포 수출 계약…유럽 방산 벽 또 뚫었다",
+   desc:"한화에어로스페이스가 31일 스페인 방산기업 인드라(Indra Sistemas)와 K9 자주포 수출 계약을 체결했다고 밝혔다. 계약 규모와 납기는 비밀유지 조항에 따라 공개하지 않았으나 업계에서는 최소 6675억원 규모로 추산한다. 8월 미 육군 기동전술화포 시제품 계약에 이어, 유럽 자체 방산 블록 안으로 K9이 다시 진입한 사례다.",
+   src:"The Korea Times", url:"https://www.koreatimes.co.kr/business/companies/20260831/hanwha-aerospace-signs-deal-to-export-k9-howitzers-to-spain",
+   yt:4, ytnote:"'유럽이 자국 무기를 두고 왜 K9을 사나' — 스페인 계약으로 보는 K방산 경쟁력",
+   videos:[{t:"[K9수출] K9 자주포, 스페인도 뚫었다! 최소 6675억 원 규모 추산", u:"https://www.youtube.com/shorts/2XbZzuxtOK4"},
+           {t:"[이슈점검-특파원대담] 스페인, K9에 무리한 요구? 진실은 이거다!", u:"https://www.youtube.com/watch?v=-qYwhd9f9KI"},
+           {t:"한화에어로, 노르웨이도 뚫었다…\"다음은 스페인 7조 자주포\" / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=MVykSEVbgC4"}],
+   related:[{t:"Hanwha wins U.S. Army deal to supply K9 howitzer prototypes (Korea JoongAng Daily)", u:"https://www.koreajoongangdaily.com/business/hanwha-wins-us-army-deal-to-supply-k9-howitzer-prototypes-opening-door-to-worlds-biggest-defense-market/12832499"},
+            {t:"Hanwha K9 Wheeled Howitzer Wins First U.S. Army Deal for Korean Arms (Seoul Economic Daily)", u:"https://en.sedaily.com/finance/2026/08/19/hanwha-k9-wheeled-howitzer-wins-first-us-army-deal-for"}]},
+
+  {cat:"tech", date:"2026-08-27", econ:true, intl:false, pride:true, title:"삼성 '생각하는 메모리' vs SK하이닉스 '식히는 HBM'…핫칩스 2026서 나란히 공개",
+   desc:"삼성전자와 SK하이닉스가 23~25일(현지시간) 미국 스탠퍼드대에서 열린 반도체 학회 '핫칩스 2026'에서 차세대 메모리 기술을 공개했다. 삼성전자는 세계 최초로 개발한 저전력 D램 'LPDDR5X-PIM'의 구조와 AI 추론 성능을, SK하이닉스는 발열을 잡는 HBM 냉각 기술을 발표했다. 메모리 두 강자가 세계 무대에서 서로 다른 해법을 들고 나온 셈이다.",
+   src:"다음뉴스(언론사 제휴)", url:"https://v.daum.net/v/20260827140107369",
+   yt:3, ytnote:"메모리가 '연산'까지 한다 — PIM이 뭐길래 AI 판을 흔드나",
+   videos:[], related:[{t:"삼성전자, 세계 최초 업계 최고 성능의 HBM4 양산 출하 (삼성반도체)", u:"https://semiconductor.samsung.com/kr/news-events/news/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing/"}]},
+
+  {cat:"tech", date:"2026-08-27", econ:true, intl:false, pride:true, title:"소버린 AI 2차 평가 결과 공개…SKT 70.6점 1위, 업스테이지·LG 뒤이어",
+   desc:"과학기술정보통신부가 '독자 AI 파운데이션 모델' 프로젝트 2차 단계평가 세부 점수를 공개했다. SK텔레콤이 70.6점으로 1위, 업스테이지 69.9점, LG AI연구원 69점, 모티프테크놀로지스 65.8점이었다. 벤치마크 40점·전문가 35점·이용자 25점 배분. 올해 미국 AI 연구기관 에포크AI의 '주목할 모델'에 한국 모델 4개가 모두 등재됐고, 해당 목록을 보유한 나라는 미국·중국·한국뿐이다. (South Korea releases sovereign AI project scores, SKT ranks first)",
+   src:"The Korea Herald", url:"https://www.koreaherald.com/article/10854743",
+   yt:3, ytnote:"미국·중국 다음이 한국 — '독자 AI 모델'을 나라가 직접 키운다는 것",
+   videos:[], related:[{t:"한국 독자 AI 모델 4개 모두 '글로벌 주목 모델' 등재 (대한민국 정책브리핑)", u:"https://www.korea.kr/news/policyNewsView.do?newsId=148969866"},
+            {t:"독자 AI 파운데이션모델 프로젝트 2차 단계평가 결과 (대한민국 정책브리핑)", u:"https://www.korea.kr/briefing/policyBriefingView.do?newsId=156774781"}]},
+
+  {cat:"tech", date:"2026-08-07", econ:true, intl:true, country:"일본", pride:true, title:"니혼게이자이 \"한국·대만, 사상 처음 일본 수출 추월\"…AI 반도체가 무역 지도를 바꿨다",
+   desc:"니혼게이자이(닛케이) 분석에 따르면 2026년 상반기 한국과 대만의 총수출이 사상 처음으로 일본을 앞질렀다. 일본 3844억 달러, 한국 4963억 달러, 대만 4166억 달러. AI용 반도체 수요 폭증이 한국·대만 수출을 끌어올린 반면, 소재·장비에 강점이 있는 일본은 수혜가 제한됐다는 진단이다. (South Korea, Taiwan top Japan in exports for first time on AI boom)",
+   src:"Nikkei Asia", url:"https://asia.nikkei.com/business/tech/semiconductors/south-korea-taiwan-top-japan-in-exports-for-first-time-on-ai-boom",
+   yt:3, ytnote:"일본을 넘어섰다 — 숫자로 확인하는 한·일·대만 수출 역전의 순간",
+   videos:[], related:[{t:"South Korea overtakes Japan in H1 exports on AI chip boom (KED Global)", u:"https://www.kedglobal.com/economy/newsView/ked202608070006"},
+            {t:"South Korea, Taiwan Surpass Japan in H1 Exports for First Time Driven by AI Boom (SBS News)", u:"https://news.sbs.co.kr/english/article.do?news_id=N1008695373"}]},
+
+  {cat:"tech", date:"2026-08-26", econ:true, intl:true, country:"일본", pride:true, title:"'포브스 아시아 100 to Watch 2026'에 한국 스타트업 9곳 선정",
+   desc:"포브스가 발표한 '아시아 100 to Watch 2026'에 한국 기업 9곳이 이름을 올렸다. 바이텔랩, 디든로보틱스, 피처링, 갈룩스, 하이퍼엑셀, RLWRLD, 베라모어, 워트인텔리전스, 화이트큐브다. 이 중 4곳이 AI 기업용 기술·로보틱스·반도체 인프라, 3곳이 뷰티·브랜드커머스·모바일 등 소비자 분야다. AI와 K뷰티라는 한국의 두 축이 스타트업 단계에서도 확인된 셈이다. (Nine Korean Startups Make Forbes Asia 100 to Watch 2026)",
+   src:"WOWTALE", url:"https://en.wowtale.net/2026/08/26/234878/",
+   yt:3, ytnote:"대기업 말고 그다음 — 포브스가 찍은 한국 스타트업 9곳 뜯어보기",
+   videos:[], related:[{t:"Korea's 50 Richest / Forbes 한국 관련 리스트 (Forbes)", u:"https://www.forbes.com/lists/korea-billionaires/"}]},
+
+  {cat:"culture", date:"2026-08-31", econ:true, intl:false, pride:true, title:"1~7월 방한 외국인 1280만 명, 21.3% 증가…해외여행 나선 일본인 28%가 한국 택했다",
+   desc:"문화체육관광부에 따르면 올해 1~7월 방한 외국인 관광객은 1280만 명으로 전년 대비 21.3% 늘어 같은 기간 역대 최대를 기록했다. 일본인 방문객이 228만 명(18.8%↑)으로 견인했는데, 해외로 나간 일본인 중 28%가 한국을 골라 역대 최고 비중을 찍었다. 외국인 카드 사용액은 12조900억원으로 48.3% 급증했다. (Foreign tourist arrivals up 21.3% through July, driven by Japanese visitors)",
+   src:"The Korea Times", url:"https://www.koreatimes.co.kr/lifestyle/travel-food/20260831/foreign-tourist-arrivals-up-213-through-july-driven-by-japanese-visitors",
+   yt:4, ytnote:"'일본인 해외여행 4명 중 1명이 한국' — 방한 관광 역대 최대의 진짜 동력",
+   videos:[{t:"Korea sets sights on 40 million tourists as foreign arrivals surge", u:"https://www.youtube.com/watch?v=TOeac8Pkklg"},
+           {t:"방한 관광객 수 역대 최고치 근접! 'K-관광' 전성기 이끌 정부 전략", u:"https://www.youtube.com/watch?v=P5QioZ2ACv8"},
+           {t:"코로나 전보다 더 온다…국적 다양해진 방한 외국인 관광객", u:"https://www.youtube.com/watch?v=eSIupWZK86E"}],
+   related:[{t:"국립중앙박물관 상반기 관람객 380만 명…한류 관광 효과 (Outlook Respawn)", u:"https://respawn.outlookindia.com/pop-culture/pop-culture-news/national-museum-korea-hallyu-tourism-bts-blackpink-2026"}]},
+
+  {cat:"culture", date:"2026-09-01", econ:true, intl:false, pride:true, title:"8월 농수산식품 수출 9억8000만 달러…'역대 8월 최대' 경신",
+   desc:"산업통상부 8월 수출 통계에서 농수산식품 수출은 1.5% 늘어난 9억8000만 달러로 역대 8월 중 최대를 기록했다. K뷰티·K푸드에 대한 해외 인지도와 선호가 함께 오른 결과다. 앞서 상반기 K-푸드+ 수출은 70억5000만 달러로 상반기 기준 역대 최고였고, 라면이 성장을 이끌었다. 정부는 올해 160억 달러 수출 목표를 내걸고 있다.",
+   src:"머니투데이", url:"https://www.mt.co.kr/economy/2026/09/01/2026090109111899663",
+   yt:3, ytnote:"라면 한 봉지가 만든 수출 산업 — K푸드 숫자로 보는 성장 곡선",
+   videos:[], related:[{t:"라면 타고 70억달러 넘은 K푸드+…상반기 수출 역대 최대 (이투데이)", u:"https://www.etoday.co.kr/news/view/2600270"},
+            {t:"상반기 K-푸드+ 수출 70.5억 달러 '역대 최고'…라면 수출 28%↑ (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202607051100444453"}]},
+
+  {cat:"kpop", date:"2026-08-29", econ:false, intl:true, country:"미국", pride:true, title:"캣츠아이, 빌보드 '아티스트 100' 첫 1위…핫100에 4곡 동시 진입",
+   desc:"하이브 산하 글로벌 그룹 캣츠아이(KATSEYE)가 빌보드 아티스트 100 차트에서 28위에서 단숨에 1위로 올라서며 종전 최고 기록(6위)을 갈아치웠다. 앞서 빌보드 200 1위에 오른 데 이은 겹경사다. 핫100에는 선공개곡 'Animal'(24위), 타이틀 'Hootie Frutti'(31위), 'PINKY UP'(81위), 르세라핌·아일릿과의 합작 'ICONIC BY MISTAKE'(94위)까지 4곡을 올렸다. (KATSEYE, Phoebe Bridgers, Ella Langley & More: Highlights of This Week's Billboard Charts)",
+   src:"Billboard", url:"https://www.billboard.com/lists/katseye-phoebe-bridgers-chart-highlights-aug-29-2026/",
+   yt:3, ytnote:"K팝 시스템이 만든 '글로벌 걸그룹' — 캣츠아이 빌보드 정복 해부",
+   videos:[], related:[{t:"KATSEYE Reaches No. 1 On Billboard Artist 100 For 1st Time (Soompi)", u:"https://www.soompi.com/article/1865661wpp/katseye-reaches-no-1-on-billboard-artist-100-for-1st-time-as-hootie-frutti-debuts-on-hot-100-and-global-200"},
+            {t:"Katseye notches 4 songs on Billboard's Hot 100 (The Korea Herald)", u:"https://www.koreaherald.com/article/10852606"}]},
+
+  {cat:"kpop", date:"2026-08-30", econ:false, intl:true, country:"미국", pride:true, title:"키키(KiiiKiii) '팝 오프 팝 오프', 숨피 K팝 차트 2주 연속 1위",
+   desc:"키키의 '팝 오프 팝 오프'가 미국 K팝 매체 숨피의 8월 5주 차 K팝 뮤직차트에서 2주 연속 1위를 지켰다. 두 달 넘게 정상을 지키던 코르티스(CORTIS)의 'REDRED'를 밀어내고 데뷔 주 1위로 올라선 뒤 자리를 유지 중이다. 신인 그룹이 미국 K팝 팬덤 차트에서 곧바로 정상을 굳히는 흐름이 이어지고 있다. (Soompi's K-Pop Music Chart 2026, August Week 5)",
+   src:"Soompi", url:"https://www.soompi.com/article/1866753wpp/soompis-k-pop-music-chart-2026-august-week-5",
+   yt:3, ytnote:"데뷔하자마자 1위 — 2026년 K팝 신인 차트 역학이 달라졌다",
+   videos:[], related:[{t:"Soompi's K-Pop Music Chart 2026, August Week 4 (Soompi)", u:"https://www.soompi.com/article/1864825wpp/soompis-k-pop-music-chart-2026-august-week-4"}]},
+
+  {cat:"sports", date:"2026-08-31", econ:false, intl:false, pride:true, title:"남자농구, 사우디 85-72 격파…이현중 25득점 폭발로 3연패 탈출",
+   desc:"한국 남자농구 대표팀이 31일 수원 KT 소닉붐 아레나에서 열린 2027 FIBA 농구월드컵 아시아 예선 2라운드 F조 경기에서 사우디아라비아를 85-72로 꺾었다. 이현중이 25득점, 여준석이 18득점으로 공격을 이끌었고 이우석·안영준도 힘을 보탰다. 최근 3연패를 끊고 월드컵 본선 진출 희망을 살렸다.",
+   src:"스포츠경향", url:"https://sports.khan.co.kr/article/202608312108003/",
+   yt:3, ytnote:"이현중이라는 해답 — 한국 농구가 다시 월드컵을 노릴 수 있는 이유",
+   videos:[], related:[{t:"'이현중 25득점 폭발' 韓 농구 대표팀 연패 탈출, 사우디에 85-72 승리 (머니투데이)", u:"https://www.mt.co.kr/sports/2026/08/31/2026083118042187320"},
+            {t:"한국 남자농구, 사우디 잡고 A매치 3연패 탈출 (오마이스타)", u:"https://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0003263467"}]},
 
   {cat:"sports", date:"2026-08-24", econ:false, intl:false, pride:true, title:"안세영, 야마구치 꺾고 3년 만에 세계선수권 정상…6경기 전승 '무실 세트' 우승",
-   desc:"세계랭킹 1위 안세영이 인도 뉴델리 BWF 세계배드민턴선수권 여자 단식 결승에서 세계 2위 야마구치 아카네를 2-0(21-17, 21-14)으로 제압하고 3년 만에 정상을 탈환했다. 6경기 모두 2-0 완승으로 단 한 세트도 내주지 않았고, 세계랭킹 1위를 97주 연속 지키며 올 시즌 44승 1패를 기록 중이다.",
+   desc:"세계랭킹 1위 안세영이 인도 뉴델리 BWF 세계배드민턴선수권 여자 단식 결승에서 세계 2위 야마구치 아카네를 2-0(21-17, 21-14)으로 제압하고 3년 만에 정상을 탈환했다. 6경기 모두 2-0 완승으로 단 한 세트도 내주지 않았고, 한국은 금2·동1로 종합 메달 순위 1위에 올랐다.",
    src:"머니투데이", url:"https://www.mt.co.kr/sports/2026/08/24/2026082405031456275",
    yt:5, ytnote:"'왜 아무도 안세영을 못 이기나' — 6경기 무실세트를 만든 코스 공략 분석",
    videos:[{t:"안세영이 해냈다! 야마구치 2-0 제압하고 다시 세계 챔피언!", u:"https://www.youtube.com/watch?v=Mp4fWTbCAMc"},
-           {t:"[배드민턴 세계선수권] 안세영, 야마구치 꺾고 3년 만에 정상 탈환! 6경기 무실 세트 '퍼펙트 우승'", u:"https://www.youtube.com/shorts/-aGqlnpvuQU"},
+           {t:"[배드민턴 세계선수권] 안세영, 3년 만에 정상 탈환! 6경기 무실 세트 '퍼펙트 우승'", u:"https://www.youtube.com/shorts/-aGqlnpvuQU"},
            {t:"[BWF] 세계선수권대회 여자 단식 안세영 vs 왕즈이 하이라이트 [준결승]", u:"https://www.youtube.com/watch?v=V7tH4ClDRxg"}],
-   related:[{t:"\"세계 1·2위 대결이 이렇게 일방적이라니\" 안세영 우승에 中도 감탄 (머니투데이)", u:"https://www.mt.co.kr/sports/2026/08/24/2026082402430151680"},
-            {t:"배드민턴 세계개인선수권 2026: 한국 대표팀 결과 모아보기 — 금2·동1 (올림픽공식)", u:"https://www.olympics.com/ko/news/team-korea-all-results-bwf-badminton-world-championships-new-delhi-2026"}]},
-
-  {cat:"tech", date:"2026-08-18", econ:true, intl:true, country:"미국", pride:true, title:"미 육군, 한화에 차세대 자주포 시제품 계약…최대 2억6290만 달러",
-   desc:"미 육군이 한화디펜스USA를 기동전술화포(MTC) 사업 시제품 단독 사업자로 선정하고 약 1억30만 달러(최대 2억6290만 달러) 규모 계약을 맺었다. 155mm 차륜형 K9 자주포 6문을 4년 내 납품하고 12문 추가 옵션이 붙는다. 안두릴·오시코시·레오나르도·라인메탈·BAE를 제친 한국 방산의 첫 미 육군 본격 진입이다. (US Army Selects Hanwha Defense for $262 Million Mobile Artillery Contract)",
-   src:"Bloomberg", url:"https://www.bloomberg.com/news/articles/2026-08-18/us-army-turns-to-hanwha-defense-for-new-mobile-artillery",
-   yt:5, ytnote:"'70년간 국산만 쓰던 미 육군이 왜 K9을 골랐나' — 무기 체계 비교로 푸는 10분",
-   videos:[{t:"\"K-방산 미국도 뚫었다\" K9, 미국 차세대 자주포 시제품 선정 (2026.08.19 MBC 뉴스데스크)", u:"https://www.youtube.com/watch?v=zxEYbiPN5Bc"},
-           {t:"한화 K9, 미 육군 차기 자주포 사업 시제품 단독 선정 | 지금 이 뉴스", u:"https://www.youtube.com/watch?v=bX_2VLCC49Q"},
-           {t:"[자막뉴스] \"미 육군에서요?\" 처음 봤다…한국도 놀란 한화의 한 수 / JTBC", u:"https://www.youtube.com/watch?v=AyqIqsdbapY"}],
-   related:[{t:"Army selects Mobile Tactical Cannon prototype system to advance Fires modernization (U.S. Army)", u:"https://www.army.mil/article/294726/army_selects_mobile_tactical_cannon_prototype_system_to_advance_fires_modernization"},
-            {t:"천궁·K2 전차 이은 수출 쾌거…세계 시장서 존재감 커진 K방산 (한국경제)", u:"https://www.hankyung.com/article/2026081904321"}]},
-
-  {cat:"tech", date:"2026-08-25", econ:true, intl:false, pride:true, title:"누리호 5차 발사 정부 승인…10월 7일, 역대 최다 위성 15기 싣는다",
-   desc:"우주항공청이 25일 우주개발진흥실무위원회를 열어 누리호 5호기 발사허가를 의결했다. 발사일은 10월 7일 낮 12시 23분~오후 1시 23분, 예비기간은 10월 8~14일이다. 국가안보·재난 대응용 초소형 군집위성 5기와 큐브위성 10기 등 누리호 역대 최다인 15기를 태양동기궤도에 올린다.",
-   src:"아시아경제", url:"https://www.asiae.co.kr/article/2026082518555551322",
-   yt:5, ytnote:"'국내 최초 군집위성' — 위성 15기를 한 번에 올린다는 게 왜 어려운 일인지",
-   videos:[{t:"벌써 5번째인 누리호, 역대 가장 많은 규모 싣고 간다 [자막뉴스] / YTN", u:"https://www.youtube.com/watch?v=V_xLBVXi9E4"},
-           {t:"[자막뉴스] 역대 최초로 100% 성공...정말 완벽했던 누리호 / YTN", u:"https://www.youtube.com/watch?v=Gqp5FsVBdoE"},
-           {t:"누리호 우주시대 열었다…다음은 재사용 발사체 / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=l_Q3pXA_F90"}],
-   related:[{t:"누리호 5차 발사일 10월 7일 확정…국내 최초 군집위성 궤도 투입 도전 (아주경제)", u:"https://www.ajunews.com/view/20260827112223584"},
-            {t:"누리호 5차 발사 허가…2030년 이후 '한국형 GPS' 발사 계획도 확정 (머니투데이)", u:"https://www.mt.co.kr/tech/2026/08/25/2026082515193534926"}]},
-
-  {cat:"tech", date:"2026-08-21", econ:true, intl:true, country:"미국", pride:true, title:"한국 8월 1~20일 수출 56% 급증…반도체 260억 달러로 사상 최대",
-   desc:"8월 1~20일 수출이 전년 대비 56% 늘어난 552억 달러로 같은 기간 역대 최대를 기록했다. 반도체는 3배 가까이 늘어난 260억 달러, 전체 수출 비중은 24.6%에서 47.2%로 뛰었다. 수입은 19% 늘어 412억 달러, 무역흑자는 140억 달러다. 글로벌 AI 붐이 만든 슈퍼사이클이라는 분석. (South Korea exports jump 56% in early August as chip shipments hit record)",
-   src:"Korea JoongAng Daily", url:"https://www.koreajoongangdaily.com/business/exports-up-56-in-first-20-days-of-august-on-robust-chip-shipments/12836385",
-   yt:5, ytnote:"수출의 절반이 반도체 한 품목 — 축포인가 위험신호인가, 숫자로 따져보기",
-   videos:[{t:"[이슈] \"무려 176% 증가\" 반도체 수출 '파죽지세'…한국 경제 성장률 '경악' / KBS 2026.08.18", u:"https://www.youtube.com/watch?v=POcoZZQbE9M"},
-           {t:"[iM브리핑] 반도체가 끌어올린 8월 수출…초순부터 역대 최대", u:"https://www.youtube.com/shorts/1Qdm3CFSW2c"},
-           {t:"수출 역대 최대, 코스피 상승… 대한민국 경제가 달라졌다", u:"https://www.youtube.com/watch?v=SAgiwbzJuCw"}],
-   related:[{t:"Exports up 56% in first 20 days of Aug. on robust chip shipments (Korea Herald)", u:"https://www.koreaherald.com/article/10847622"},
-            {t:"반도체 수출 3배 폭증…8월 1~20일 수출 역대 최대 (경향신문)", u:"https://www.khan.co.kr/article/202608210931001"}]},
-
-  {cat:"tech", date:"2026-08-11", econ:true, intl:true, country:"미국", pride:true, title:"한국 국부펀드, AI·로봇 글로벌 경쟁 뛰어든다…내년 1조원 신규 투입",
-   desc:"한국이 한국투자공사(KIC) 산하에 AI·반도체·데이터센터를 겨냥한 새 국부펀드를 조성해 내년 최대 1조원(약 7억700만달러)을 투입한다. 민경설 기재부 혁신성장국장은 블룸버그TV 인터뷰에서 투자 규모가 6000억~1조원대가 될 것이라 밝혔으며, 이후 로봇·에너지·양자·우주 등으로 대상을 넓힐 계획이다. AI·반도체 패권 경쟁에서 앞서가려는 각국 정부 움직임에 한국도 본격 합류한 것이다. (Korea Sovereign Wealth Fund to Join Global Race for AI, Robotics)",
-   src:"Bloomberg", url:"https://www.bloomberg.com/news/articles/2026-08-11/korea-sovereign-wealth-fund-to-join-global-race-for-ai-robotics",
-   yt:3, ytnote:"국부펀드가 AI에 베팅한다는 것의 의미 — 각국 소버린 펀드 경쟁 지도",
-   videos:[], related:[{t:"Korea Plans $14 Billion for Wealth Fund's AI Bets After Rout (Bloomberg)", u:"https://www.bloomberg.com/news/articles/2026-07-30/korea-plans-14-billion-for-wealth-fund-s-ai-bets-after-rout"}]},
-
-  {cat:"tech", date:"2026-08-14", econ:true, intl:false, pride:true, title:"코스피 6,900선 마감…외국인 4거래일 연속 순매수, 장중 7,000 돌파",
-   desc:"코스피가 외국인 4거래일 연속 순매수에 힘입어 6,900대 후반에서 마감했다. 장중에는 7,000선을 넘어서기도 했다. 미 연준 금리 우려가 완화되고 반도체 투자 심리가 강해진 것이 배경이다. 코스피는 1년 전 대비 두 배 넘게 올랐다.",
-   src:"아시아경제(영문)", url:"https://www.asiae.co.kr/en/article/2026081415574990795",
-   yt:4, ytnote:"코스피 7,000 시대 — 1년 새 2배가 정상인가, 무엇이 이 랠리를 떠받치나",
-   videos:[{t:"코스피 단숨에 7천 뚫었다‥삼전·닉스 '훨훨' (2026.05.06 MBC뉴스)", u:"https://www.youtube.com/watch?v=KbhLparRoyY"},
-           {t:"하루 1000P 사상 최대 '폭등'.. 외인 5조 '싹쓸이' 반도체 상한가·코스피 '불기둥' / MBC뉴스", u:"https://www.youtube.com/watch?v=oWtoMVL2PBs"}],
-   related:[{t:"Explaining South Korea's Stock Market Boom (Korea Economic Institute of America)", u:"https://keia.org/analysis/explaining-south-koreas-stock-market-boom/"}]},
-
-  {cat:"kpop", date:"2026-08-28", econ:false, intl:true, country:"미국", pride:true, title:"키키(KiiiKiii) '팝 오프 팝 오프', K팝 차트 2주 연속 1위",
-   desc:"키키의 신보 'WhyKiiiKiii' 타이틀곡 '팝 오프 팝 오프'가 숨피 K팝 뮤직차트에서 2주 연속 1위를 지켰다. 두 달 넘게 정상을 지키던 코르티스(CORTIS)의 'REDRED'를 끌어내리며 데뷔 주 1위로 진입한 뒤 자리를 유지 중이다. 레드벨벳·에스파·빅뱅·엔하이픈도 상위권에 올랐다. (Soompi's K-Pop Music Chart 2026, August Week 5)",
-   src:"Soompi", url:"https://www.soompi.com/article/1866753wpp/soompis-k-pop-music-chart-2026-august-week-5",
-   yt:3, ytnote:"신인 그룹이 2개월 왕좌를 뒤집는 법 — 2026년 K팝 차트 역학 정리",
-   videos:[], related:[{t:"Soompi's K-Pop Music Chart 2026, August Week 4 (Soompi)", u:"https://www.soompi.com/article/1864825wpp/soompis-k-pop-music-chart-2026-august-week-4"}]},
-
-  {cat:"kpop", date:"2026-08-13", econ:false, intl:true, country:"미국", pride:true, title:"스트레이 키즈 'THIS & THAT', 빌보드 200 9연속 1위…역대 최다 신기록",
-   desc:"스트레이 키즈의 새 앨범 'THIS & THAT'이 빌보드 200에 1위로 데뷔하며 데뷔작부터 9연속 1위라는 빌보드 역사상 최초의 기록을 세웠다. 집계 주간(8월 13일 마감) 36만9000 앨범 등가 단위를 기록했다. 그룹 기준으로는 통산 1위 횟수에서 롤링 스톤스와 공동 2위(19회 1위 비틀스에 이어)에 올랐다. (Stray Kids Score Ninth No. 1 on Billboard 200 With 'THIS & THAT')",
-   src:"Billboard", url:"https://www.billboard.com/music/chart-beat/stray-kids-this-and-that-number-one-billboard-200-chart-1236317298/",
-   yt:4, ytnote:"'첫 9장 전부 1위' 빌보드 역사를 새로 쓴 스트레이 키즈, 그 팬덤의 힘",
-   videos:[], related:[{t:"\"First in Billboard Chart History\"... Stray Kids Enter U.S. 'Billboard 200' for Ninth Consecutive Week (STARNEWS)", u:"https://www.starnewskorea.com/en/star/2026/08/17/2026081710350661556"}]},
-
-  {cat:"culture", date:"2026-08-29", econ:false, intl:true, country:"미국", pride:true, title:"넷플릭스 '우리의 끈적한 사랑' 글로벌 상위권·한국 1위…K드라마 8월 강세",
-   desc:"정해인·하영 주연 '우리의 끈적한 사랑(Our Sticky Love)'이 넷플릭스 글로벌 상위권과 한국 1위를 동시에 차지했다. 8월 18일 공개된 류준열·설경구 주연 웹툰 원작 범죄 스릴러 '마우스트랩', 8월 29일 공개된 송강·이준영 주연 '네 개의 손, 두 개의 소나타'까지 겹치며 K드라마가 8월 넷플릭스를 채웠다.",
-   src:"Screen Rant", url:"https://screenrant.com/every-k-drama-netflix-hulu-viki-streaming-august-2026/",
-   yt:3, ytnote:"웹툰 → 드라마 → 글로벌 1위, K콘텐츠 파이프라인이 굳어진 이유",
-   videos:[], related:[{t:"Netflix K-Drama Rankings for the First Week of August 2026: Global Hits & Korea's Favorites", u:"https://www.koreantopik.com/2026/08/netflix-k-drama-rankings-for-first-week.html"},
-            {t:"New K-Dramas on Netflix in August 2026 (What's on Netflix)", u:"https://www.whats-on-netflix.com/news/k-dramas/new-k-dramas-netflix-august-2026/"}]},
-
-  {cat:"sports", date:"2026-08-27", econ:false, intl:false, pride:true, title:"분데스리가 개막…김민재·이재성 출격, 유럽 무대 '코리안 시즌' 시작",
-   desc:"2026~2027 독일 분데스리가가 막을 올리며 바이에른 뮌헨 김민재와 마인츠 이재성이 새 시즌에 나선다. 스페인에서는 아틀레티코 마드리드로 옮긴 이강인이 먼저 힘차게 출발했다. 북중미 월드컵을 치른 태극전사들이 유럽 리그로 복귀하며 주말마다 한국 선수 경기를 볼 수 있게 됐다.",
-   src:"스포츠경향", url:"https://sports.khan.co.kr/article/202608271519003/",
-   yt:3, ytnote:"김민재·이강인·이재성 새 시즌 역할 변화 — 전술판으로 미리보기",
-   videos:[], related:[{t:"이강인 이어 이제 김민재…다시 유럽파의 시간 (네이트 스포츠)", u:"https://sports.news.nate.com/view/20260815n00367"}]},
-
-  {cat:"sports", date:"2026-08-26", econ:false, intl:false, pride:true, title:"아이치·나고야 아시안게임 D-30…야구 6연패·양궁 전 종목 석권 정조준",
-   desc:"9월 19일부터 10월 4일까지 일본 아이치현·나고야에서 열리는 제20회 아시안게임이 한 달 앞으로 다가왔다. 야구는 6회 연속·통산 7번째 금메달에 도전하고, '세계 최강' 양궁은 남자·혼성 단체전 금맥과 LA28 개인전 출전권을 노린다. 배드민턴 안세영은 2연패에 도전한다.",
-   src:"올림픽 공식 홈페이지", url:"https://www.olympics.com/ko/news/team-korea-day-by-day-highlights-aichi-nagoya-asian-games-2026",
-   yt:3, ytnote:"아시안게임 D-30 관전 가이드 — 금메달이 어디서 나오나 종목별 정리",
-   videos:[], related:[{t:"金 지키려는 야구·축구, 명예회복 노리는 농구·배구 (국민일보)", u:"https://www.kmib.co.kr/article/view.asp?arcid=9000004339&code=61161111&sid1=ens"}]}
+   related:[{t:"배드민턴 세계개인선수권 2026: 한국 대표팀 결과 모아보기 — 금2·동1 (올림픽공식)", u:"https://www.olympics.com/ko/news/team-korea-all-results-bwf-badminton-world-championships-new-delhi-2026"}]}
 ];
+
 
 
 /* ====== 렌더링 ====== */
