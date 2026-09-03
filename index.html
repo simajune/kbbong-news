@@ -85,7 +85,7 @@
     <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
   </header>
 
-  <div class="meta" id="updated">최종 업데이트: 2026-09-03</div>
+  <div class="meta" id="updated">최종 업데이트: 2026-09-04</div>
 
 
   <div class="stats">
@@ -117,6 +117,16 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
+  {cat:"tech", date:"2026-09-03", econ:true, intl:true, country:"미국", pride:true, title:"CNBC \"한국 반도체 수출 1년 새 3배…너무 좋아서 걱정일 정도\"",
+   desc:"CNBC는 한국의 8월 반도체 수출이 전년 대비 209% 늘어난 466억5000만달러로 전체 상품수출 982억5000만달러의 47.5%를 차지했다고 보도했다. 구글·아마존 등 하이퍼스케일러의 AI 인프라 투자가 수요를 밀어올린 결과로, 반도체가 3개월 연속 400억달러를 넘었다. 외신은 '한 나라 수출의 절반을 한 품목이 책임지는' 이례적 호황의 명암을 함께 짚었다. (South Korea's semiconductor exports just tripled year-over-year. Is it too much of a good thing?)",
+   src:"CNBC", url:"https://www.cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html",
+   yt:5, ytnote:"'수출의 절반이 반도체' — 외신이 부러워하면서도 걱정하는 이유 3가지",
+   videos:[{t:"반도체가 견인하며 대한민국 월 수출액이 1천억 달러 돌파! 사상 첫 기록에 향후 경제 전망 전격 분석", u:"https://www.youtube.com/watch?v=_r3FaiOAIzc"},
+           {t:"반도체 수출 힘입어...한국, 경제성장률 주요국 중 1위 기록 [이슈PLAY] / JTBC News", u:"https://www.youtube.com/watch?v=6Ry5dKIZFrc"},
+           {t:"수출 '역대 8월 중 최대' 기록…\"반도체가 해냈다\" / 연합뉴스TV", u:"https://www.youtube.com/watch?v=c-gaFu8bN5E"}],
+   related:[{t:"South Korea's Chip Exports Hit Record High in August (Kaohoon International)", u:"https://www.kaohooninternational.com/markets/589166"},
+            {t:"Korea's August exports jump 68.7% to $98.25 billion on strong chip demand (The Korea Times)", u:"https://www.koreatimes.co.kr/economy/20260901/koreas-august-exports-jump-687-to-9825-billion-on-strong-chip-demand"}]},
+
   {cat:"tech", date:"2026-09-01", econ:true, intl:false, pride:true, title:"8월 수출 982.5억달러 '역대 3위'…반도체 467억달러 월간 사상 최대",
    desc:"산업통상부는 8월 수출이 전년 동월 대비 68.7% 늘어난 982억5000만달러를 기록했다고 1일 밝혔다. 반도체 수출은 월간 기준 사상 최대인 467억달러(209% 증가)로 전체 수출의 47.5%를 책임졌다. 반도체 단일 품목이 나라 전체 수출의 절반 가까이를 떠받치는 전례 없는 국면이다.",
    src:"아시아투데이", url:"https://www.asiatoday.co.kr/kn/view.php?key=20260901010000101",
@@ -125,7 +135,7 @@ const NEWS = [
            {t:"'반도체의 힘' 수출, 11개월 연속 날았다...역대 8월 최대 실적 / YTN", u:"https://www.youtube.com/watch?v=ZeaLhlLTrAo"},
            {t:"[iM브리핑] 반도체가 끌어올린 8월 수출…초순부터 역대 최대", u:"https://www.youtube.com/shorts/1Qdm3CFSW2c"}],
    related:[{t:"[속보]'또 역대 최대' 반도체 수출…8월에만 209% 늘어 (아시아경제)", u:"https://view.asiae.co.kr/article/2026090108583071819"},
-            {t:"Korea's August exports jump 68.7% to $98.25 billion on strong chip demand (Korea Times)", u:"https://www.koreatimes.co.kr/economy/20260901/koreas-august-exports-jump-687-to-9825-billion-on-strong-chip-demand"}]},
+            {t:"'또 역대 최대' 반도체 수출…\"올해 전체 수출 1조달러 가능성 커\" (아시아경제)", u:"https://view.asiae.co.kr/article/2026090112133586170"}]},
 
   {cat:"tech", date:"2026-09-01", econ:true, intl:true, country:"미국", pride:true, title:"로이터 \"한국 8월 수출 68.7% 급증…15개월 연속 증가, 반도체가 견인\"",
    desc:"로이터는 한국의 8월 수출이 전년 대비 68.7% 늘어 15개월 연속 증가했다고 보도했다. AI 인프라 투자에 따른 글로벌 반도체 수요가 성장의 핵심 동력으로 지목됐다. (South Korea's Aug exports up 68.7% y/y, expand for 15th straight month)",
@@ -139,10 +149,17 @@ const NEWS = [
    yt:3, ytnote:"무역흑자 347억달러 — 숫자로 보는 한국의 교역 지형 변화",
    videos:[], related:[{t:"South Korea Trade Surplus Reaches New Record (Trading Economics)", u:"https://tradingeconomics.com/south-korea/balance-of-trade/news/538022"}]},
 
-  {cat:"tech", date:"2026-08-21", econ:true, intl:false, pride:true, title:"반도체 수출 또 '역대 최대'…8월 20일까지 260억달러, 3배 가까이 증가",
-   desc:"관세청 집계 기준 8월 1~20일 반도체 수출이 260억3200만달러로 역대 최대를 다시 썼다. 전체 수출에서 반도체가 차지하는 비중은 47.2%로 1년 새 22.5%포인트 확대됐다. 월중 집계 단계에서 이미 사상 최대치를 확정한 이례적 흐름이다.",
-   src:"아시아경제", url:"https://www.asiae.co.kr/article/2026082109241661133",
-   yt:3, ytnote:"'20일 만에 260억달러' — 반도체 비중 47%가 뜻하는 기회와 리스크",
+  {cat:"tech", date:"2026-09-03", econ:true, intl:false, pride:true, title:"한화오션, 대만 양밍해운서 1조5527억원 컨테이너선 6척 수주",
+   desc:"한화오션이 대만 양밍해운으로부터 1만3650TEU급 LNG 이중연료추진 컨테이너선 6척을 1조5527억원에 수주했다고 밝혔다. 지난해 매출액의 12.1%에 해당하는 규모로, 인도는 2029년 9월까지다. 친환경 이중연료 대형 컨테이너선은 한국 조선사가 기술 우위를 지켜온 영역이다.",
+   src:"베타뉴스", url:"https://www.betanews.net/article/view/beta202609030041",
+   yt:3, ytnote:"LNG 이중연료선은 왜 한국만 이기나 — 양밍 6척 수주로 보는 기술 장벽",
+   videos:[], related:[{t:"한화오션, 컨테이너선 6척 1조 5527억원에 수주 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=02840486645576512"},
+            {t:"[특징주] 한화오션, 1.5조 컨테이너선 수주에 5%대 강세⋯조선주↑ (이투데이)", u:"https://www.etoday.co.kr/news/view/2621481"}]},
+
+  {cat:"tech", date:"2026-09-01", econ:true, intl:false, pride:true, title:"한화오션, 4778억원 규모 초대형가스운반선(VLGC) 3척 수주",
+   desc:"한화오션이 오세아니아 지역 선주로부터 초대형가스운반선 3척을 4778억원에 수주했다고 1일 공시했다. 고부가가치 가스운반선은 한국 조선 3사가 세계 시장을 사실상 과점하고 있는 분야로, 하반기 LNG·가스선 발주 흐름이 이어지는 신호로 해석된다.",
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026090113383807098",
+   yt:3, ytnote:"왜 가스운반선은 한국만 만드나 — VLGC 수주가 알려주는 조선업 구조",
    videos:[], related:[]},
 
   {cat:"tech", date:"2026-08-31", econ:true, intl:false, pride:true, title:"한화에어로스페이스, 스페인에 K9 자주포 수출 실행계약…서유럽 첫 진출",
@@ -154,18 +171,6 @@ const NEWS = [
            {t:"K-9, 스페인 10조원 규모 자주포 수주 유력, 독일 PzH2000 보다 유리한 이유", u:"https://www.youtube.com/watch?v=8fnr2RWBcU4"}],
    related:[{t:"한화에어로, 서유럽 뚫었다…스페인 방산업체와 K9 수출 계약 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=03867126645552896"},
             {t:"[속보] 한화에어로스페이스, 스페인 K9 자주포 수출 실행계약 (CBC뉴스)", u:"https://www.cbci.co.kr/news/articleView.html?idxno=602422"}]},
-
-  {cat:"tech", date:"2026-09-01", econ:true, intl:false, pride:true, title:"한화오션, 4778억원 규모 초대형가스운반선(VLGC) 3척 수주",
-   desc:"한화오션이 오세아니아 지역 선주로부터 초대형가스운반선 3척을 4778억원에 수주했다고 1일 공시했다. 고부가가치 가스운반선은 한국 조선 3사가 세계 시장을 사실상 과점하고 있는 분야로, 하반기 LNG·가스선 발주 흐름이 이어지는 신호로 해석된다.",
-   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026090113383807098",
-   yt:3, ytnote:"왜 가스운반선은 한국만 만드나 — VLGC 수주가 알려주는 조선업 구조",
-   videos:[], related:[]},
-
-  {cat:"tech", date:"2026-08-10", econ:true, intl:false, pride:true, title:"조선 빅3 수주잔고 1450억달러…가스·해양·방산 호황 올라탔다",
-   desc:"HD현대중공업·한화오션·삼성중공업 등 국내 조선 빅3의 합산 수주잔고가 1450억달러에 이른 것으로 집계됐다. LNG선과 해양플랜트에 더해 미 해군 함정 MRO 등 방산 물량이 새 성장축으로 붙으면서 수년치 일감을 확보한 상태다. (Korea's Big Three shipbuilders ride gas, offshore, defense boom with $145 bn in order backlog)",
-   src:"KED Global", url:"https://www.kedglobal.com/shipping-shipbuilding/newsView/ked202608100003",
-   yt:3, ytnote:"수주잔고 1450억달러 — 한국 조선의 '슈퍼 백로그'를 숫자로 보기",
-   videos:[], related:[{t:"Is US Navy MRO real growth market for Korean shipbuilders? (The Korea Herald)", u:"https://www.koreaherald.com/article/10658377"}]},
 
   {cat:"tech", date:"2026-08-31", econ:true, intl:false, pride:true, title:"SK온, 미국서 1.5조원 규모 배터리 셀 수주…ESS 반격 본격화",
    desc:"SK온이 미국 네오볼타 파워에 9GWh 규모 배터리 셀을 공급하는 1조5000억원대 계약을 확보했다. 셀을 공급한 뒤 완제품 팩을 되사오는 구조로, 사업이 확대되면 전체 규모는 18GWh로 늘어난다. SK온은 조지아 공장에 ESS용 LFP 라인을 구축해 10월 양산에 들어갈 예정이다.",
@@ -182,6 +187,16 @@ const NEWS = [
            {t:"누리호 우주시대 열었다…다음은 재사용 발사체 / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=l_Q3pXA_F90"}],
    related:[{t:"[속보] 韓 우주발사체 '누리호'…10월 7일, 5차 발사한다 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10853985"},
             {t:"누리호 5차 10월 7일 출격···역대 최다 15기 위성 궤도 쏜다 (헬로디디)", u:"https://www.hellodd.com/news/articleView.html?idxno=112964"}]},
+
+  {cat:"kpop", date:"2026-09-02", econ:false, intl:false, pride:true, title:"스트레이 키즈, 빌보드 200 3주 연속 톱10…'9연속 1위' 대기록 뒤 롱런",
+   desc:"스트레이 키즈의 미니앨범 'THIS & THAT'이 빌보드 200에서 3주 연속 톱10을 지켰다. 이 앨범은 8월 22일자 차트에 1위로 진입해 데뷔 이후 발표한 9개 작품을 연속으로 빌보드 200 정상에 올린 전 세계 유일 기록을 완성했다. 비틀스에 이어 그룹으로는 두 번째다.",
+   src:"머니투데이", url:"https://www.mt.co.kr/stock/2026/09/02/2026090216540983283",
+   yt:4, ytnote:"비틀스 다음이 스키즈 — '9연속 빌보드 200 1위'가 얼마나 어려운 기록인가",
+   videos:[{t:"스트레이 키즈, '빌보드 200' 9연속 1위 데뷔 / SBS 8뉴스", u:"https://www.youtube.com/watch?v=MvBU_9tQf6Q"},
+           {t:"스트레이 키즈, '빌보드 200' 9연속 1위‥비틀스 이어 그룹 2번째 (2026.08.17/뉴스데스크/MBC)", u:"https://www.youtube.com/watch?v=I3SkGI_z6wQ"},
+           {t:"스트레이 키즈, 빌보드 9연속 1위…비틀스 이은 대기록 [잇슈 컬처] / KBS", u:"https://www.youtube.com/watch?v=8ZR4Qcis2XI"}],
+   related:[{t:"'매일이 역사' 스트레이 키즈, 美서 36만9000 유닛…'빌보드 200' 아홉 번째 정상 (스포츠월드)", u:"https://www.sportsworldi.com/newsView/20260817507080"},
+            {t:"스트레이 키즈, 美 '빌보드 200' 3주째 톱 10⋯자주적 음악으로 '롱런' 인기 (이투데이)", u:"https://www.etoday.co.kr/news/view/2621062"}]},
 
   {cat:"kpop", date:"2026-08-31", econ:false, intl:true, country:"미국", pride:true, title:"엔하이픈, 'THE SIN : BLISS'로 빌보드 200 첫 1위…데뷔 6년 만의 정상",
    desc:"빌보드는 엔하이픈의 여덟 번째 미니앨범 'THE SIN : BLISS'가 9월 5일자 빌보드 200 차트에서 1위로 데뷔한다고 밝혔다. 집계 기간 미국에서 9만8000 앨범 환산 유닛을 기록했다. 빌보드 200 정상에 오른 K팝 앨범의 계보를 잇는 성과다. (ENHYPEN Scores First No. 1 Billboard 200 Album With 'THE SIN : BLISS')",
@@ -200,34 +215,28 @@ const NEWS = [
    videos:[{t:"안세영이 해냈다! 야마구치 2-0 제압하고 다시 세계 챔피언!", u:"https://www.youtube.com/watch?v=Mp4fWTbCAMc"},
            {t:"[배드민턴 세계선수권] 안세영, 야마구치 꺾고 3년 만에 정상 탈환! '퍼펙트 우승'", u:"https://www.youtube.com/shorts/-aGqlnpvuQU"},
            {t:"진정한 세계 챔피언‼️ 안세영 vs 야마구치 아카네 | 세계 선수권 대회 2026", u:"https://www.youtube.com/watch?v=PVqkAVAjMTQ"}],
-   related:[{t:"한 게임도 안 내줬다...안세영, 3년만 세계선수권 우승 (머니투데이)", u:"https://www.mt.co.kr/sports/2026/08/24/2026082405031456275"}]},
+   related:[{t:"한 게임도 안 내줬다...안세영, 3년만 세계선수권 우승 (머니투데이)", u:"https://www.mt.co.kr/sports/2026/08/24/2026082405031456275"},
+            {t:"배드민턴: 안세영, 3년 만에 개인 통산 두 번째 여자 단식 우승 (Olympics.com)", u:"https://www.olympics.com/ko/news/an-seyoung-claim-gold-womens-singles-bwf-badminton-world-championships-new-delhi-2026"}]},
 
-  {cat:"culture", date:"2026-07-03", econ:true, intl:false, pride:true, title:"K-푸드+ 상반기 수출 70.5억달러 '역대 최대'…라면·과자·아이스크림이 견인",
-   desc:"농림축산식품부에 따르면 2026년 상반기 K-푸드+ 수출액이 70억5000만달러로 전년 동기 대비 4.1% 늘어 상반기 기준 역대 최대를 기록했다. 라면이 9억3500만달러로 27.9% 급증했고, 지역별 증가율은 중동(25.2%)이 1위였다. 정부는 올해 160억달러 수출을 목표로 잡았다.",
-   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260703000745",
-   yt:3, ytnote:"라면 한 품목이 9억달러 — K-푸드 수출 지도를 다시 그리다",
-   videos:[], related:[{t:"상반기 K푸드 수출 '역대 최대'…증가율 1위는 '중동' (연합뉴스)", u:"https://v.daum.net/v/20260705111600624?f=p"},
-            {t:"Korean food exports hit record, led by ramen and seaweed (KED Global)", u:"https://www.kedglobal.com/economy/newsView/ked202510290004"}]},
+  {cat:"tech", date:"2026-02-12", classic:true, econ:true, intl:false, pride:true, title:"삼성전자, 세계 최초 HBM4 양산 출하…AI 메모리 표준을 한국이 먼저 열었다",
+   desc:"삼성전자가 2026년 2월 12일 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다. JEDEC 표준 8Gbps를 46% 웃도는 11.7Gbps 동작 속도를 확보해 '업계 최고 성능'을 함께 달성했고, SK하이닉스·마이크론보다 앞선 출하였다. 메모리 기술 표준의 첫 깃발을 한국 기업이 꽂은 사례로, 이후 4개월 만에 HBM4 매출 10억달러를 돌파했다.",
+   src:"삼성전자 뉴스룸", url:"https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%84%B8%EA%B3%84-%EC%B5%9C%EC%B4%88-%EC%97%85%EA%B3%84-%EC%B5%9C%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%98-hbm4-%EC%96%91%EC%82%B0-%EC%B6%9C%ED%95%98",
+   yt:5, ytnote:"'세계 최초'가 돈이 되는 순간 — HBM4 양산 4개월 만에 10억달러",
+   videos:[{t:"삼성전자, 세계 최초 HBM4 양산 출하...\"업계 최고 성능\" / YTN 사이언스", u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},
+           {t:"삼성전자, 세계 첫 HBM4 양산 출하…\"최고 성능\" / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=cu7a9JxpzU8"},
+           {t:"삼성전자 HBM4 매출 10억달러 돌파…세계 최초 양산 4개월만", u:"https://www.youtube.com/watch?v=2ISCiplQgH0"}],
+   related:[{t:"삼성전자, 세계 최초 업계 최고 성능의 HBM4 양산 출하 (삼성반도체)", u:"https://semiconductor.samsung.com/kr/news-events/news/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing/"},
+            {t:"HBM4 석 달, 삼성은 '최초'·SK하이닉스는 '수율 안정' (글로벌이코노믹)", u:"https://www.g-enews.com/article/Global-Biz/2026/04/202604241932284200fbbec65dfb_1"}]},
 
-  {cat:"kpop", date:"2020-09-01", classic:true, econ:false, intl:true, country:"미국", pride:true, title:"BTS 'Dynamite', 빌보드 핫100 1위 데뷔…한국 가수 사상 최초",
-   desc:"2020년 9월 5일자 빌보드 핫100에서 방탄소년단의 'Dynamite'가 1위로 데뷔했다. 한국 아티스트가 빌보드 메인 싱글 차트 정상에 오른 것은 사상 처음이었다. 싸이의 '강남스타일'이 7주 연속 2위에 머물렀던 벽을 8년 만에 넘어선 순간으로, K팝이 미국 주류 시장의 중심에 진입했음을 알린 이정표가 됐다.",
-   src:"Billboard", url:"https://www.billboard.com/pro/bts-dynamite-tops-hot-100-chart/",
-   yt:5, ytnote:"'강남스타일이 못 넘은 1칸' — BTS가 핫100 정상을 뚫기까지의 8년",
-   videos:[{t:"BTS' \"Dynamite\" Debuts at No. 1 on the Hot 100 & More Chart Moves | Billboard News", u:"https://www.youtube.com/watch?v=ZfPFAZaiZvs"},
-           {t:"BTS React To Their First Hot 100 No. 1 Hit 'Dynamite' | Billboard News", u:"https://www.youtube.com/watch?v=gEgzPi0oWQY"},
-           {t:"BTS become 1st S. Korean artists to top Billboard Hot 100 with 'Dynamite'", u:"https://www.youtube.com/watch?v=_oSvMQ15vRM"}],
-   related:[{t:"BTS makes history as 1st Korean act to top Billboard Hot 100 (Korea.net)", u:"https://www.korea.net/NewsFocus/Culture/view?articleId=189278"},
-            {t:"A Look Back At The History BTS's 'Dynamite' Made On The Hot 100 (Forbes)", u:"https://www.forbes.com/sites/hughmcintyre/2021/04/21/a-look-back-at-the-history-btss-dynamite-made-on-the-hot-100/"}]},
-
-  {cat:"sports", date:"1992-08-09", classic:true, econ:false, intl:false, pride:true, title:"황영조, 바르셀로나 올림픽 마라톤 금메달…손기정 이후 56년 만의 제패",
-   desc:"1992년 8월 9일 바르셀로나 올림픽 폐막일, 황영조가 2시간13분23초로 남자 마라톤 결승선을 가장 먼저 통과했다. 마지막 급경사인 몬주익 언덕에서 일본의 모리시타 고이치를 따돌린 스퍼트는 한국 스포츠사의 상징적 장면으로 남았다. 1936년 베를린의 손기정 이후 56년 만이자, 대한민국 국적으로는 첫 올림픽 마라톤 금메달이었다.",
-   src:"YTN", url:"https://www.ytn.co.kr/_ln/0422_201008082145236597",
-   yt:5, ytnote:"몬주익 언덕 마지막 3km — 황영조는 어디서 승부를 걸었나",
-   videos:[{t:"1992 바르셀로나 올림픽 마라톤 황영조 마지막 질주", u:"https://www.youtube.com/watch?v=j9faJIO2sJg"},
-           {t:"[다시, 올림픽] 황영조의 마라톤 금메달...경기장엔 손기정이 기다리고 있었다 / JTBC News", u:"https://www.youtube.com/watch?v=_-GwbFEU99E"},
-           {t:"마라톤에도 '한일전'이 있었다! 황영조가 '몬주익 언덕'에서 펼친 승부", u:"https://www.youtube.com/watch?v=XY9nH1U4tTs"}],
-   related:[{t:"[오늘의 역사] 1992년 8월 9일 황영조 올림픽 마라톤 우승 (매일신문)", u:"https://www.imaeil.com/page/view/2024080715244349946"},
-            {t:"황영조 (위키백과)", u:"https://ko.wikipedia.org/wiki/%ED%99%A9%EC%98%81%EC%A1%B0"}]},
+  {cat:"culture", date:"2026-01-28", classic:true, econ:false, intl:true, country:"미국", pride:true, title:"'케이팝 데몬 헌터스', 넷플릭스 역대 최다 시청작…'골든'은 빌보드 핫100 1위",
+   desc:"2025년 6월 넷플릭스에 공개된 '케이팝 데몬 헌터스'가 누적 5억 회 이상 시청되며 영화·시리즈를 통틀어 넷플릭스 역대 최다 시청 콘텐츠에 올랐다. OST '골든'은 빌보드 글로벌 200과 핫100 1위를 석권하고 30개국 이상에서 정상에 올랐다. 한국의 무속·한복·서울 풍경을 전면에 내세운 이야기가 세계 대중문화의 중심에 선 사건이었다. (The Global Rise Of Netflix's KPop Demon Hunters)",
+   src:"DOGOnews", url:"https://www.dogonews.com/2026/1/28/the-global-rise-of-netflixs-k-pop-demon-hunters",
+   yt:5, ytnote:"'케데헌'은 왜 세계에서 통했나 — 한국적 소재가 글로벌 1위가 된 설계도",
+   videos:[{t:"'케이팝 데몬 헌터스', '오징어게임' 제쳤다…넷플릭스 역대 1위 | SBS 이슈라이브", u:"https://www.youtube.com/watch?v=IxzLSafLc5U"},
+           {t:"케이팝 데몬 헌터스 '골든' 빌보드 1위...영미 차트 석권 / YTN", u:"https://www.youtube.com/watch?v=nU9nWzjUFmQ"},
+           {t:"[뉴스쏙] 세계는 지금 케데헌…'케이팝 데몬 헌터스' 넷플릭스·빌보드 모두 찢었다 / 연합뉴스TV", u:"https://www.youtube.com/watch?v=30ZQ7UEEhmw"}],
+   related:[{t:"Golden (Huntrix song) — Billboard Hot 100 No.1 (Wikipedia)", u:"https://en.wikipedia.org/wiki/Golden_(Huntrix_song)"},
+            {t:"'KPop Demon Hunters' becomes global hit with Billboard chart-topper Golden (ABC7)", u:"https://abc7.com/post/kpop-demon-hunters-becomes-global-hit-billboard-chart-topper-golden-powerful-celebration-korean-culture/17931768/"}]},
 
   {cat:"culture", date:"2020-02-10", classic:true, econ:false, intl:false, pride:true, title:"'기생충', 아카데미 작품상 포함 4관왕…92년 오스카 역사상 비영어 영화 최초",
    desc:"봉준호 감독의 '기생충'이 제92회 아카데미 시상식에서 작품상·감독상·각본상·국제장편영화상 4개 부문을 휩쓸었다. 비영어권 영화가 작품상을 받은 것은 아카데미 92년 역사상 처음이며, 작품상과 감독상을 동시에 받은 것도 최초다. 한국 영화 탄생 101년 만에 세계 영화사의 벽을 넘은 순간으로 기록됐다.",
