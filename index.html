@@ -58,6 +58,15 @@
   .intl{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
     background:rgba(59,130,246,.14);color:#3b82f6;border:1px solid rgba(59,130,246,.4)}
   .intl-chip.on{background:#3b82f6;border-color:#3b82f6;color:#fff}
+  .size{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
+    background:rgba(168,85,247,.14);color:#a855f7;border:1px solid rgba(168,85,247,.4)}
+  .size.sme{background:rgba(245,158,11,.16);color:#f59e0b;border-color:rgba(245,158,11,.45)}
+  .sme-chip.on{background:#f59e0b;border-color:#f59e0b;color:#fff}
+  .wclass{align-self:flex-start;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;
+    background:rgba(236,72,153,.14);color:#ec4899;border:1px solid rgba(236,72,153,.45)}
+  .wclass-chip.on{background:#ec4899;border-color:#ec4899;color:#fff}
+  .world{font-size:12.5px;line-height:1.5;color:var(--sub);border-left:3px solid #ec4899;
+    padding:4px 0 4px 10px;margin:2px 0}
   .rel{font-size:12.5px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);padding:2px 10px}
   .rel summary{cursor:pointer;padding:7px 0;color:var(--sub);font-weight:600;user-select:none}
   .rel summary:hover{color:var(--txt)}
@@ -82,13 +91,15 @@
     <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
   </header>
 
-  <div class="meta" id="updated">최종 업데이트: 2026-09-07</div>
+  <div class="meta" id="updated">최종 업데이트: 2026-09-08</div>
 
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
     <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
     <div class="stat"><div class="n" id="s-econ">0</div><div class="l">💰 경제 채널 적합</div></div>
     <div class="stat"><div class="n" id="s-intl">0</div><div class="l">🌍 외신 보도</div></div>
+    <div class="stat"><div class="n" id="s-sme">0</div><div class="l">🏭 중소·중견</div></div>
+    <div class="stat"><div class="n" id="s-world">0</div><div class="l">🌏 세계적 위상</div></div>
     <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
   </div>
 
@@ -112,75 +123,80 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
-  {cat:"tech", econ:true, size:"대기업", pride:true, title:"삼성전자·SK하이닉스, 세계 최초 HBM4 양산 출하…AI 메모리 판 뒤집었다",
-   desc:"6세대 고대역폭메모리 HBM4를 미국 마이크론보다 앞서 세계 최초로 양산 출하. 삼성전자는 계획보다 일주일 앞당겨 '업계 최고 성능' 제품을 내놨고, SK하이닉스도 9월 HBM4 양산 체제를 확보하며 AI 인프라 시대의 핵심 부품을 한국이 독점적으로 선점했다.",
-   src:"SPTA타임스코리아 / 반도체 기술 뉴스", url:"https://www.sptatimeskorea.com/post/%EC%A0%9C20260902-tt-01%ED%98%B8-2026%EB%85%84-9%EC%9B%94-2%EC%9D%BC-%EB%B0%98%EB%8F%84%EC%B2%B4-%EA%B8%B0%EC%88%A0-%EA%B4%80%EB%A0%A8-%EC%A3%BC%EC%9A%94-%EB%89%B4%EC%8A%A4-%EC%9A%94%EC%95%BD",
-   yt:5, ytnote:"엔비디아가 줄 서서 기다리는 부품을 한국 두 회사가 1·2위로 만든다 — '왜 세계 최초가 중요한가'를 HBM 구조 애니메이션으로 풀면 조회수 확실",
-   videos:[{t:"삼성전자 HBM4 세계 최초 양산 출하…HBM4 경쟁 본격화 [MBN 뉴스7]",u:"https://www.youtube.com/watch?v=GX5XPYBa28M"},{t:"삼성전자, 세계 최초 HBM4 양산 출하...\"업계 최고 성능\" / YTN 사이언스",u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},{t:"SK·삼성 정면승부! HBM4 세계 최초 양산…반도체 판 뒤집힌다",u:"https://www.youtube.com/watch?v=KufQKowjp7s"}],
-   related:[{t:"2026년 시장 전망… \"HBM이 이끄는 메모리 슈퍼사이클에 주목\" (SK hynix Newsroom)",u:"https://news.skhynix.co.kr/2026-market-outlook/"},{t:"\"반도체 시장 9000억달러 시대온다\"…2026년 '질적 성장' 원년 (테크월드)",u:"https://www.epnc.co.kr/news/articleView.html?idxno=325152"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"미국 마이크론·SK하이닉스보다 앞서 6세대 HBM4를 세계 최초로 양산 출하하며 엔비디아향 AI 메모리 공급을 선점했다.",
+   pride:true, title:"삼성전자, 최대 13Gbps HBM4 세계 최초 양산 출하…엔비디아에 첫 공급",
+   desc:"삼성전자가 2월 12일 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다. 1c D램(6세대 10나노급)을 적용해 11.7Gbps를 안정적으로 확보하고 최대 13Gbps까지 구현, 재설계 없이 초기 양산부터 업계 최고 성능과 수율을 동시에 달성했다. 삼성은 2026년 HBM 매출이 전년 대비 3배 이상 늘 것으로 보고 증설에 나섰다.",
+   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260212150634",
+   yt:5, ytnote:"'엔비디아가 줄 서서 기다리는 부품' 앵글. HBM4 적층 구조 애니메이션 + 마이크론/하이닉스와의 속도 비교표로 10분물",
+   videos:[{t:"삼성전자, 세계 최초 HBM4 양산 출하...\"업계 최고 성능\" / YTN 사이언스",u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},{t:"삼성전자 HBM4 세계 최초 양산 출하…HBM4 경쟁 본격화 [MBN 뉴스7]",u:"https://www.youtube.com/watch?v=GX5XPYBa28M"},{t:"삼성전자 HBM4 매출 10억달러 돌파…세계 최초 양산 4개월만",u:"https://www.youtube.com/watch?v=2ISCiplQgH0"}],
+   related:[{t:"삼성전자, 엔비디아에 '세계 최초' HBM4 양산 출하 개시 (머니투데이)",u:"https://www.mt.co.kr/industry/2026/02/12/2026021215150041209"},{t:"삼성전자, HBM4 세계 최초 양산 출하…\"업계 최고 성능 구현\" (경향신문)",u:"https://www.khan.co.kr/en/article/202602121723027"}]},
 
-  {cat:"tech", econ:true, size:"중견", pride:true, title:"정부, '제3기 슈퍼 을(乙)' 5개사 선정…선익시스템·이오테크닉스 등 소부장 강소기업 발탁",
-   desc:"산업통상부가 소재·부품·장비 협력모델 5건을 승인하고 '슈퍼 을' 5개사를 선정. AI 기반 OLED 자율 증착장비(선익시스템), 초고속 레이저 열처리 장비(이오테크닉스), 전고체용 황화물계 고체전해질(에코프로비엠), 잠수함 연료전지 핵심장비(한화오션), 위성통신 저손실 소재(두산전자)가 과제당 200억원씩 지원받는다. 2030년까지 세계 최고·최초 기술 보유 공급기업 15개사 육성이 목표.",
-   src:"전자신문", url:"https://www.etnews.com/20260806000186",
-   yt:4, ytnote:"'삼성·SK 뒤에 숨은 진짜 실력자들' 앵글. 대기업이 아니라 이름 모를 장비회사가 세계 1위라는 반전 구조로 시작하면 이탈률 낮음",
-   videos:[{t:"에코프로비엠 \"전고체 전해질 내년 말 양산 준비\" / 한국경제TV뉴스",u:"https://www.youtube.com/watch?v=FnOKvHGmuf8"},{t:"전기자동차 필수! 고체전해질 대량 생산 기술 최초 개발",u:"https://www.youtube.com/watch?v=X_8iVKLlDQw"}],
-   related:[{t:"정부, 소부장 협력모델 5건에 5년간 910억원…한화오션 등 5개사 '슈퍼 을' 선정 (아주경제)",u:"https://www.ajunews.com/view/20260806084216122"},{t:"슈퍼 을(乙) 기업 육성 및 협력체계 확대로 소부장 생태계 경쟁력 강화 (산업통상부)",u:"https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172088/view"}]},
+  {cat:"tech", econ:true, size:"중견", wclass:"세계1위", world:"HBM 3D 적층에 필수인 TC본더 시장에서 누적 점유율 71.2%로 세계 1위, 이 장비 없이는 글로벌 어느 업체도 HBM을 만들 수 없다.",
+   pride:true, title:"한미반도체, HBM TC본더 세계 점유율 71%…머스크 테라팹까지 넘본다",
+   desc:"인천의 중견 장비기업 한미반도체가 HBM 핵심 공정인 열압착(TC) 본더 시장에서 누적 점유율 71.2%로 세계 1위를 지키고 있다. SK하이닉스는 1월 TC본더를 재발주했고, 회사는 1000억원을 투입해 인천 주안산단에 하이브리드 본더 팩토리를 2026년 말 완공 목표로 짓는 중이다. 첨단 패키징 EMI 차폐 장비에서도 세계 1위다.",
+   src:"블로터", url:"https://www.bloter.net/news/articleView.html?idxno=669046",
+   yt:4, ytnote:"'삼성·SK 뒤에 숨은 진짜 갑' 서사. 대기업이 아닌 이름 모를 인천 장비회사가 세계 71%라는 반전으로 오프닝",
+   videos:[{t:"삼성과 맞서고 세계 1등 찍은 '한미반도체' / 소비더머니",u:"https://www.youtube.com/watch?v=rS5q2rCF1RQ"},{t:"한미반도체, 올해 HBM TC본더 '압도적 1위' 공식화!",u:"https://www.youtube.com/watch?v=pr1x_uy31zQ"},{t:"한미반도체, HBM 장비 싹쓸이…TC본더 생산능력 2조까지 늘린다",u:"https://www.youtube.com/watch?v=6DWQJuRqlQU"}],
+   related:[{t:"한미반도체 HBM TC 본더 세계 점유율 71%…세계 1위 (디지털데일리)",u:"https://m.ddaily.co.kr/page/view/2025122209443632881"},{t:"TC본더 시장 활짝…한미반도체·한화세미텍 '안방 싸움'",u:"https://v.daum.net/v/20260304172902204"}]},
 
-  {cat:"tech", econ:true, size:"스타트업", pride:true, title:"뤼튼테크놀로지스, 韓 AI 서비스 스타트업 최초로 유니콘 등극",
-   desc:"AI 서비스 플랫폼 뤼튼테크놀로지스가 1000억원 규모 시리즈C를 유치하며 기업가치 1조원을 넘어섰다. 국내 AI 서비스 기업 중 첫 유니콘으로, 누적 투자 유치액은 약 2300억원. 빅테크가 장악한 AI 소비자 시장에서 토종 서비스가 만든 성과라는 점에서 의미가 크다.",
-   src:"뉴시스", url:"https://www.newsis.com/view/NISX20260826_0003762747",
-   yt:4, ytnote:"'구글·오픈AI 사이에서 살아남은 한국 AI' 서사. 국내 AI 스타트업 생태계 지도와 묶어 10분물로",
-   videos:[{t:"1000억 투자 받은 뤼튼 AI? 캐릭터 챗이 뭔데? | IT 인사이드 아웃 Ep.2",u:"https://www.youtube.com/watch?v=PnlwjY3g-Tw"},{t:"Your first AI (주)뤼튼테크놀로지스 | 이세영 대표이사",u:"https://www.youtube.com/watch?v=bEf31PBborE"}],
-   related:[{t:"2026 대한민국 고속성장 스타트업 50 (포브스코리아)",u:"https://www.forbeskorea.co.kr/news/articleView.html?idxno=402216"},{t:"2026년 스타트업 생태계 대전환, '딥테크'와 '글로벌'이 승부처다",u:"https://www.koreabizreview.com/detail.php?number=7361&thread=21r04"}]},
+  {cat:"tech", econ:true, size:"중소", wclass:"글로벌수주", world:"세계에서 단 한 곳(HPSP)만 공급하던 고압수소어닐링 장비를 두 번째로 상용화해 글로벌 반도체 기업에 실제 출하했다.",
+   pride:true, title:"예스티, 고압수소어닐링 장비 첫 출하…'세계 유일' 독점 시장 깨고 글로벌 진입",
+   desc:"중소 장비기업 예스티가 75매급 고압수소어닐링(HPA) 장비를 글로벌 반도체 기업에 첫 출하했다. HPA는 실리콘 계면 결함을 고압 수소로 치유해 소자 성능을 끌어올리는 장비로, 그동안 한국의 HPSP가 세계에서 유일하게 공급해 온 영역이다. 양산 테스트용 장비가 고객사 팹에 반입되며 한국 기업 두 곳이 이 시장을 나눠 갖는 구도가 됐다.",
+   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260323111517",
+   yt:3, ytnote:"'세계에 딱 두 곳, 둘 다 한국' 구도. HPSP vs 예스티 특허전까지 엮으면 산업 다큐 톤",
+   videos:[], related:[]},
 
-  {cat:"tech", econ:true, size:"중소", pride:true, title:"중기부, 수출·도약·소부장 맞춤형 기술혁신 R&D에 156억원…125개 강소기업 신규 선정",
-   desc:"중소벤처기업부가 2026년 하반기 중소기업기술혁신개발사업으로 125개사를 신규 선정해 156억원을 투입한다. 수출형·소부장형 트랙을 분리해 해외 진출 실적이 있는 기술기업과 국산화 과제를 집중 지원, '이름 없는 세계 1위'를 계속 만들어내겠다는 구상.",
-   src:"디지털타임스", url:"https://www.dt.co.kr/article/12062423",
-   yt:3, ytnote:"정책성 기사라 단독으로는 약함. 실제 수혜 강소기업 2~3곳 사례와 엮어 편집 권장",
-   videos:[],
-   related:[{t:"2026년 하반기 1차 중소기업기술혁신개발사업(소부장) 시행계획 공고 (기업마당)",u:"https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000119498"}]},
+  {cat:"tech", econ:true, size:"중견", wclass:"글로벌수주", world:"원전 종주국 유럽의 체코 원전에 한국 기업이 고정형 캐스크를 수출하는 최초의 계약을 따냈다.",
+   pride:true, title:"태웅, 체코 원전에 단조품 공급 계약…韓 최초 고정형 캐스크 수출",
+   desc:"부산의 단조 전문 중견기업 태웅이 체코 테믈린·두코바니 원전에 단조품을 공급하는 계약을 스코다JS와 체결했다. 한국 기업이 사용후핵연료 저장용 고정형 캐스크를 수출하는 첫 사례로, 26조원 규모 체코 신규 원전 수주에 이어 소부장 기업까지 유럽 원전 공급망에 진입했다는 의미가 있다. SMR용 단조품으로도 사업을 넓히고 있다.",
+   src:"다음뉴스(파이낸셜뉴스)", url:"https://v.daum.net/v/20260305191402009",
+   yt:3, ytnote:"'체코 원전 26조의 낙수는 어디로 갔나' — 대기업 수주 뒤 중견 소부장이 따라 나가는 구조를 지도로",
+   videos:[], related:[{t:"26兆 체코 원전 최종 계약 체결 (한국경제)",u:"https://www.hankyung.com/article/2025060458981"}]},
 
-  {cat:"tech", econ:true, size:"대기업", pride:true, title:"K-방산 빅4, 글로벌 TOP100 2년 연속 동반 진입…한화 16위",
-   desc:"디펜스뉴스 2026 글로벌 방산기업 TOP100에서 한화 16위, LIG넥스원 52위, 현대로템 61위, KAI 74위를 기록. 한국의 세계 무기 수출 점유율은 10년 전 0.9%에서 2.2%로 뛰었고, 록히드마틴·RTX가 지키던 판에 한국 기업 4곳이 2년 연속 이름을 올렸다.",
-   src:"뉴스스페이스", url:"https://www.newsspace.kr/news/article.html?no=15476",
-   yt:5, ytnote:"'전쟁이 아니라 납기로 이겼다' — 유럽이 한국 무기를 산 진짜 이유는 생산 속도. 랭킹 비주얼 + 폴란드 계약 타임라인으로 구성",
-   videos:[{t:"세계 방산 판도가 바뀌었다… 한국은 어떻게 4위에 올랐나",u:"https://www.youtube.com/watch?v=wT-KFfYHZF4"},{t:"[한눈에 이슈] 날개 돋힌 듯 팔린 K-방산, '전통 무기 강자' 중국·독일 넘나 / KBS",u:"https://www.youtube.com/watch?v=nAdDlwHLj_A"},{t:"\"K-방산, 올해 28조원 수출 전망\"…독일·중국 제치고 빅4 진입",u:"https://www.youtube.com/watch?v=FT8GcoOzXgg"}],
-   related:[{t:"K-방산, 유럽·중동 싹쓸이…세계 4위 수출국 도약 전망 (글로벌이코노믹)",u:"https://www.g-enews.com/article/Global-Biz/2026/08/202608050703029029fbbec65dfb_1"},{t:"2026년 'K-방산' 퀀텀 점프 원년…56조 규모 역대급 수출 예고",u:"https://ygdata.kr/article/1065590790958193"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"암모니아를 화물이자 연료로 쓰는 세계 최초의 상선을 건조·인도해 무탄소 선박 시대를 한국이 먼저 열었다.",
+   pride:true, title:"HD현대중공업, 세계 최초 암모니아 추진 암모니아운반선 인도",
+   desc:"HD현대중공업이 벨기에 가스선사 엑스마에 4만6000㎥급 암모니아 운반선 '안트워펜호'를 인도했다. 암모니아를 화물로 실으면서 동시에 연료로도 쓰는 세계 최초의 상선으로, 운항 중 탄소를 배출하지 않는다. HD현대는 같은 방식의 암모니아 추진선 8척을 확보해 친환경 선박 기술 경쟁에서 앞서 나가고 있다.",
+   src:"디일렉(THE ELEC)", url:"https://www.thelec.kr/news/articleView.html?idxno=54842",
+   yt:4, ytnote:"'배가 탄소를 안 뿜는다' 후킹. 암모니아 연소의 난이도(독성·질소산화물)를 설명한 뒤 한국이 먼저 푼 이유로 마무리",
+   videos:[{t:"HD현대, 암모니아 추진선 엔진 탑재 성공 '세계 최초'",u:"https://www.youtube.com/watch?v=RInaJdBgF_w"},{t:"선박도 탈탄소..세계 최초 암모니아 디젤 혼소 선박 진수 (MBC경남)",u:"https://www.youtube.com/watch?v=zt6nYdmB_kw"},{t:"탄소배출 '제로' 암모니아 추진선 개발 속도 낸다 (울산MBC)",u:"https://www.youtube.com/watch?v=v3uOrRDHhRs"}],
+   related:[{t:"암모니아 추진선 시대 개막…조선 빅3, 친환경 선박 기술 경쟁 (한국경제)",u:"https://www.hankyung.com/article/202604178335G"},{t:"[해양통신] HD현대, 세계 최초 암모니아추진 암모니아운반선 인도",u:"https://www.oceanpress.co.kr/news/article.html?no=30307"}]},
 
-  {cat:"tech", econ:true, size:"대기업", pride:true, title:"'기술 자립' 넘어 '시장 자립'으로…\"2026년은 우주산업 대전환 원년\"",
-   desc:"초소형군집위성 2~6호, 차세대중형위성 2·4호, 다목적실용위성 6호 발사가 줄줄이 예정. 발사체와 위성을 독자 개발·운용하는 기본 역량을 확보한 한국이 이제 '만들 수 있다'를 넘어 '팔 수 있다'로 넘어가는 단계에 들어섰다.",
-   src:"다음뉴스 / 뉴스페이스 코리아", url:"https://v.daum.net/v/20260420055802926",
-   yt:4, ytnote:"누리호→차세대발사체→위성 수출로 이어지는 15년 타임라인 영상. 발사 장면 아카이브 활용도 높음",
-   videos:[{t:"한국 방산이 앞으로 50년 글로벌 패권을 선점하는 결정적 이유",u:"https://www.youtube.com/watch?v=2zf4ceNeUtU"},{t:"세계가 K방산 생산속도에 놀란 이유",u:"https://www.youtube.com/shorts/oHEfdZJy0fI"}],
-   related:[{t:"K-방산 다음 무대는 '우주'...실적 호조에 미래 투자도 확대 (더빅데이터뉴스)",u:"https://www.thebigdata.co.kr/view.php?ud=2026062515551146640a47484cf8_23"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"해외인정", world:"글로벌 빅파마들이 한국 신약·플랫폼 기술을 잇달아 사가며 연간 기술수출액이 21조원까지 불어났다.",
+   pride:true, title:"韓 기술수출 21조원 돌파…신약·플랫폼 '빅딜' 행진",
+   desc:"국내 제약·바이오 기업의 글로벌 기술수출이 지난해 사상 최대를 찍은 데 이어 올해도 대형 계약이 이어지며 21조원을 넘어섰다. 정맥주사를 피하주사로 바꾸는 알테오젠의 ALT-B4처럼 글로벌 제약사가 줄을 서는 플랫폼 기술이 중심이다. '20조원대'가 K-바이오 기술수출의 새 기준선으로 자리 잡는 모양새다.",
+   src:"머니투데이 더바이오", url:"https://www.mt.co.kr/thebio/2026/09/07/2026090619570577205",
+   yt:3, ytnote:"'약을 안 팔고 기술만 팔아 21조' — 기술수출 비즈니스 모델을 초보자용으로 해부",
+   videos:[], related:[{t:"K바이오, 신약 경쟁력 입증… 기술수출, 역대 최대 또 넘본다 (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202608301753135370"}]},
 
-  {cat:"tech", econ:true, size:"대기업", pride:true, title:"SMR 특별법 9월 11일 시행…두산·HD현대, 원전 밸류체인 선점 경쟁",
-   desc:"'소형모듈원자로 개발·지원 특별법'이 9월 11일 시행되며 국내 원전 산업이 대형원전에서 SMR 중심으로 급속 재편. HD한국조선해양이 원자로 용기 제작을 수주했고, HD현대중공업은 테라파워와 소듐냉각로 공급 기본합의를 맺고 핵심기기 우선협상대상자로 선정됐다. '원전 파운드리' 모델이 현실화되는 국면.",
-   src:"네이트뉴스", url:"https://news.nate.com/view/20260812n03019",
-   yt:4, ytnote:"'빌 게이츠가 한국 공장에 주문한 이유' 후킹. SMR이 뭔지 3분 설명 + 한국이 제작 역량을 독점한 구조 해설",
-   videos:[{t:"[킥] 원전 파운드리로 거듭나는 두산에너빌리티 l 빅테크와 빌 게이츠가 열광하는 SMR",u:"https://www.youtube.com/watch?v=lVu9d8rkCdI"},{t:"\"SMR, 제2 반도체로 육성\"…현장에 필요한 것은? / KBS",u:"https://www.youtube.com/watch?v=NAStQx_VyrY"},{t:"두산에너빌리티, SMR 공장 3배 확장…원전 시장 초격차 노린다",u:"https://www.youtube.com/watch?v=jgL-47TjrRg"}],
-   related:[{t:"韓美日 SMR 동맹에 원전기업 수주 기대감 (네이트뉴스)",u:"https://news.nate.com/view/20260713n29593"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"글로벌수주", world:"유럽 완성차에 차세대 텔레매틱스를 업계 최초로 공급하며 자동차 부품 본고장 시장을 파고들었다.",
+   pride:true, title:"LG전자, 유럽 완성차에 '차세대 텔레매틱스' 공급…업계 최초",
+   desc:"LG전자가 유럽 완성차 업체에 차세대 텔레매틱스 모듈을 업계 최초로 공급한다. 텔레매틱스는 차량과 외부를 잇는 통신 관문으로, 소프트웨어 중심 차량(SDV) 전환의 핵심 부품이다. 완성차 종주국 유럽 고객을 확보하며 LG전자 전장(VS) 사업의 수주 잔고 확대에 힘이 실렸다.",
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202608190929027521",
+   yt:3, ytnote:"'유럽 차 안에 한국 통신 부품' — 전장 부품 밸류체인에서 한국의 위치를 정리",
+   videos:[], related:[]},
 
-  {cat:"tech", econ:true, size:"중견", pride:true, title:"FDA 허가부터 3상 결과까지…하반기 K-바이오 성과 '시험대'",
-   desc:"아리바이오의 경구용 알츠하이머 치료제 AR1001 글로벌 3상 톱라인 결과가 9월 공개되고, 엘레바의 담관암 치료제 리라푸그라티닙은 FDA 우선심사 결과를 기다린다. 상반기엔 큐로셀의 CAR-T 항암제 '림카토'(42호)와 퓨쳐켐의 전립선암 진단 방사성의약품(43호)이 국산 신약으로 허가돼 역대 최다 기록에 도전 중.",
-   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260706000488",
-   yt:4, ytnote:"'알츠하이머 먹는 약을 한국이?' 후킹 강함. 다만 3상 결과 발표 전후로 톤 조절 필요 — 결과 확인 후 업로드 권장",
-   videos:[{t:"'아리바이오' 치매 신약 탄생하나..글로벌 3상 투약 완료",u:"https://www.youtube.com/shorts/oOVYbxqKAJQ"},{t:"K-치매치료제 선두주자 아리바이오, 역대급 기술수출 터지나 #팜이데일리",u:"https://www.youtube.com/watch?v=eV01EnvoWA0"},{t:"아리바이오 'AR1001', 치매치료제 게임체인저 될 것ㅣ하재영",u:"https://www.youtube.com/watch?v=ttHRF2tbcBM"}],
-   related:[{t:"2026년 상반기 국산 신약 2건 허가 완료… 42·43번째 신약으로 역대 최대 기록 도전",u:"https://www.koreaiin.com/news/903402"},{t:"2026년 FDA 문 두드리는 K-바이오…차별화 전략은? (바이오타임즈)",u:"https://www.biotimes.co.kr/news/articleView.html?idxno=26570"}]},
+  {cat:"tech", econ:true, size:"중소", wclass:"해외인정", world:"세계 1위 장비사 램리서치가 한국 중소 부품사들을 상대로 잇달아 특허·디자인권 분쟁을 걸 만큼 기술력을 위협으로 인식하고 있다.",
+   pride:true, title:"글로벌 장비사, 韓 부품 중소기업에 특허전…\"견제받는다는 건 따라잡았다는 뜻\"",
+   desc:"세계 최대 반도체 장비사 램리서치가 씨엠티엑스·에스에이치엠·월덱스·플라텍·윌비에스엔티 등 국내 부품 중소기업을 상대로 특허·디자인권 분쟁에 나섰다. 국내 부품사들이 장비사를 거치지 않고 반도체 제조사에 직접 납품하는 애프터마켓 비중이 30%까지 커지자 IP 장벽을 세운 것. 견제 자체가 국내 부품 기술력이 글로벌 수준에 도달했음을 보여준다.",
+   src:"전자신문", url:"https://www.etnews.com/20260819000332",
+   yt:3, ytnote:"'소송당했다는 게 훈장' 앵글. 특허전이 곧 기술 추격 완료 신호라는 산업사적 패턴 설명",
+   videos:[], related:[]},
 
-  {cat:"culture", econ:true, pride:true, title:"K-푸드+ 상반기 수출 70.5억 달러 역대 최고…라면·김치 동반 신기록",
-   desc:"2026년 상반기 K-푸드+ 수출액이 전년 대비 4.1% 늘어난 70.5억 달러로 상반기 기준 역대 최고. 미국 시장이 처음으로 10억 달러를 돌파했고 라면은 단일 품목 최초로 연 15억 달러를 넘긴 데 이어 올해 17억 달러 페이스, 김치도 1.64억 달러로 역대 최대를 찍었다.",
-   src:"농림축산식품부", url:"https://www.mafra.go.kr/bbs/home/792/578357/artclView.do",
-   yt:5, ytnote:"'라면 한 봉지가 반도체가 됐다' — 수출액을 다른 산업과 비교하는 스케일 연출. 해외 반응 영상 인서트 필수",
-   videos:[{t:"라면에 김밥은 '글로벌 룰'…K-푸드 수출 또 역대 최대 / SBS",u:"https://www.youtube.com/watch?v=uAvBNgn9pG4"},{t:"잘 나가는 'K 푸드' 역대 최대 수출액...신선 식품은 숙제 / YTN",u:"https://www.youtube.com/watch?v=xPG_5MP-B5E"},{t:"농식품산업 수출 70억 달러 역대 최고…'효자' 라면 28% 쑥 [MBN 뉴스센터]",u:"https://www.youtube.com/watch?v=L24O6zYRTKs"}],
-   related:[{t:"K-푸드+ 상반기 수출 70억 달러 돌파…미국 첫 10억 달러, 라면 수출 '신기록' (농업경제신문)",u:"https://www.nvp.co.kr/news/articleView.html?idxno=318644"},{t:"K-라면, 왜 전 세계를 사로잡았나: 2026 세계 라면 시장과 한국 수출의 폭발적 성장 (KBR)",u:"https://www.koreabizreview.com/articles/kbr-legacy-7778"}]},
+  {cat:"kpop", econ:false, wclass:"해외인정", world:"미국 빌보드가 뽑은 '2026 최고의 K팝 25곡' 1위를 데뷔 1년 차 한국 신인 그룹이 차지했다.",
+   pride:true, title:"빌보드 '2026 최고의 K팝' 1위에 신인 키키 '404 (New Era)'",
+   desc:"미국 빌보드가 선정한 '2026년 최고의 K팝 25곡'에서 걸그룹 키키(KiiiKiii)의 '404 (New Era)'가 1위에 올랐다. 하츠투하츠와 악뮤가 2·3위. 빌보드는 \"404는 인터넷에서 가장 흔한 에러 코드지만 키키는 '시스템에서 찾을 수 없다'는 새로운 의미로 완전히 뒤집었다\"고 평가했다. 신인부터 10년 차까지 세대가 고루 담긴 리스트다.",
+   src:"미주 한국일보", url:"http://www.koreatimes.com/article/20260716/1621728",
+   yt:4, ytnote:"'미국 평론가가 뽑은 1위가 데뷔 1년 신인' — 빌보드 25곡 리스트를 통째로 리액션+해설",
+   videos:[{t:"KiiiKiii 키키 '404 (New Era)' MV",u:"https://www.youtube.com/watch?v=zhHB4dZTChw"},{t:"'최초 공개' KiiiKiii - 404 (New Era) #엠카운트다운",u:"https://www.youtube.com/watch?v=Wuk7OTzzoBU"},{t:"KiiiKiii (키키) - 404 (New Era) @ Head in the Clouds LA 2026",u:"https://www.youtube.com/watch?v=ZlcifEXdMXM"}],
+   related:[{t:"신인 그룹 곡인데 대박…빌보드가 선정한 '2026 최고 K팝' 1위 (위키트리)",u:"https://www.wikitree.co.kr/articles/1146888"}]},
 
-  {cat:"kpop", econ:false, pride:true, title:"빌보드 선정 '2026년 최고의 K-POP 25곡'…9월 컴백 대전 예고",
-   desc:"빌보드가 키키 '404 (New Era)', 하츠투하츠 'RUDE!', 악뮤 '소문의 낙원', 엔믹스 'CRESCENDO' 등을 올해 최고의 K-팝 곡으로 선정. 9월에는 몬스타엑스, 블랙핑크 지수, NCT 텐, 샤이니 민호, 아이들 전소연 등이 줄줄이 컴백해 하반기 차트 경쟁이 예고됐다.",
-   src:"팬플러스 / 빌보드", url:"https://fanplus.co.kr/community/misc/132921383",
-   yt:3, ytnote:"차트 나열형이라 단독 기획은 약함. 9월 컴백 라인업 프리뷰와 묶어 월간 코너로 소화",
-   videos:[],
-   related:[{t:"2026년 9월 컴백 아이돌 총정리: K-pop is Music",u:"https://www.postype.com/en/@kpopismusic/post/23022045"}]}
+  {cat:"sports", econ:false, wclass:"세계1위", world:"최민정이 한국 동·하계 올림픽 통산 최다 메달 신기록을 단독 1위로 갈아치웠고, 최가온은 스키 종목 최연소 올림픽 금메달 기록을 새로 썼다.",
+   pride:true, title:"밀라노 동계올림픽 금3·은4·동3…최민정 韓 최다메달, 최가온 스키 첫 금",
+   desc:"2026 밀라노·코르티나 동계올림픽에서 한국이 금 3·은 4·동 3으로 종합 13위를 기록했다. 최민정은 진종오·김수녕·이승훈을 제치고 한국 동·하계 올림픽 최다 메달 단독 1위에 올랐고, 17세 3개월의 최가온은 스노보드 하프파이프에서 한국 스키 사상 첫 동계올림픽 금메달과 함께 종목 최연소 금메달 기록을 세웠다. 김길리는 유일한 2관왕.",
+   src:"대한민국 정책브리핑", url:"https://www.korea.kr/news/policyNewsView.do?newsId=148959842",
+   yt:5, ytnote:"'설상에서도 금이 나왔다' — 쇼트트랙 편중을 깬 첫 스키 금메달의 의미를 종목별 메달 히스토리로",
+   videos:[{t:"스노보드 최가온, 밀라노 올림픽 한국 첫 금메달 / KBS",u:"https://www.youtube.com/watch?v=VGdTIhXp8b8"},{t:"'밀라노 은' 더해 새 역사 썼다…최민정, 동하계 최다 메달 달성 / JTBC",u:"https://www.youtube.com/watch?v=TdD-eN2epZ8"},{t:"김길리·최민정, 1500m 금·은...남자 계주 은메달 / YTN",u:"https://www.youtube.com/watch?v=s7cWEOJ_gzg"}],
+   related:[{t:"동계올림픽 한국, 금 3개·은 4개·동 3개로 종합 13위",u:"https://v.daum.net/v/20260222122504255"},{t:"대한민국 메달 수 - 밀라노-코르티나 2026 올림픽 메달 순위표",u:"https://www.olympics.com/en/milano-cortina-2026/medals/kor"}]},
 ];
 
 /* ====== 렌더링 ====== */
@@ -188,6 +204,10 @@ let active = "all";
 let ytOnly = false;
 let econOnly = false;
 let intlOnly = false;
+let smeOnly = false;
+let wclassOnly = false;
+const SME = ['중견','중소','스타트업'];
+const isSme = n => SME.includes(n.size);
 let sortMode = "yt";
 const grid = document.getElementById('grid');
 const filters = document.getElementById('filters');
@@ -196,6 +216,8 @@ const ytCount = NEWS.filter(n=>(n.yt||0)>=4).length;
 document.getElementById('s-yt').textContent = ytCount;
 document.getElementById('s-econ').textContent = NEWS.filter(n=>n.econ).length;
 document.getElementById('s-intl').textContent = NEWS.filter(n=>n.intl).length;
+document.getElementById('s-sme').textContent = NEWS.filter(isSme).length;
+document.getElementById('s-world').textContent = NEWS.filter(n=>n.wclass).length;
 
 function makeFilters(){
   const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
@@ -204,6 +226,8 @@ function makeFilters(){
     + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`
     + `<div class="chip econ-chip" id="econchip" onclick="toggleEconOnly()">💰 경제 채널용만</div>`
     + `<div class="chip intl-chip" id="intlchip" onclick="toggleIntlOnly()">🌍 외신만</div>`
+    + `<div class="chip sme-chip" id="smechip" onclick="toggleSmeOnly()">🏭 중소·중견만</div>`
+    + `<div class="chip wclass-chip" id="wclasschip" onclick="toggleWclassOnly()">🌏 세계적 위상만</div>`
     + `<div class="chip" id="sortchip" onclick="toggleSort()">🎬 유튜브 각 순</div>`;
 }
 function toggleYtOnly(){
@@ -238,6 +262,25 @@ function toggleIntlOnly(){
   intlOnly=!intlOnly;
   document.getElementById('intlchip').classList.toggle('on',intlOnly);
   render();
+}
+function toggleSmeOnly(){
+  smeOnly=!smeOnly;
+  document.getElementById('smechip').classList.toggle('on',smeOnly);
+  render();
+}
+function toggleWclassOnly(){
+  wclassOnly=!wclassOnly;
+  document.getElementById('wclasschip').classList.toggle('on',wclassOnly);
+  render();
+}
+function sizeBadge(n){
+  if(!n.size) return '';
+  return `<span class="size${isSme(n)?' sme':''}">🏭 ${n.size}${n.company?' · '+n.company:''}</span>`;
+}
+function worldBadge(n){
+  if(!n.wclass) return '';
+  return `<span class="wclass">🌏 ${n.wclass}</span>`
+    + (n.world?`<div class="world">${n.world}</div>`:'');
 }
 function setFilter(k){
   active=k;
@@ -282,6 +325,8 @@ function render(){
   if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
   if(econOnly) list = list.filter(n=>n.econ);
   if(intlOnly) list = list.filter(n=>n.intl);
+  if(smeOnly) list = list.filter(isSme);
+  if(wclassOnly) list = list.filter(n=>n.wclass);
   list = list.slice().sort((a,b)=> sortMode==='date'
     ? String(b.date||'').localeCompare(String(a.date||''))
     : (b.yt||0)-(a.yt||0));
@@ -294,6 +339,8 @@ function render(){
       <p>${n.desc}</p>
       ${n.econ?'<span class="econ">💰 경제 채널 적합</span>':''}
       ${n.intl?`<span class="intl">🌍 외신${n.country?' · '+n.country:''}</span>`:''}
+      ${sizeBadge(n)}
+      ${worldBadge(n)}
       ${ytBadge(n)}
       ${relatedBlock(n)}
       <div class="foot">
