@@ -123,6 +123,45 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
+  {cat:"tech", econ:true, size:"대기업", wclass:"대체불가", world:"중국 BOE가 애플 승인에 실패하면서 아이폰18·아이패드·폴더블 아이폰용 OLED가 전량 한국 패널로 채워졌고, 맥북용 8.6세대 터치 OLED는 삼성D 아산 A6가 세계 유일 생산 가능 라인이다.",
+   pride:true, title:"애플 신제품 OLED 전량 '메이드 인 코리아'…맥북 터치 OLED는 삼성D 단독",
+   desc:"삼성디스플레이와 LG디스플레이가 6월부터 애플 아이폰18 프로·프로맥스, 아이패드 미니, 폴더블 아이폰용 OLED 패널 양산에 돌입했다. 중국 BOE가 애플의 품질 승인 문턱을 넘지 못하면서 신제품 물량이 전량 한국 업체에 돌아갔다. 애플이 2006년 맥북 출시 이후 처음 적용하는 터치 OLED도 삼성디스플레이가 단독 공급하며, 애플이 요구하는 품질로 이 패널을 만들 수 있는 공장은 아산 A6 라인이 세계에서 유일하다.",
+   src:"전자신문", url:"https://www.etnews.com/20260622000287",
+   yt:4, ytnote:"'애플이 한국 없이는 화면을 못 만든다' 앵글. BOE의 수율 실패 → 물량 전량 이관 과정을 타임라인으로",
+   videos:[{t:"[여의도튜브] \"애플 납품 1천만대 中기업 탈락..전량 삼성\" / 머니투데이방송",u:"https://www.youtube.com/watch?v=LJRBUuPWHNk"},{t:"BOE, 두 달째 아이폰 OLED 생산차질...삼성디스플레이 반사이익",u:"https://www.youtube.com/watch?v=wGliHEPqnvQ"},{t:"애플 OLED 공급, 울상짓는 BOE 무슨 일?",u:"https://www.youtube.com/watch?v=OwOtibyJ_NQ"}],
+   related:[{t:"애플, 맥북에 '터치 OLED' 첫 적용...삼성D가 단독 공급 (디일렉)",u:"https://www.thelec.kr/news/articleView.html?idxno=60086"},{t:"삼성디스플레이, 8.7세대 OLED 양산…애플 업고 中과 '격돌' (뉴스핌)",u:"https://www.newspim.com/news/view/20260811000933"}]},
+
+  {cat:"tech", econ:true, size:"스타트업", wclass:"세계최초", world:"세계 최초 벡터 데이터 전용 반도체(VDPU) 기반 AI 스토리지로 미국 FMS 2026에서 글로벌 경쟁 제품들을 제치고 'AI 어플리케이션 상'을 받았다.",
+   pride:true, title:"디노티시아 '씨홀스', 美 FMS 2026 AI 어플리케이션 상…세계 최초 VDPU로 인정받다",
+   desc:"AI 반도체 스타트업 디노티시아가 미국 산타클라라에서 열린 FMS 2026(Future of Memory and Storage)에서 '씨홀스 AI 스토리지'로 베스트 오브 쇼 어워즈의 AI 어플리케이션 상을 수상했다. 세계 최초의 벡터 데이터 처리 전용 반도체 VDPU를 기반으로 문서 분석부터 벡터 변환·검색까지 통합 제공해 기존 CPU 대비 최대 12배 빠른 처리를 구현한다. 올해 4월에는 국내 AI 칩 최고 기록인 시리즈A 900억원을 유치했다.",
+   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260805150526",
+   yt:3, ytnote:"'GPU 말고 검색을 가속하는 칩' — RAG 병목 개념부터 설명하는 AI 인프라 해설물",
+   videos:[], related:[{t:"디노티시아, 시리즈A 900억원 유치...국내 AI 칩 최고 투자액 경신 (ZDNet)",u:"https://zdnet.co.kr/view/?no=20260421140808"},{t:"Dnotitia's Seahorse AI Storage Wins AI Application Award at FMS 2026 (Morningstar)",u:"https://www.morningstar.com/news/pr-newswire/20260804cn19583/dnotitias-seahorse-ai-storage-wins-ai-application-award-at-fms-2026"}]},
+
+  {cat:"tech", econ:true, size:"중견", wclass:"글로벌수주", world:"휴머노이드의 '관절'인 액추에이터를 구글·테슬라·엔비디아를 포함한 글로벌 70여 개사에 공급하며, 로봇 종주국을 자처하는 중국 안방 전시회에 유일한 한국 휴머노이드 기업으로 진출했다.",
+   pride:true, title:"로보티즈, 액추에이터 글로벌 70개사 공급…中 베이징서 국산 휴머노이드 정면 승부",
+   desc:"로봇 부품 중견기업 로보티즈가 휴머노이드 핵심 부품인 액추에이터를 글로벌 70여 개 고객사에 공급하며 2026년 출하 목표를 50만 대로 잡았다. 지난해 22만 대에서 두 배 이상 늘어난 규모다. 8월 베이징 세계로봇대회(WRC 2026)에는 한국 휴머노이드 기업 중 유일하게 참가해 개방형 플랫폼 'AI 사피엔스'와 신규 액추에이터 라인업 '다이나믹셀-Q'를 공개하고 중국 시장 공략에 나섰다.",
+   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260814103114",
+   yt:4, ytnote:"'휴머노이드 원가의 절반은 관절' — 액추에이터가 왜 병목인지 분해도로 풀고, 한국 중견기업이 그 자리를 잡은 과정으로 마무리",
+   videos:[{t:"휴머노이드로봇 산업 전망은? 액추에이터 핵심 기업 로보티즈",u:"https://www.youtube.com/watch?v=tpjpp4iXvfk"},{t:"로보티즈, 휴머노이드 핵심! 58조 규모 액추에이터 시장 주도!",u:"https://www.youtube.com/watch?v=Aj-LlBTigbQ"},{t:"로보티즈 진짜 하루 만에 보행 성공한 이유? QDD 액추에이터",u:"https://www.youtube.com/watch?v=SAAh4JlYEHI"}],
+   related:[{t:"로보티즈, 베이징 WRC 2026에 국산 휴머노이드 존재감 과시 (로봇신문)",u:"https://www.irobotnews.com/news/articleView.html?idxno=48031"},{t:"액츄에이터부터 완성품까지...로보티즈, 휴머노이드 수직 통합 '결실' (헬로티)",u:"https://www.hellot.net/news/article.html?no=114514"}]},
+
+  {cat:"tech", econ:true, size:"대기업", wclass:"세계1위", world:"2021~2025년 전 세계에 인도된 LNG 운반선의 83.8%(248척)를 한국이 건조했고, 올해 예상 발주 77척 중 72척을 국내 조선사가 가져갈 것으로 전망된다.",
+   pride:true, title:"LNG선은 여전히 한국 독무대…인도 물량 83.8% 싹쓸이, 올해 77척 중 72척 예상",
+   desc:"전체 선박 발주량에서는 중국이 앞서지만 고부가 LNG 운반선만큼은 한국이 압도적이다. 2021~2025년 전 세계 인도 LNG선 248척(83.8%)을 한국 조선사가 건조했고 같은 기간 중국은 48척에 그쳤다. 2026년에도 글로벌 발주 예상 77척 중 72척을 국내 조선사가 수주할 것으로 관측되며, 조선 3사는 3.5년치 일감을 쌓아둔 채 LNG·방산 중심의 슈퍼사이클을 굳히고 있다.",
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202605081043281921",
+   yt:4, ytnote:"'싼 배는 중국, 어려운 배는 한국' — 화물창·멤브레인 기술 난이도로 점유율 격차를 설명하는 산업 해설",
+   videos:[{t:"중국이 포기한 LNG선 시장, 한국이 전부 쓸어 담는 진짜 이유",u:"https://www.youtube.com/watch?v=kpDOD-QEJX4"},{t:"전 세계가 인정하는 세계 1등 한국｜조선 기술의 궁극체 LNG선 어떻게 만들까?｜다큐프라임",u:"https://www.youtube.com/watch?v=I3pCqmxoMxc"},{t:"LNG선 휩쓰는 'K-조선'…중국이 못따라오는 '초격차' 이유는",u:"https://www.youtube.com/watch?v=TN6wUBj6QhY"}],
+   related:[{t:"[주력산업 2026] 3.5년치 일감 쌓인 조선업… LNG·방산으로 '슈퍼 사이클' 굳힌다",u:"https://v.daum.net/v/20260103060218106"},{t:"[점프업 K-조선] 친환경 고부가가치 LNG선 싹쓸이 수주의 비밀 (브릿지경제)",u:"https://www.viva100.com/article/20260114500953"}]},
+
+  {cat:"culture", econ:true, wclass:"세계1위", world:"상반기 K-푸드+ 수출이 70.5억 달러로 역대 최고를 경신했고 라면 단일 품목만 9억3500만 달러(+27.9%), 미국 시장은 반기 기준 처음 10억 달러를 넘었다.",
+   pride:true, title:"상반기 K-푸드+ 수출 70.5억 달러 역대 최고…라면 28%↑, 미국 첫 10억 달러 돌파",
+   desc:"2026년 상반기 K-푸드+ 수출이 70억5000만 달러로 반기 기준 역대 최고치를 경신했다. 라면이 9억3500만 달러로 27.9% 늘며 견인했고 과자·아이스크림·김치·배도 동반 증가했다. 권역별로는 중동 25.2%, 중남미 19.5%, 유럽 17.9% 순으로 늘어 아시아를 넘어 전 대륙에서 성장했다. 미국은 상반기 처음으로 10억4000만 달러를 기록했다.",
+   src:"농림축산식품부", url:"https://www.mafra.go.kr/bbs/home/792/578357/artclView.do",
+   yt:4, ytnote:"'라면 한 품목이 반년에 1조3천억' — 수출 통계를 국가별 지도로 시각화하고 중동 급증 원인을 파고드는 경제물",
+   videos:[{t:"라면에 김밥은 '글로벌 룰'…K-푸드 수출 또 역대 최대 / SBS",u:"https://www.youtube.com/watch?v=uAvBNgn9pG4"},{t:"농식품산업 수출 70억 달러 역대 최고…'효자' 라면 28% 쑥 [MBN 뉴스센터]",u:"https://www.youtube.com/watch?v=L24O6zYRTKs"},{t:"잘 나가는 'K 푸드' 역대 최대 수출액...신선 식품은 숙제 / YTN",u:"https://www.youtube.com/watch?v=xPG_5MP-B5E"}],
+   related:[{t:"상반기 K-푸드+ 수출 70.5억 달러 '역대 최고'…라면 수출 28%↑ (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202607051100444453"},{t:"K-푸드+ 상반기 수출 70억 달러 돌파…미국 첫 10억 달러 (전북일보)",u:"https://www.nvp.co.kr/news/articleView.html?idxno=318644"}]},
+
   {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"미국 마이크론·SK하이닉스보다 앞서 6세대 HBM4를 세계 최초로 양산 출하하며 엔비디아향 AI 메모리 공급을 선점했다.",
    pride:true, title:"삼성전자, 최대 13Gbps HBM4 세계 최초 양산 출하…엔비디아에 첫 공급",
    desc:"삼성전자가 2월 12일 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다. 1c D램(6세대 10나노급)을 적용해 11.7Gbps를 안정적으로 확보하고 최대 13Gbps까지 구현, 재설계 없이 초기 양산부터 업계 최고 성능과 수율을 동시에 달성했다. 삼성은 2026년 HBM 매출이 전년 대비 3배 이상 늘 것으로 보고 증설에 나섰다.",
@@ -161,20 +200,6 @@ const NEWS = [
    videos:[{t:"HD현대, 암모니아 추진선 엔진 탑재 성공 '세계 최초'",u:"https://www.youtube.com/watch?v=RInaJdBgF_w"},{t:"선박도 탈탄소..세계 최초 암모니아 디젤 혼소 선박 진수 (MBC경남)",u:"https://www.youtube.com/watch?v=zt6nYdmB_kw"},{t:"탄소배출 '제로' 암모니아 추진선 개발 속도 낸다 (울산MBC)",u:"https://www.youtube.com/watch?v=v3uOrRDHhRs"}],
    related:[{t:"암모니아 추진선 시대 개막…조선 빅3, 친환경 선박 기술 경쟁 (한국경제)",u:"https://www.hankyung.com/article/202604178335G"},{t:"[해양통신] HD현대, 세계 최초 암모니아추진 암모니아운반선 인도",u:"https://www.oceanpress.co.kr/news/article.html?no=30307"}]},
 
-  {cat:"tech", econ:true, size:"대기업", wclass:"해외인정", world:"글로벌 빅파마들이 한국 신약·플랫폼 기술을 잇달아 사가며 연간 기술수출액이 21조원까지 불어났다.",
-   pride:true, title:"韓 기술수출 21조원 돌파…신약·플랫폼 '빅딜' 행진",
-   desc:"국내 제약·바이오 기업의 글로벌 기술수출이 지난해 사상 최대를 찍은 데 이어 올해도 대형 계약이 이어지며 21조원을 넘어섰다. 정맥주사를 피하주사로 바꾸는 알테오젠의 ALT-B4처럼 글로벌 제약사가 줄을 서는 플랫폼 기술이 중심이다. '20조원대'가 K-바이오 기술수출의 새 기준선으로 자리 잡는 모양새다.",
-   src:"머니투데이 더바이오", url:"https://www.mt.co.kr/thebio/2026/09/07/2026090619570577205",
-   yt:3, ytnote:"'약을 안 팔고 기술만 팔아 21조' — 기술수출 비즈니스 모델을 초보자용으로 해부",
-   videos:[], related:[{t:"K바이오, 신약 경쟁력 입증… 기술수출, 역대 최대 또 넘본다 (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202608301753135370"}]},
-
-  {cat:"tech", econ:true, size:"대기업", wclass:"글로벌수주", world:"유럽 완성차에 차세대 텔레매틱스를 업계 최초로 공급하며 자동차 부품 본고장 시장을 파고들었다.",
-   pride:true, title:"LG전자, 유럽 완성차에 '차세대 텔레매틱스' 공급…업계 최초",
-   desc:"LG전자가 유럽 완성차 업체에 차세대 텔레매틱스 모듈을 업계 최초로 공급한다. 텔레매틱스는 차량과 외부를 잇는 통신 관문으로, 소프트웨어 중심 차량(SDV) 전환의 핵심 부품이다. 완성차 종주국 유럽 고객을 확보하며 LG전자 전장(VS) 사업의 수주 잔고 확대에 힘이 실렸다.",
-   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202608190929027521",
-   yt:3, ytnote:"'유럽 차 안에 한국 통신 부품' — 전장 부품 밸류체인에서 한국의 위치를 정리",
-   videos:[], related:[]},
-
   {cat:"tech", econ:true, size:"중소", wclass:"해외인정", world:"세계 1위 장비사 램리서치가 한국 중소 부품사들을 상대로 잇달아 특허·디자인권 분쟁을 걸 만큼 기술력을 위협으로 인식하고 있다.",
    pride:true, title:"글로벌 장비사, 韓 부품 중소기업에 특허전…\"견제받는다는 건 따라잡았다는 뜻\"",
    desc:"세계 최대 반도체 장비사 램리서치가 씨엠티엑스·에스에이치엠·월덱스·플라텍·윌비에스엔티 등 국내 부품 중소기업을 상대로 특허·디자인권 분쟁에 나섰다. 국내 부품사들이 장비사를 거치지 않고 반도체 제조사에 직접 납품하는 애프터마켓 비중이 30%까지 커지자 IP 장벽을 세운 것. 견제 자체가 국내 부품 기술력이 글로벌 수준에 도달했음을 보여준다.",
@@ -182,13 +207,6 @@ const NEWS = [
    yt:3, ytnote:"'소송당했다는 게 훈장' 앵글. 특허전이 곧 기술 추격 완료 신호라는 산업사적 패턴 설명",
    videos:[], related:[]},
 
-  {cat:"kpop", econ:false, wclass:"해외인정", world:"미국 빌보드가 뽑은 '2026 최고의 K팝 25곡' 1위를 데뷔 1년 차 한국 신인 그룹이 차지했다.",
-   pride:true, title:"빌보드 '2026 최고의 K팝' 1위에 신인 키키 '404 (New Era)'",
-   desc:"미국 빌보드가 선정한 '2026년 최고의 K팝 25곡'에서 걸그룹 키키(KiiiKiii)의 '404 (New Era)'가 1위에 올랐다. 하츠투하츠와 악뮤가 2·3위. 빌보드는 \"404는 인터넷에서 가장 흔한 에러 코드지만 키키는 '시스템에서 찾을 수 없다'는 새로운 의미로 완전히 뒤집었다\"고 평가했다. 신인부터 10년 차까지 세대가 고루 담긴 리스트다.",
-   src:"미주 한국일보", url:"http://www.koreatimes.com/article/20260716/1621728",
-   yt:4, ytnote:"'미국 평론가가 뽑은 1위가 데뷔 1년 신인' — 빌보드 25곡 리스트를 통째로 리액션+해설",
-   videos:[{t:"KiiiKiii 키키 '404 (New Era)' MV",u:"https://www.youtube.com/watch?v=zhHB4dZTChw"},{t:"'최초 공개' KiiiKiii - 404 (New Era) #엠카운트다운",u:"https://www.youtube.com/watch?v=Wuk7OTzzoBU"},{t:"KiiiKiii (키키) - 404 (New Era) @ Head in the Clouds LA 2026",u:"https://www.youtube.com/watch?v=ZlcifEXdMXM"}],
-   related:[{t:"신인 그룹 곡인데 대박…빌보드가 선정한 '2026 최고 K팝' 1위 (위키트리)",u:"https://www.wikitree.co.kr/articles/1146888"}]},
 
   {cat:"sports", econ:false, wclass:"세계1위", world:"최민정이 한국 동·하계 올림픽 통산 최다 메달 신기록을 단독 1위로 갈아치웠고, 최가온은 스키 종목 최연소 올림픽 금메달 기록을 새로 썼다.",
    pride:true, title:"밀라노 동계올림픽 금3·은4·동3…최민정 韓 최다메달, 최가온 스키 첫 금",
