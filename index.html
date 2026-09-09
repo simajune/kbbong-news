@@ -91,7 +91,7 @@
     <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
   </header>
 
-  <div class="meta" id="updated">최종 업데이트: 2026-09-09</div>
+  <div class="meta" id="updated">최종 업데이트: 2026-09-10</div>
 
   <div class="stats">
     <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
@@ -123,88 +123,71 @@ const CATS = {
 
 /* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
 const NEWS = [
-  {cat:"tech", econ:true, size:"대기업", wclass:"대체불가", world:"중국 BOE가 애플 승인에 실패하면서 아이폰18·아이패드·폴더블 아이폰용 OLED가 전량 한국 패널로 채워졌고, 맥북용 8.6세대 터치 OLED는 삼성D 아산 A6가 세계 유일 생산 가능 라인이다.",
-   pride:true, title:"애플 신제품 OLED 전량 '메이드 인 코리아'…맥북 터치 OLED는 삼성D 단독",
-   desc:"삼성디스플레이와 LG디스플레이가 6월부터 애플 아이폰18 프로·프로맥스, 아이패드 미니, 폴더블 아이폰용 OLED 패널 양산에 돌입했다. 중국 BOE가 애플의 품질 승인 문턱을 넘지 못하면서 신제품 물량이 전량 한국 업체에 돌아갔다. 애플이 2006년 맥북 출시 이후 처음 적용하는 터치 OLED도 삼성디스플레이가 단독 공급하며, 애플이 요구하는 품질로 이 패널을 만들 수 있는 공장은 아산 A6 라인이 세계에서 유일하다.",
-   src:"전자신문", url:"https://www.etnews.com/20260622000287",
-   yt:4, ytnote:"'애플이 한국 없이는 화면을 못 만든다' 앵글. BOE의 수율 실패 → 물량 전량 이관 과정을 타임라인으로",
-   videos:[{t:"[여의도튜브] \"애플 납품 1천만대 中기업 탈락..전량 삼성\" / 머니투데이방송",u:"https://www.youtube.com/watch?v=LJRBUuPWHNk"},{t:"BOE, 두 달째 아이폰 OLED 생산차질...삼성디스플레이 반사이익",u:"https://www.youtube.com/watch?v=wGliHEPqnvQ"},{t:"애플 OLED 공급, 울상짓는 BOE 무슨 일?",u:"https://www.youtube.com/watch?v=OwOtibyJ_NQ"}],
-   related:[{t:"애플, 맥북에 '터치 OLED' 첫 적용...삼성D가 단독 공급 (디일렉)",u:"https://www.thelec.kr/news/articleView.html?idxno=60086"},{t:"삼성디스플레이, 8.7세대 OLED 양산…애플 업고 中과 '격돌' (뉴스핌)",u:"https://www.newspim.com/news/view/20260811000933"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"6세대 HBM4를 전 세계에서 가장 먼저 양산 출하해 엔비디아 차세대 AI 가속기용 메모리 규격을 한국이 선점했다.",
+   pride:true, title:"삼성전자, 세계 최초 HBM4 양산 출하…엔비디아에 최대 13Gbps 공급 개시",
+   desc:"삼성전자가 2월 12일 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다고 밝혔다. 11.7Gbps 데이터 처리 성능을 안정적으로 확보했고 최대 13Gbps까지 구현 가능한 업계 최고 성능이다. 최선단 10나노급 6세대(1c) D램을 선제 도입해 재설계 없이 양산 초기부터 안정적 수율을 확보했으며, 당초 계획보다 일주일가량 앞당겨 엔비디아향 출하를 시작했다. 삼성전자는 2026년 HBM 매출이 전년 대비 3배 이상 늘어날 것으로 보고 있다.",
+   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260212150634",
+   yt:5, ytnote:"'AI 시대의 병목은 연산이 아니라 메모리' — HBM3E→HBM4 세대 점프를 도식으로 풀고, 세계 최초 타이틀이 왜 공급계약으로 직결되는지까지",
+   videos:[{t:"삼성전자, 세계 최초 HBM4 양산 출하...\"업계 최고 성능\" / YTN 사이언스",u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},{t:"삼성전자, HBM4 세계 최초 양산·출하...차세대 AI 메모리 '선공' / 머니투데이방송",u:"https://www.youtube.com/watch?v=m73O4Dh3n3g"},{t:"삼성전자, 엔비디아 최신 GPU용 HBM4 세계 첫 양산 스타트!",u:"https://www.youtube.com/watch?v=upnoCjwYArM"}],
+   related:[{t:"삼성전자, 엔비디아에 '세계 최초' HBM4 양산 출하 개시 (머니투데이)",u:"https://www.mt.co.kr/industry/2026/02/12/2026021215150041209"},{t:"삼성전자, 세계 최초 업계 최고 성능의 HBM4 양산 출하 (삼성 뉴스룸)",u:"https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%84%B8%EA%B3%84-%EC%B5%9C%EC%B4%88-%EC%97%85%EA%B3%84-%EC%B5%9C%EA%B3%A0-%EC%84%B1%EB%8A%A5%EC%9D%98-hbm4-%EC%96%91%EC%82%B0-%EC%B6%9C%ED%95%98"}]},
 
-  {cat:"tech", econ:true, size:"스타트업", wclass:"세계최초", world:"세계 최초 벡터 데이터 전용 반도체(VDPU) 기반 AI 스토리지로 미국 FMS 2026에서 글로벌 경쟁 제품들을 제치고 'AI 어플리케이션 상'을 받았다.",
-   pride:true, title:"디노티시아 '씨홀스', 美 FMS 2026 AI 어플리케이션 상…세계 최초 VDPU로 인정받다",
-   desc:"AI 반도체 스타트업 디노티시아가 미국 산타클라라에서 열린 FMS 2026(Future of Memory and Storage)에서 '씨홀스 AI 스토리지'로 베스트 오브 쇼 어워즈의 AI 어플리케이션 상을 수상했다. 세계 최초의 벡터 데이터 처리 전용 반도체 VDPU를 기반으로 문서 분석부터 벡터 변환·검색까지 통합 제공해 기존 CPU 대비 최대 12배 빠른 처리를 구현한다. 올해 4월에는 국내 AI 칩 최고 기록인 시리즈A 900억원을 유치했다.",
-   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260805150526",
-   yt:3, ytnote:"'GPU 말고 검색을 가속하는 칩' — RAG 병목 개념부터 설명하는 AI 인프라 해설물",
-   videos:[], related:[{t:"디노티시아, 시리즈A 900억원 유치...국내 AI 칩 최고 투자액 경신 (ZDNet)",u:"https://zdnet.co.kr/view/?no=20260421140808"},{t:"Dnotitia's Seahorse AI Storage Wins AI Application Award at FMS 2026 (Morningstar)",u:"https://www.morningstar.com/news/pr-newswire/20260804cn19583/dnotitias-seahorse-ai-storage-wins-ai-application-award-at-fms-2026"}]},
+  {cat:"tech", econ:true, size:"중견", wclass:"세계1위", world:"HBM 3D 적층의 필수 장비인 TC 본더 글로벌 시장에서 점유율 71.2%로 압도적 1위이며, 사실상 전 세계 HBM이 한국 중견기업 장비를 거쳐 만들어진다.",
+   pride:true, title:"한미반도체, HBM TC본더 세계 점유율 71.2%…글로벌 1위 굳히기",
+   desc:"한미반도체가 HBM용 TC 본더 글로벌 시장에서 누적 매출 2억4770만 달러, 점유율 71.2%로 압도적 1위를 지켰다. TC 본더는 D램을 수직으로 쌓아 올리는 HBM 3D 적층 공정의 핵심 장비로, 이 장비 없이는 HBM 양산 자체가 불가능하다. HBM4용 'TC 본더 4'는 이미 대량 생산 체제에 들어갔고, 하반기에는 차세대 HBM5·HBM6를 겨냥한 '와이드 TC 본더'를 내놓는다. 인천 주안산단에 1000억원을 투입한 하이브리드 본더 공장도 연말 완공을 목표로 짓고 있다.",
+   src:"시사저널e", url:"https://www.sisajournal-e.com/news/articleView.html?idxno=417986",
+   yt:3, ytnote:"'삼성·하이닉스보다 먼저 돈 버는 회사' — HBM 밸류체인에서 장비사가 차지하는 위치를 원가 구조로 설명",
+   videos:[], related:[{t:"한미반도체 HBM TC 본더 세계 점유율 71%...세계 1위 (디지털데일리)",u:"https://m.ddaily.co.kr/page/view/2025122209443632881"},{t:"TC본더 시장 활짝…한미반도체·한화세미텍 '안방 싸움' (다음뉴스)",u:"https://v.daum.net/v/20260304172902204"}]},
 
-  {cat:"tech", econ:true, size:"중견", wclass:"글로벌수주", world:"휴머노이드의 '관절'인 액추에이터를 구글·테슬라·엔비디아를 포함한 글로벌 70여 개사에 공급하며, 로봇 종주국을 자처하는 중국 안방 전시회에 유일한 한국 휴머노이드 기업으로 진출했다.",
-   pride:true, title:"로보티즈, 액추에이터 글로벌 70개사 공급…中 베이징서 국산 휴머노이드 정면 승부",
-   desc:"로봇 부품 중견기업 로보티즈가 휴머노이드 핵심 부품인 액추에이터를 글로벌 70여 개 고객사에 공급하며 2026년 출하 목표를 50만 대로 잡았다. 지난해 22만 대에서 두 배 이상 늘어난 규모다. 8월 베이징 세계로봇대회(WRC 2026)에는 한국 휴머노이드 기업 중 유일하게 참가해 개방형 플랫폼 'AI 사피엔스'와 신규 액추에이터 라인업 '다이나믹셀-Q'를 공개하고 중국 시장 공략에 나섰다.",
-   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260814103114",
-   yt:4, ytnote:"'휴머노이드 원가의 절반은 관절' — 액추에이터가 왜 병목인지 분해도로 풀고, 한국 중견기업이 그 자리를 잡은 과정으로 마무리",
-   videos:[{t:"휴머노이드로봇 산업 전망은? 액추에이터 핵심 기업 로보티즈",u:"https://www.youtube.com/watch?v=tpjpp4iXvfk"},{t:"로보티즈, 휴머노이드 핵심! 58조 규모 액추에이터 시장 주도!",u:"https://www.youtube.com/watch?v=Aj-LlBTigbQ"},{t:"로보티즈 진짜 하루 만에 보행 성공한 이유? QDD 액추에이터",u:"https://www.youtube.com/watch?v=SAAh4JlYEHI"}],
-   related:[{t:"로보티즈, 베이징 WRC 2026에 국산 휴머노이드 존재감 과시 (로봇신문)",u:"https://www.irobotnews.com/news/articleView.html?idxno=48031"},{t:"액츄에이터부터 완성품까지...로보티즈, 휴머노이드 수직 통합 '결실' (헬로티)",u:"https://www.hellot.net/news/article.html?no=114514"}]},
-
-  {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"현존 가장 미세한 10나노급 6세대(1c) 공정을 적용한 LPDDR6를 세계 최초로 개발·인증 완료해 온디바이스 AI 메모리 규격을 한국이 먼저 확정했다.",
-   pride:true, title:"SK하이닉스, 세계 최초 1c LPDDR6 개발…속도 33%·전력 20% 개선",
-   desc:"SK하이닉스가 3월 10일 10나노급 6세대(1c) 공정을 적용한 16Gb LPDDR6 D램을 세계 최초로 개발하고 제품 인증까지 마쳤다고 밝혔다. 이전 세대 대비 속도는 33% 빨라지고 소비전력은 20% 줄여 온디바이스 AI 스마트폰·태블릿에 최적화했다. CES 2026에서 첫 공개한 뒤 상반기 양산 준비를 마치고 하반기부터 공급에 들어갔으며, 같은 1c 공정 기반 192GB SOCAMM2도 양산에 돌입했다.",
-   src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260310090235",
-   yt:4, ytnote:"'스마트폰 속 AI는 왜 메모리가 병목인가' — LPDDR 세대별 속도/전력 그래프로 1c 공정의 의미를 풀어내는 반도체 해설",
-   videos:[{t:"SK하이닉스, 세계 최초 10나노급 6세대 D램 개발",u:"https://www.youtube.com/watch?v=Es4lIU_yIHM"},{t:"SK하이닉스, 세계 최초 10 나노급 6세대 D램 개발",u:"https://www.youtube.com/watch?v=ZC2Mq3c0XiM"},{t:"삼성전자·SK하이닉스 LPDDR6 주도권 전쟁 '전력 효율'이냐 '최고 속도'냐",u:"https://www.youtube.com/watch?v=QU0Bc32W840"}],
-   related:[{t:"SK하이닉스, 10나노급 '1c LPDDR6' D램 개발 성공 (전자신문)",u:"https://www.etnews.com/20260310000206"},{t:"SK하이닉스, 10나노급 6세대 D램 '1c LPDDR6' 개발 (SK하이닉스 뉴스룸)",u:"https://news.skhynix.co.kr/1c-lpddr6-development-2026/"}]},
-
-  {cat:"tech", econ:true, size:"대기업", wclass:"글로벌수주", world:"로슈 자회사 제넨텍이 한국을 뺀 전 세계 독점 개발·상업화 권리를 최대 23억 달러에 사갔고, 단일 후보물질 기준 한국 제약 역대 최대 기술수출이다.",
-   pride:true, title:"한미약품, 제넨텍에 비만신약 3.2조 기술수출…단일 물질 역대 최대",
-   desc:"한미약품이 8월 24일 스위스 로슈 자회사 제넨텍에 차세대 비만 신약 후보물질 'HM17321'의 개발·상업화 권리를 최대 23억 달러(약 3조2000억원)에 이전하는 계약을 체결했다. 근육을 지키면서 지방만 줄이는 기전으로, 위고비·마운자로의 근손실 문제를 정면으로 겨냥한 물질이다. 계약 직후 받는 선급금만 1억9000만 달러(약 2620억원)로 거래 규모의 8.3%에 달하며, 후속 임상 2상은 제넨텍이 맡는다.",
-   src:"아시아경제", url:"https://www.asiae.co.kr/article/2026082412585594023",
-   yt:4, ytnote:"'빅파마가 한국 물질에 선급금 2600억을 먼저 꽂은 이유' — 비만약 2세대 경쟁 구도와 근손실 이슈를 도식으로 정리",
-   videos:[{t:"한미약품, '살만 빼는' 비만약 터졌다…3.2조 기술수출 / 한국경제TV",u:"https://www.youtube.com/watch?v=_xieujEtoTQ"},{t:"한국 비만약 하나에 3.2조…한미약품 초대형 기술수출",u:"https://www.youtube.com/shorts/n-DnHTnvjEw"},{t:"한미약품 상한가! 3조 원 비만 신약 기술수출의 정체",u:"https://www.youtube.com/shorts/QN4SDkbgtG4"}],
-   related:[{t:"근육 지키는 비만신약…한미약품, 3.2兆 수출 (한국경제)",u:"https://www.hankyung.com/article/2026082496011"},{t:"한미약품, 로슈 제넨텍에 '차세대 비만신약' 최대 3.2조원 기술수출 (코메디닷컴)",u:"https://kormedi.com/2851651/"}]},
-
-  {cat:"culture", econ:true, wclass:"세계1위", world:"상반기 K-푸드+ 수출이 70.5억 달러로 역대 최고를 경신했고 라면 단일 품목만 9억3500만 달러(+27.9%), 미국 시장은 반기 기준 처음 10억 달러를 넘었다.",
-   pride:true, title:"상반기 K-푸드+ 수출 70.5억 달러 역대 최고…라면 28%↑, 미국 첫 10억 달러 돌파",
-   desc:"2026년 상반기 K-푸드+ 수출이 70억5000만 달러로 반기 기준 역대 최고치를 경신했다. 라면이 9억3500만 달러로 27.9% 늘며 견인했고 과자·아이스크림·김치·배도 동반 증가했다. 권역별로는 중동 25.2%, 중남미 19.5%, 유럽 17.9% 순으로 늘어 아시아를 넘어 전 대륙에서 성장했다. 미국은 상반기 처음으로 10억4000만 달러를 기록했다.",
-   src:"농림축산식품부", url:"https://www.mafra.go.kr/bbs/home/792/578357/artclView.do",
-   yt:4, ytnote:"'라면 한 품목이 반년에 1조3천억' — 수출 통계를 국가별 지도로 시각화하고 중동 급증 원인을 파고드는 경제물",
-   videos:[{t:"라면에 김밥은 '글로벌 룰'…K-푸드 수출 또 역대 최대 / SBS",u:"https://www.youtube.com/watch?v=uAvBNgn9pG4"},{t:"농식품산업 수출 70억 달러 역대 최고…'효자' 라면 28% 쑥 [MBN 뉴스센터]",u:"https://www.youtube.com/watch?v=L24O6zYRTKs"},{t:"잘 나가는 'K 푸드' 역대 최대 수출액...신선 식품은 숙제 / YTN",u:"https://www.youtube.com/watch?v=xPG_5MP-B5E"}],
-   related:[{t:"상반기 K-푸드+ 수출 70.5억 달러 '역대 최고'…라면 수출 28%↑ (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202607051100444453"},{t:"K-푸드+ 상반기 수출 70억 달러 돌파…미국 첫 10억 달러 (전북일보)",u:"https://www.nvp.co.kr/news/articleView.html?idxno=318644"}]},
-
-  {cat:"kpop", econ:false, intl:true, wclass:"세계최초", world:"K팝 곡으로는 사상 처음 그래미 트로피를 가져갔고, 이어 아카데미 주제가상까지 받아 미국 양대 시상식을 K팝이 동시에 뚫은 첫 사례가 됐다.",
-   pride:true, title:"'골든', K팝 최초 그래미 수상…'케데헌'은 아카데미 2관왕",
-   desc:"넷플릭스 애니메이션 '케이팝 데몬 헌터스'의 주제곡 '골든'(HUNTR/X)이 2월 제68회 그래미 어워드에서 K팝 곡 사상 처음으로 트로피를 거머쥐었다. 3월 아카데미 시상식에서는 '케데헌'이 장편 애니메이션상과 주제가상을 동시에 받아 2관왕에 올랐고, 주제가상 역시 K팝 최초다. '골든'은 빌보드 글로벌 200 6주 1위, 25개국 이상 차트 정상을 기록했으며 수상 무대에서는 판소리가 울려 퍼졌다.",
-   src:"연합뉴스", url:"https://ko.wikipedia.org/wiki/Golden_(HUNTR/X%EC%9D%98_%EB%85%B8%EB%9E%98)",
-   yt:5, ytnote:"'K팝이 그래미를 못 받는다던 시절' — 과거 BTS 무관 논란부터 오스카까지 10년 타임라인으로 엮는 한류사 콘텐츠",
-   videos:[{t:"난공불락 뚫은 케데헌 '골든'…\"K팝 최초 그래미 수상\" / 연합뉴스",u:"https://www.youtube.com/watch?v=awaCuOKBH-I"},{t:"'케이팝 데몬 헌터스', 아카데미 장편 애니메이션상·주제가상 '2관왕' / KBS",u:"https://www.youtube.com/watch?v=naB5yRzdAhw"},{t:"\"한국인이라서 자랑스럽다\"…'골든' K팝 첫 그래미상 / SBS 8뉴스",u:"https://www.youtube.com/watch?v=lE2t6H_RzGY"}],
-   related:[{t:"'한국인들에게 바친다' 판소리 울려 퍼진 아카데미 ＜케데헌＞ 2관왕 (MBC 뉴스데스크)",u:"https://www.youtube.com/watch?v=m-LtIV4zjv4"},{t:"로제 'APT.' 기록 따라잡은 케데헌 '골든'…K팝 새 역쓰기 (스타뉴스)",u:"https://www.starnewskorea.com/music/2026/04/05/2026040513472473388"}]},
-
-
-  {cat:"tech", econ:true, size:"중견", wclass:"세계1위", world:"HBM 3D 적층에 필수인 TC본더 시장에서 누적 점유율 71.2%로 세계 1위, 이 장비 없이는 글로벌 어느 업체도 HBM을 만들 수 없다.",
-   pride:true, title:"한미반도체, HBM TC본더 세계 점유율 71%…머스크 테라팹까지 넘본다",
-   desc:"인천의 중견 장비기업 한미반도체가 HBM 핵심 공정인 열압착(TC) 본더 시장에서 누적 점유율 71.2%로 세계 1위를 지키고 있다. SK하이닉스는 1월 TC본더를 재발주했고, 회사는 1000억원을 투입해 인천 주안산단에 하이브리드 본더 팩토리를 2026년 말 완공 목표로 짓는 중이다. 첨단 패키징 EMI 차폐 장비에서도 세계 1위다.",
-   src:"블로터", url:"https://www.bloter.net/news/articleView.html?idxno=669046",
-   yt:4, ytnote:"'삼성·SK 뒤에 숨은 진짜 갑' 서사. 대기업이 아닌 이름 모를 인천 장비회사가 세계 71%라는 반전으로 오프닝",
-   videos:[{t:"삼성과 맞서고 세계 1등 찍은 '한미반도체' / 소비더머니",u:"https://www.youtube.com/watch?v=rS5q2rCF1RQ"},{t:"한미반도체, 올해 HBM TC본더 '압도적 1위' 공식화!",u:"https://www.youtube.com/watch?v=pr1x_uy31zQ"},{t:"한미반도체, HBM 장비 싹쓸이…TC본더 생산능력 2조까지 늘린다",u:"https://www.youtube.com/watch?v=6DWQJuRqlQU"}],
-   related:[{t:"한미반도체 HBM TC 본더 세계 점유율 71%…세계 1위 (디지털데일리)",u:"https://m.ddaily.co.kr/page/view/2025122209443632881"},{t:"TC본더 시장 활짝…한미반도체·한화세미텍 '안방 싸움'",u:"https://v.daum.net/v/20260304172902204"}]},
-
-  {cat:"tech", econ:true, size:"중소", wclass:"글로벌수주", world:"세계에서 단 한 곳(HPSP)만 공급하던 고압수소어닐링 장비를 두 번째로 상용화해 글로벌 반도체 기업에 실제 출하했다.",
-   pride:true, title:"예스티, 고압수소어닐링 장비 첫 출하…'세계 유일' 독점 시장 깨고 글로벌 진입",
-   desc:"중소 장비기업 예스티가 75매급 고압수소어닐링(HPA) 장비를 글로벌 반도체 기업에 첫 출하했다. HPA는 실리콘 계면 결함을 고압 수소로 치유해 소자 성능을 끌어올리는 장비로, 그동안 한국의 HPSP가 세계에서 유일하게 공급해 온 영역이다. 양산 테스트용 장비가 고객사 팹에 반입되며 한국 기업 두 곳이 이 시장을 나눠 갖는 구도가 됐다.",
+  {cat:"tech", econ:true, size:"중소", wclass:"대체불가", world:"고압수소어닐링(HPA) 장비는 전 세계에서 한국 기업만 양산 공급하는 분야로, 예스티 진입 이후에도 이 장비를 만들 수 있는 회사는 여전히 한국 2개사뿐이다.",
+   pride:true, title:"예스티, 고압수소어닐링 장비 첫 출하…HPSP 세계 독점 깨고 '한국 2파전'",
+   desc:"반도체 장비 중소기업 예스티가 3월 23일 75매 처리 규격의 고압수소어닐링 장비를 글로벌 반도체 업체 팹에 첫 출하했다고 밝혔다. 고압수소어닐링은 파운드리·선단 D램 공정에서 계면 결함을 치유하는 필수 공정으로, 그동안 같은 한국 기업 HPSP가 세계 유일 공급사로 독점해온 영역이다. 예스티의 진입으로 이 장비를 만들 수 있는 회사는 전 세계에 여전히 한국 기업 둘뿐인 구도가 됐고, 예스티는 이를 발판으로 글로벌 반도체 시장 본격 진입을 선언했다.",
    src:"ZDNet Korea", url:"https://zdnet.co.kr/view/?no=20260323111517",
-   yt:3, ytnote:"'세계에 딱 두 곳, 둘 다 한국' 구도. HPSP vs 예스티 특허전까지 엮으면 산업 다큐 톤",
-   videos:[], related:[]},
+   yt:3, ytnote:"'세계에 두 회사뿐, 둘 다 한국' — 독점 소부장이 어떻게 만들어지는지 예스티·HPSP 대결 구도로",
+   videos:[], related:[{t:"예스티, HPSP 독점 깼다...메모리 업체에 고압수소어닐링 장비 공급 (디일렉)",u:"https://www.thelec.kr/news/articleView.html?idxno=45363"},{t:"세계 유일 독점 기업 HPSP, 성장 정체의 역설에 빠지다 (리드경제)",u:"https://www.leadeconomy.co.kr/news/articleView.html?idxno=7100"}]},
 
+  {cat:"tech", econ:true, size:"중견", wclass:"글로벌수주", world:"원전 종주국 유럽의 체코 스코다JS에 사용후핵연료 고정형 캐스크를 공급하는 첫 한국 기업이 됐다 — 원전 선진국이 한국 부품을 사가는 구도다.",
+   pride:true, title:"태웅, 체코 원전에 사용후핵연료 캐스크 공급…한국 첫 고정형 캐스크 수출",
+   desc:"단조 전문 중견기업 태웅이 체코 테믈린·두코바니 원전용 사용후핵연료 고정형 캐스크를 현지 원전기업 스코다JS에 공급하는 계약을 따냈다. 한국 기업이 고정형 캐스크를 해외로 수출하는 첫 사례다. 스코다JS는 연간 10기의 캐스크를 공급하는데 태웅이 우선 2기를 납품하고 내년부터 5기까지 물량을 늘릴 계획이다. 태웅은 SMR용 대형 단조품에서도 글로벌 공급망 진입을 노리고 있다.",
+   src:"다음뉴스(경제)", url:"https://v.daum.net/v/20260305191402009",
+   yt:2, ytnote:"'원전은 유럽이 원조인데 부품은 한국이 판다' — 캐스크가 뭔지부터 쉽게 풀어주는 원전 소부장 해설",
+   videos:[], related:[{t:"에너지 안보·탄소중립 바람에 '원전주' 재부각...체코 수주 이어 SMR 모멘텀까지 (이투데이)",u:"https://www.etoday.co.kr/news/view/2556710"},{t:"[기획] K-원전, 글로벌 원전 르네상스 기회 잡는다 (투데이에너지)",u:"https://www.todayenergy.kr/news/articleView.html?idxno=302598"}]},
 
-  {cat:"tech", econ:true, size:"대기업", wclass:"세계최초", world:"암모니아를 화물이자 연료로 쓰는 세계 최초의 상선을 건조·인도해 무탄소 선박 시대를 한국이 먼저 열었다.",
-   pride:true, title:"HD현대중공업, 세계 최초 암모니아 추진 암모니아운반선 인도",
-   desc:"HD현대중공업이 벨기에 가스선사 엑스마에 4만6000㎥급 암모니아 운반선 '안트워펜호'를 인도했다. 암모니아를 화물로 실으면서 동시에 연료로도 쓰는 세계 최초의 상선으로, 운항 중 탄소를 배출하지 않는다. HD현대는 같은 방식의 암모니아 추진선 8척을 확보해 친환경 선박 기술 경쟁에서 앞서 나가고 있다.",
-   src:"디일렉(THE ELEC)", url:"https://www.thelec.kr/news/articleView.html?idxno=54842",
-   yt:4, ytnote:"'배가 탄소를 안 뿜는다' 후킹. 암모니아 연소의 난이도(독성·질소산화물)를 설명한 뒤 한국이 먼저 푼 이유로 마무리",
-   videos:[{t:"HD현대, 암모니아 추진선 엔진 탑재 성공 '세계 최초'",u:"https://www.youtube.com/watch?v=RInaJdBgF_w"},{t:"선박도 탈탄소..세계 최초 암모니아 디젤 혼소 선박 진수 (MBC경남)",u:"https://www.youtube.com/watch?v=zt6nYdmB_kw"},{t:"탄소배출 '제로' 암모니아 추진선 개발 속도 낸다 (울산MBC)",u:"https://www.youtube.com/watch?v=v3uOrRDHhRs"}],
-   related:[{t:"암모니아 추진선 시대 개막…조선 빅3, 친환경 선박 기술 경쟁 (한국경제)",u:"https://www.hankyung.com/article/202604178335G"},{t:"[해양통신] HD현대, 세계 최초 암모니아추진 암모니아운반선 인도",u:"https://www.oceanpress.co.kr/news/article.html?no=30307"}]},
+  {cat:"tech", econ:true, size:"대기업", wclass:"글로벌수주", world:"자국 방산업체 보호가 가장 심한 세계 최대 방산시장 미국에 한국 지상장비 기업이 실제로 진입했다.",
+   pride:true, title:"한화에어로스페이스, 세계 최대 방산시장 美 뚫었다…지상 넘어 우주로",
+   desc:"한화에어로스페이스가 진입 장벽이 가장 높다는 미국 방산시장 공략에 성공하며 K-방산의 체급을 한 단계 끌어올렸다. 지상 무기체계에서 확보한 양산 경쟁력을 바탕으로 위성 제작, 발사체 조립, 우주 통신 탑재체, 혁신 엔진 개발까지 이어지는 독자 우주 밸류체인 구축에도 속도를 내고 있다. K-방산 빅4는 이미 100조원대 수주잔고를 쌓아둔 상태다.",
+   src:"아시아투데이", url:"https://www.asiatoday.co.kr/kn/view.php?key=20260819010006247",
+   yt:4, ytnote:"'미국은 원래 남의 무기를 안 산다' — 미 방산시장의 폐쇄성부터 설명하고 한화가 뚫은 경로를 추적",
+   videos:[{t:"세계 방산 판도가 바뀌었다… 한국은 어떻게 4위에 올랐나",u:"https://www.youtube.com/watch?v=wT-KFfYHZF4"},{t:"한화에어로, 폴란드에 5.6조 수출…\"다음은 노르웨이\" [방산]",u:"https://www.youtube.com/watch?v=I6sK-ZHcno0"},{t:"천무, 폴란드와 '5.6조' 추가계약…국뽕 차오르는 K-방산 / 연합뉴스TV",u:"https://www.youtube.com/watch?v=bJLXC2OYpgM"}],
+   related:[{t:"100조 수주고 쌓은 방산 빅4, 우주 밸류체인 구축 속도전 (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202606241811306801"},{t:"[2026 신년기획] K-방산 수출 2막 연다 (이코노믹데일리)",u:"https://www.economidaily.com/view/20251231145205676"}]},
 
+  {cat:"tech", econ:true, size:"대기업", wclass:"글로벌수주", world:"이미 K9·K2를 사간 폴란드가 이번엔 방공·무인·우주 체계까지 한국에 요구하면서, 유럽 재무장 수요의 납기를 맞출 수 있는 사실상 유일한 공급자 자리를 한국이 차지했다.",
+   pride:true, title:"폴란드서 K-방산 2막…K9 넘어 방공·무인·우주 체계로 판 키운다",
+   desc:"9월 폴란드 방산전시회에서 한국 기업들이 K9 자주포와 K2 전차 중심이던 수출 포트폴리오를 방공·무인기·우주 체계로 확장한 라인업을 선보였다. 폴란드는 천무 다연장로켓 3차 계약(5조6000억원)을 포함해 30조원대 한국산 무기를 도입해온 최대 고객으로, 이번엔 현지 생산·정비·운용까지 묶는 2단계 협력을 요구하고 있다. 유럽의 재무장 국면에서 납기를 맞출 수 있는 공급자가 한국뿐이라는 평가가 나온다.",
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202609071404019575",
+   yt:4, ytnote:"'왜 유럽은 미국 말고 한국에 줄을 서나' — 납기·생산능력 관점에서 K-방산의 진짜 경쟁력 해부",
+   videos:[{t:"[속보] 다연장로켓 '천무' 폴란드 3차 계약 체결..\"K-방산 수출 150억 달러 예상\"",u:"https://www.youtube.com/watch?v=b7PT90ZeD3Q"},{t:"연말까지 방산수출 쾌거…폴란드와 다연장로켓 5.6조원 계약 / 연합뉴스TV",u:"https://www.youtube.com/watch?v=V2H0wB3YO-M"},{t:"[이슈] K-방산 올해도 맹위…\"천무 유도탄 폴란드 현지 생산\" / KBS",u:"https://www.youtube.com/watch?v=g0QIULFYH7w"}],
+   related:[{t:"아시아 최대 방산 전시회 'DSA 2026'에 국내 기업 23개사 참가 (다음뉴스)",u:"https://v.daum.net/v/20260422072133555"},{t:"세계 최대 방산시장 美도 뚫었다…한화에어로, 지상 넘어 우주도약 탄력 (아시아투데이)",u:"https://www.asiatoday.co.kr/kn/view.php?key=20260819010006247"}]},
 
+  {cat:"tech", econ:true, size:"중견", wclass:"해외인정", world:"글로벌 빅파마들이 한국 바이오텍의 신약 후보물질을 사가며 올해 기술수출 규모가 21조원에 달했다 — 세계 제약사가 한국 파이프라인에 지갑을 열었다는 뜻이다.",
+   pride:true, title:"韓 기술수출 21조 돌파…신약·플랫폼 빅딜 행진에 글로벌 빅파마 러브콜",
+   desc:"올해 국내 제약·바이오 기업의 기술수출 규모가 21조원을 넘어섰다. 신약 후보물질과 플랫폼 기술을 중심으로 글로벌 빅파마와의 대형 라이선스 계약이 연달아 성사됐다. 에이비엘바이오는 빅파마 라이선스 계약과 지분투자에 이어 담도암 신약의 FDA 승인 모멘텀을 앞두고 있고, HK이노엔의 '케이캡', HLB의 '리보세라닙' 등도 FDA 허가 절차를 밟고 있다. 상반기 기술수출에 이어 하반기에는 실제 미국 허가와 글로벌 임상 3상 결과가 잇따라 공개된다.",
+   src:"머니투데이 the bio", url:"https://www.mt.co.kr/thebio/2026/09/07/2026090619570577205",
+   yt:3, ytnote:"'한국이 약을 파는 게 아니라 설계도를 판다' — 기술수출 계약 구조(선급금/마일스톤)를 숫자로 해설",
+   videos:[], related:[{t:"2026년 FDA 문 두드리는 K-바이오…차별화 전략은? (바이오타임즈)",u:"https://www.biotimes.co.kr/news/articleView.html?idxno=26570"},{t:"FDA 허가부터 3상 결과까지…하반기 K-바이오 성과 '시험대' (뉴스핌)",u:"https://www.newspim.com/news/view/20260706000488"}]},
 
+  {cat:"kpop", econ:false, pride:true,
+   title:"빌보드 '2026 최고의 K팝' 1위에 신인 걸그룹 키키 '404'",
+   desc:"미국 빌보드가 선정한 '2026년 최고의 K팝 25곡'에서 데뷔 2년차 걸그룹 키키(KiiiKiii)의 '404 (New Era)'가 1위에 올랐다. 빌보드는 \"404는 인터넷에서 가장 흔한 오류 코드지만 키키는 그 안에 '시스템에서 찾을 수 없는 존재'라는 의미를 담아 완전히 뒤집어놓았다\"고 평했다. 하츠투하츠와 악뮤가 각각 2·3위에 올랐고, '404'는 국내에서도 멜론 톱100과 써클차트 월간 디지털·스트리밍 차트 1위를 휩쓸었다.",
+   src:"위키트리", url:"https://www.wikitree.co.kr/articles/1146888",
+   yt:3, ytnote:"'빌보드 에디터가 뽑은 25곡' 리스트를 근거와 함께 리뷰하는 큐레이션 콘텐츠",
+   videos:[], related:[{t:"빌보드 2026 베스트 K팝 1위는 키키 '404'.. 하츠투하츠·악뮤 2,3위 (미주 한국일보)",u:"http://www.koreatimes.com/article/20260716/1621728"}]},
+
+  {cat:"culture", econ:true, pride:true,
+   title:"상반기 K-푸드 수출 70.5억 달러 역대 최고…라면 28%↑, 美 냉동김밥 450% 폭증",
+   desc:"올해 상반기 K-푸드+ 수출이 70억5000만 달러로 반기 기준 역대 최고를 기록했다. 라면 수출은 28% 늘었고, 미국에서는 냉동김밥이 450% 폭증하며 '수출 블루칩'으로 떠올랐다. 라면은 지난해 단일 품목 최초로 수출 15억2000만 달러를 넘기며 11년 연속 최대 기록을 갈아치웠고, 멕시코는 중남미 최대 K-라면 시장이 됐다. 정부의 올해 K-푸드+ 수출 목표는 160억 달러다.",
+   src:"파이낸셜뉴스", url:"https://www.fnnews.com/news/202607051100444453",
+   yt:3, ytnote:"'분식이 어떻게 수출 효자가 됐나' — 냉동김밥 450% 성장을 물류·냉동기술 관점에서 풀기",
+   videos:[], related:[{t:"'미국 휩쓴' 냉동김밥 450% 폭증..레드오션 K분식, '수출 블루칩'됐다 (파이낸셜뉴스)",u:"https://www.fnnews.com/news/202603231511055643"}]},
 ];
 
 /* ====== 렌더링 ====== */
