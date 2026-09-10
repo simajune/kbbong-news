@@ -3,7 +3,7 @@
 # 노션은 별도로 claude.ai 클라우드 루틴이 갱신함.
 export PATH="/Users/taejune/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:$PATH"
 
-DIR="/Users/taejune/Downloads/ai_office"
+DIR="/Users/taejune/ai_office"
 LOG="$DIR/kbbong_collect.log"
 PROMPT_FILE="$DIR/kbbong_web_prompt.md"
 
