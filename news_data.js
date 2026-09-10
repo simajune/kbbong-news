@@ -1,121 +1,5 @@
-<title>국뽕 뉴스 대시보드</title>
-<style>
-  :root{
-    --bg:#0b0d12; --panel:#141821; --panel2:#1b2130; --line:#242c3a;
-    --txt:#e8ecf3; --sub:#93a0b5; --brand:#3b82f6; --accent:#f43f5e;
-    --k1:#ef4444; --k2:#3b82f6; --k3:#f59e0b; --k4:#10b981; --k5:#a855f7;
-  }
-  @media (prefers-color-scheme: light){
-    :root{--bg:#f4f6fb;--panel:#ffffff;--panel2:#f0f3f9;--line:#e2e7f0;--txt:#141821;--sub:#5a6678;}
-  }
-  :root[data-theme="dark"]{--bg:#0b0d12;--panel:#141821;--panel2:#1b2130;--line:#242c3a;--txt:#e8ecf3;--sub:#93a0b5;}
-  :root[data-theme="light"]{--bg:#f4f6fb;--panel:#ffffff;--panel2:#f0f3f9;--line:#e2e7f0;--txt:#141821;--sub:#5a6678;}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);
-    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",Segoe UI,Roboto,sans-serif;
-    line-height:1.5;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
-  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
-  h1{font-size:26px;margin:0;letter-spacing:-.5px}
-  h1 .flag{filter:saturate(1.2)}
-  .meta{color:var(--sub);font-size:13px;margin-top:4px}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 8px}
-  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-  .stat .n{font-size:24px;font-weight:700}
-  .stat .l{font-size:12px;color:var(--sub);margin-top:2px}
-  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}
-  .chip{border:1px solid var(--line);background:var(--panel);color:var(--sub);
-    padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;transition:.15s;user-select:none}
-  .chip:hover{color:var(--txt)}
-  .chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  @media(max-width:720px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;
-    display:flex;flex-direction:column;gap:10px;transition:.15s;position:relative;overflow:hidden}
-  .card:hover{transform:translateY(-2px);border-color:var(--brand)}
-  .card .tag{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff}
-  .card h3{margin:0;font-size:16px;letter-spacing:-.3px}
-  .card p{margin:0;color:var(--sub);font-size:13.5px}
-  .card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:6px}
-  .card .src{font-size:12px;color:var(--sub)}
-  .date{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;color:var(--sub);
-    background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;align-self:flex-start}
-  .date.fresh{color:#ef4444;border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
-  .date.old{opacity:.65}
-  .card a.read{font-size:12.5px;color:var(--brand);text-decoration:none;font-weight:600}
-  .card a.read:hover{text-decoration:underline}
-  .pride{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);font-weight:700}
-  .yt{font-size:12px;color:var(--sub);background:var(--panel2);border:1px solid var(--line);
-    border-radius:10px;padding:6px 10px;line-height:1.35}
-  .yt b{color:#f59e0b;letter-spacing:1px}
-  .yt.hot{border-color:#ef4444;background:rgba(239,68,68,.08);color:var(--txt)}
-  .yt.hot b{color:#ef4444}
-  .yt-chip.on{background:#ef4444;border-color:#ef4444;color:#fff}
-  .econ{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
-    background:rgba(16,185,129,.14);color:#10b981;border:1px solid rgba(16,185,129,.4)}
-  .econ-chip.on{background:#10b981;border-color:#10b981;color:#fff}
-  .intl{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
-    background:rgba(59,130,246,.14);color:#3b82f6;border:1px solid rgba(59,130,246,.4)}
-  .intl-chip.on{background:#3b82f6;border-color:#3b82f6;color:#fff}
-  .classic{align-self:flex-start;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;
-    background:rgba(168,85,247,.14);color:#a855f7;border:1px solid rgba(168,85,247,.4)}
-  .classic-chip.on{background:#a855f7;border-color:#a855f7;color:#fff}
-  .rel{font-size:12.5px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);padding:2px 10px}
-  .rel summary{cursor:pointer;padding:7px 0;color:var(--sub);font-weight:600;user-select:none}
-  .rel summary:hover{color:var(--txt)}
-  .rel ul{margin:2px 0 8px;padding-left:2px;list-style:none;display:flex;flex-direction:column;gap:6px}
-  .rel a{color:var(--brand);text-decoration:none}
-  .rel a:hover{text-decoration:underline}
-  .copybtn{margin:2px 0 8px;border:1px solid var(--brand);background:transparent;color:var(--brand);
-    border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s}
-  .copybtn:hover{background:var(--brand);color:#fff}
-  .copybtn.ok{border-color:#10b981;color:#10b981;background:rgba(16,185,129,.1)}
-  footer{margin-top:34px;color:var(--sub);font-size:12px;text-align:center;line-height:1.7}
-  .toggle{border:1px solid var(--line);background:var(--panel);color:var(--sub);border-radius:999px;
-    padding:6px 12px;font-size:12px;cursor:pointer}
-</style>
-
-<div class="wrap">
-  <header class="top">
-    <div>
-      <h1><span class="flag">🇰🇷</span> 국뽕 뉴스 대시보드</h1>
-      <div class="meta">한국 기술 · K-팝 · K-문화 · 스포츠 성과 — 자부심이 느껴지는 뉴스 모음</div>
-    </div>
-    <button class="toggle" onclick="toggleTheme()">🌓 테마</button>
-  </header>
-
-  <div class="meta" id="updated">최종 업데이트: 2026-09-06</div>
-
-
-  <div class="stats">
-    <div class="stat"><div class="n" id="s-total">0</div><div class="l">수집 기사</div></div>
-    <div class="stat"><div class="n" id="s-yt">0</div><div class="l">🎬 유튜브 추천 (★4↑)</div></div>
-    <div class="stat"><div class="n" id="s-econ">0</div><div class="l">💰 경제 채널 적합</div></div>
-    <div class="stat"><div class="n" id="s-intl">0</div><div class="l">🌍 외신 보도</div></div>
-    <div class="stat"><div class="n" id="s-classic">0</div><div class="l">🏛️ 명예의 전당</div></div>
-    <div class="stat"><div class="n">69.7%</div><div class="l">외국인 한류 호감도</div></div>
-  </div>
-
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="grid"></div>
-
-  <footer>
-    자동 수집 대시보드 · 출처 링크는 각 카드의 &ldquo;기사 보기&rdquo;를 확인하세요.<br>
-    데이터는 <code>news_data.js</code>에 저장되며 하루 2회 자동 갱신됩니다.
-  </footer>
-</div>
-
-<script>
-/* ====== 뉴스 데이터 (자동 수집 시 이 배열이 갱신됩니다) ====== */
-const CATS = {
-  tech:   {name:"한국 기술", color:"#3b82f6"},
-  kpop:   {name:"K-팝/한류", color:"#ef4444"},
-  culture:{name:"K-문화/음식", color:"#f59e0b"},
-  sports: {name:"스포츠/기타", color:"#10b981"},
-};
-
-/* yt: 유튜브 정보성 콘텐츠 각 점수(1~5), ytnote: 기획 코멘트 */
+/* 국뽕 뉴스 데이터 — 자동 수집기가 이 파일만 수정한다.
+   index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
   {cat:"tech", date:"2026-09-05", econ:true, intl:false, pride:true, title:"수출 7094억달러, 작년 연간 기록을 117일 앞당겨 돌파…'1조달러 수출국' 눈앞",
    desc:"관세청은 9월 5일 오후 1시 기준 올해 누적 수출액이 7094억달러를 기록해 지난해 연간 수출액(7093억달러)을 117일이나 앞당겨 넘어섰다고 밝혔다. 1~8월 반도체 수출이 2812억달러로 전년 동기 대비 169.6% 급증하며 전체 증가세를 이끌었고, 반도체 비중은 40.6%에 달했다. 관세청장은 현재 흐름이 이어지면 12월 초 사상 첫 연간 수출 1조달러 달성이 가능하다고 전망했다.",
@@ -292,146 +176,152 @@ const NEWS = [
            {t:"에미상 휩쓴 '오징어 게임'‥비영어권 최초 (2022.09.14/뉴스투데이/MBC)", u:"https://www.youtube.com/watch?v=6z-dPWLnLmI"},
            {t:"'오징어게임' 이정재·황동혁 센스 만점 수상 소감 (현장영상) / SBS", u:"https://www.youtube.com/watch?v=qSbCd_5LqYg"}],
    related:[{t:"'오징어게임', 비영어 드라마 최초 에미상 작품상 후보 (경향신문)", u:"https://www.khan.co.kr/article/202207130751001"},
-            {t:"'오징어 게임' 미국 에미상 감독상·남우주연상 수상…비영어권 최초 / KBS", u:"https://www.youtube.com/watch?v=USsIy6EjGMQ"}]}
+            {t:"'오징어 게임' 미국 에미상 감독상·남우주연상 수상…비영어권 최초 / KBS", u:"https://www.youtube.com/watch?v=USsIy6EjGMQ"}]},
+
+  // ── 국제기여 아카이브: 한국이 다른 나라를 도운 이야기 ──
+  {cat:"culture", date:"1999-10-04", classic:true, aid:true, country:"동티모르", econ:false, intl:true, pride:true,
+   title:"동티모르 상록수부대…구스마오 대통령이 취임 후 가장 먼저 찾은 나라가 한국이었다",
+   desc:"1999년 10월 파병된 상록수부대는 동티모르 13개 군 가운데 로스팔로스와 오쿠시 2개 군에 각각 2년씩 주둔하며 4년간 지역 안정화를 이끌었다. 파견국 중 유일하게 대민지원 작전 '블루엔젤'을 별도로 전개해 동티모르 정부와 유엔군사령부로부터 '가장 모범적인 부대'라는 평가를 받았다. 임무 수행 중 순직한 부대원 5명의 추모식은 지금도 현지 오에쿠시에서 열린다.",
+   legacy:"2002년 6월 취임한 구스마오 대통령은 외국 가운데 한국을 가장 먼저 방문해 파병에 사의를 표했고, 상록수부대가 주둔했던 지역 주민들을 \"동티모르인 가운데 가장 복 받은 주민\"이라고 표현했다.",
+   src:"대한민국 정책브리핑", url:"https://www.korea.kr/news/policyNewsView.do?newsId=50002709",
+   yt:5, ytnote:"한 나라의 대통령이 취임 후 첫 외국 방문지로 한국을 고른 이유 — 상록수부대 4년의 기록",
+   videos:[{t:"[영상] 육군 상록수부대 동티모르 파병 (1999.10.04)", u:"https://www.youtube.com/watch?v=YQL3LyKkBZQ"},
+           {t:"한국군 최초 PKO 상록수 부대 | 소말리아인이 놀란 상록수 부대", u:"https://www.youtube.com/watch?v=ZHQcd46Je_A"},
+           {t:"동티모르 상록수부대 순직 15주기 추모식 열려 / YTN KOREAN", u:"https://www.youtube.com/watch?v=UCXMSncc8eA"}],
+   related:[{t:"상록수부대(常綠樹部隊) — 한국민족문화대백과사전", u:"https://encykorea.aks.ac.kr/Article/E0068134"},
+            {t:"상록수부대 — 위키백과", u:"https://ko.wikipedia.org/wiki/%EC%83%81%EB%A1%9D%EC%88%98%EB%B6%80%EB%8C%80"}]},
+
+  {cat:"culture", date:"2007-07-19", classic:true, aid:true, country:"레바논", econ:false, intl:true, pride:true,
+   title:"레바논 동명부대 18년…남부 티르 주민들이 부르는 이름은 '신이 준 선물'",
+   desc:"2007년 6월 창설돼 7월 레바논 남부 티르 지역에 전개된 동명부대는 국군 해외파병 부대 가운데 최장수 부대다. UNIFIL 서부여단 소속으로 정전 감시와 폭발물 제거를 맡는 동시에, 의료지원과 학교·공공시설 개보수, 주민 일자리 창출형 민사작전을 이어왔다. 이스라엘-헤즈볼라 충돌이 반복되는 최전선에서 18년째 자리를 지키고 있다.",
+   legacy:"현지 주민들은 동명부대를 '신이 준 선물'이라 부르며, 부대의 민군작전은 레바논 남부 안정화에 크게 기여한 것으로 평가받는다. 부대가 운영한 태권도 교실 출신 '레바논 태권도 키즈'는 지역의 상징이 됐다.",
+   src:"한국민족문화대백과사전", url:"https://encykorea.aks.ac.kr/Article/E0080634",
+   yt:4, ytnote:"18년을 한 도시에 머문 군대 — 티르 아이들이 한국어로 태권도 구령을 외치기까지",
+   videos:[{t:"폭발물 제거, 의료 지원, 태권도 지도까지…레바논 티르의 동명부대 (KBS 2016.10.01)", u:"https://www.youtube.com/watch?v=r_-EVatiKPQ"},
+           {t:"피쓰 투 레바논 — 국제평화를 지키는 그들의 이야기 #동명부대 #UNIFIL", u:"https://www.youtube.com/watch?v=7U01CCkV_T0"},
+           {t:"레바논의 푸른 희망 동명부대 2부 [강군365 200회]", u:"https://www.youtube.com/watch?v=EXq55Sup3l4"}],
+   related:[{t:"대한민국 레바논 평화 유지단 — 위키백과", u:"https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EB%A0%88%EB%B0%94%EB%85%BC_%ED%8F%89%ED%99%94_%EC%9C%A0%EC%A7%80%EB%8B%A8"},
+            {t:"내가 바로 레바논 태권도 키즈 #동명부대", u:"https://www.youtube.com/shorts/BuHdSrXD8TI"}]},
+
+  {cat:"culture", date:"2013-04-01", classic:true, aid:true, country:"남수단", econ:false, intl:true, pride:true,
+   title:"남수단 한빛부대, 307km '생명의 도로'…피보르 시장 \"남수단이 번영한 건 한빛부대 덕\"",
+   desc:"2013년 남수단 종글레이주 보르에 전개된 한빛부대는 UNMISS 소속으로 12년 넘게 재건지원 임무를 이어오고 있다. 보르~피보르~아코보를 잇는 307km 주보급로를 보수해 현지 물류의 생명줄을 만들었고, 2014년에는 보르시에 르왈딧 초등학교를 세웠다. 한빛직업학교와 한빛농장으로 기술을 전수하고 한국어·태권도 교실도 운영한다.",
+   legacy:"피보르 시장 보요이 골라는 \"남수단이 번영하고 무역이 활성화된 것은 한빛부대가 수백km 도로를 건설한 재건 작전 덕분\"이라 말했고, 구무룩 마을 위원장은 \"아이들과 여성, 노인 모두가 나아진 도로를 보고 행복해했다\"고 감사를 전했다. 현지에서 한빛부대의 별명은 '신이 내린 선물'이다.",
+   src:"세계일보", url:"https://www.segye.com/newsView/20250330507167",
+   yt:5, ytnote:"307km 흙길이 나라의 무역로가 되기까지 — 남수단이 한국군을 '신이 내린 선물'이라 부르는 이유",
+   videos:[{t:"남수단 신이 내린 선물｜한빛부대 파병 10주년을 기하며", u:"https://www.youtube.com/watch?v=krCCOx5po3s"},
+           {t:"[한빛부대 16진] 남수단 주민에 '생명의 도로' 선물", u:"https://www.youtube.com/watch?v=c0dgHNY7hxs"},
+           {t:"\"신이 내린 선물\"…국군의 날 기념 해외파병부대(청해·아크·한빛·동명) 활약상 공개", u:"https://www.youtube.com/watch?v=y8IXVo2WMDQ"}],
+   related:[{t:"남수단 국민은 왜 한빛부대를 \"신이 내린 선물\"이라 찬사 보낼까 (문화일보)", u:"https://news.nate.com/view/20250330n04489"},
+            {t:"남수단 한빛부대 — 한국민족문화대백과사전", u:"https://encykorea.aks.ac.kr/Article/E0080633"}]},
+
+  {cat:"culture", date:"2010-03-08", classic:true, aid:true, country:"아이티", econ:false, intl:true, pride:true,
+   title:"아이티 단비부대, 철수하며 110억원짜리 주둔지를 통째로 아이티에 넘겼다",
+   desc:"2010년 1월 대지진 직후 창설된 단비부대는 3월 8일 레오간에 도착해 2년 9개월간 잔해 제거, 도로 복구, 하천 정비, 우물 개발을 수행했다. 공식 임무가 아니었는데도 난민들에게 우물을 파주고 마을과 학교를 지었으며, 콜레라 방역과 난민촌 진료를 병행했다. 2012년 12월 철수하면서 110억원 규모의 주둔지 시설물 전부를 아이티 정부에 무상 공여하고 떠났다.",
+   legacy:"부대가 세운 초등학교와 우물, 그리고 통째로 남기고 간 주둔지 시설은 지금도 레오간에서 사용되고 있다 — 한국군이 '단비'라는 이름 그대로 기억되는 이유다.",
+   src:"YTN", url:"https://m.ytn.co.kr/news_view.amp.php?param=0101_201212241602370439",
+   yt:3, ytnote:"떠나면서 기지를 통째로 주고 온 부대 — 아이티 '단비'의 2년 9개월",
+   videos:[],
+   related:[{t:"대한민국 아이티 재건지원단 — 위키백과", u:"https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%95%84%EC%9D%B4%ED%8B%B0_%EC%9E%AC%EA%B1%B4%EC%A7%80%EC%9B%90%EB%8B%A8"},
+            {t:"아이티 단비부대, 즐겁고 훈훈한 태권도 현장", u:"https://www.youtube.com/watch?v=_HdWrVphUSM"}]},
+
+  {cat:"culture", date:"2011-01-21", classic:true, aid:true, country:"미얀마·인도네시아", econ:false, intl:true, pride:true,
+   title:"아덴만 여명작전…구출된 인질 21명 중 13명은 미얀마·인도네시아 선원이었다",
+   desc:"2011년 1월 15일 소말리아 해적에 피랍된 삼호주얼리호를 구하기 위해 청해부대가 작전에 들어가, 피랍 6일 만인 1월 21일 해군특수전전단(UDT/SEAL)이 선박을 급습했다. 해적 8명을 사살하고 5명을 생포하며 인질 21명 전원을 무사히 구출했는데, 이 가운데 미얀마인 11명과 인도네시아인 2명 등 13명이 외국인 선원이었다. 미국·오만·파키스탄 등 다국적 함정이 작전을 지원했다.",
+   legacy:"한국 해군이 자국민뿐 아니라 동남아 선원 13명의 목숨까지 함께 구해낸 이 작전은 해양 안보·인도주의 군사작전의 모범 사례로 국제 사회에서 거론된다.",
+   src:"대한민국 정책브리핑", url:"https://www.korea.kr/news/policyNewsView.do?newsId=148726097",
+   yt:5, ytnote:"구출된 21명 중 13명은 한국인이 아니었다 — 아덴만 여명작전을 다시 보는 관점",
+   videos:[{t:"[국방부] 다큐멘터리 — 아덴만 여명작전 7일간의 기록", u:"https://www.youtube.com/watch?v=ywyBl1KaICw"},
+           {t:"삼호주얼리호에 피랍된 21명의 선원들을 구하라! #벌거벗은세계사 EP.31 | tvN", u:"https://www.youtube.com/watch?v=AEjuA2zIPdY"},
+           {t:"청해부대 아덴만 여명작전 영상 (S. Korean Navy Rescued Hostages from Somalia Pirates)", u:"https://www.youtube.com/watch?v=VrfvHWUCr_0"}],
+   related:[{t:"아덴만 여명 작전 — 위키백과", u:"https://ko.wikipedia.org/wiki/%EC%95%84%EB%8D%B4%EB%A7%8C_%EC%97%AC%EB%AA%85_%EC%9E%91%EC%A0%84"},
+            {t:"소말리아 해역 청해부대 — 한국민족문화대백과사전", u:"https://encykorea.aks.ac.kr/Article/E0080635"}]},
+
+  {cat:"culture", date:"2023-02-08", classic:true, aid:true, country:"튀르키예", econ:false, intl:true, pride:true,
+   title:"튀르키예 대지진, 한국 긴급구호대 118명…6·25 때 우리를 도운 그 땅에서 생존자를 꺼냈다",
+   desc:"2023년 2월 6일 대지진 직후 외교부·국방부·소방청·KOICA로 구성된 해외긴급구호대(KDRT) 118명이 파견돼 2월 8일 오전 가지안테프 공항에 도착했다. 튀르키예 정부 요청에 따라 하타이주 안타키아를 중점 구조지역으로 선정했고, 2월 9일 구조 개시 90분 만에 첫 생존자를 구해낸 뒤 7시간 만에 5명을 구조했다. 구호대는 3진까지 이어져 3월까지 구조·재건 활동을 계속했다.",
+   legacy:"튀르키예는 6·25 때 미국 다음으로 많은 병력을 보낸 '형제의 나라'이며, 한국 구호대가 활동한 지역은 당시 튀르키예군이 한국으로 떠났던 이스켄데룬 인근이었다 — 72년 만에 같은 항구에서 방향만 바뀐 셈이다.",
+   src:"외교부", url:"https://www.mofa.go.kr/www/brd/m_4076/view.do?seq=369765",
+   yt:5, ytnote:"72년 전 그 항구에서 — 형제의 나라에 진 빚을 갚으러 간 118명",
+   videos:[{t:"한국 긴급 구호대, 튀르키예 지진 현장서 생존자 첫 구조", u:"https://www.youtube.com/watch?v=56RwgfnlCkk"},
+           {t:"\"튀르키예, 형제의 나라\"…긴급구호대 110명 급파 | 뉴스A", u:"https://www.youtube.com/watch?v=uJOXF9bv4aE"},
+           {t:"총 8명의 생존자를 구조하다! 튀르키예·시리아 대지진에서 활약한 대한민국 긴급구호대", u:"https://www.youtube.com/watch?v=KfVzVure7aM"}],
+   related:[{t:"정부 긴급구호대 튀르키예 지진 현장 도착해 수색·구조활동 개시 (경향신문)", u:"https://m.khan.co.kr/politics/defense-diplomacy/article/202302081620001"},
+            {t:"튀르키예 지진 피해 지원 대한민국 해외긴급구호대(KDRT) 3진 복귀 (외교부)", u:"https://www.mofa.go.kr/www/brd/m_4080/view.do?seq=373500"}]},
+
+  {cat:"culture", date:"2013-12-09", classic:true, aid:true, country:"필리핀", econ:false, intl:true, pride:true,
+   title:"태풍 하이옌 폐허의 필리핀에 520명 아라우부대…아키노 대통령이 한국말로 \"감사합니다\"",
+   desc:"2013년 11월 슈퍼태풍 하이옌으로 초토화된 필리핀 타클로반에 12월 9일부터 520여 명 규모의 아라우부대가 전개됐다. 전차상륙함 2척에 중형굴삭기 등 19종 30대의 장비와 12종 35t의 물자를 싣고 들어가 잔해 제거와 학교·공공시설 재건, 의료 진료를 수행했으며 2014년 12월 임무를 마쳤다. 부대명 '아라우(Araw)'는 현지어로 태양·희망을 뜻한다.",
+   legacy:"베니그노 아키노 필리핀 대통령은 태풍 피해 현장 첫 방문지로 아라우부대가 복구·완공한 타나완 센트럴초등학교를 골랐고, 부대장에게 한국말로 \"감사합니다\"라고 인사했다.",
+   src:"대한민국 정책브리핑", url:"https://www.korea.kr/news/interviewView.do?newsId=148774692",
+   yt:3, ytnote:"대통령이 피해 현장 첫 방문지로 '한국군이 지은 학교'를 고른 날",
+   videos:[],
+   related:[{t:"아라우 부대 — 위키백과", u:"https://ko.wikipedia.org/wiki/%EC%95%84%EB%9D%BC%EC%9A%B0_%EB%B6%80%EB%8C%80"},
+            {t:"평화유지·사회 재건…현지서 사랑받는 파병 장병들 / YTN", u:"https://www.youtube.com/watch?v=yXfRHL_huRk"}]},
+
+  {cat:"culture", date:"2009-11-25", classic:true, aid:true, country:"OECD 개발원조위원회", econ:true, intl:true, pride:true,
+   title:"한국, OECD DAC 24번째 회원국 가입…원조 받던 나라가 주는 나라가 된 세계 유일 사례",
+   desc:"2009년 11월 25일 파리 OECD 본부에서 열린 개발원조위원회(DAC) 가입 심사 특별회의에서 회원국 전원 합의로 한국의 가입이 확정됐고, 2010년 1월 1일부터 24번째 정식 회원국으로 활동을 시작했다. 1961년 DAC 출범 이후 원조 수혜국에서 공여국으로 전환한 나라는 한국이 처음이자 유일하다. DAC 회원국들은 한국의 경험이 위원회에 새로운 활력이 될 것이라고 평가했다.",
+   legacy:"이후 한국의 개발 경험은 아프리카·동남아 개도국이 직접 배우러 오는 커리큘럼이 됐고, '수원국에서 공여국으로'는 국제개발협력 현장에서 한국을 설명하는 고유명사가 됐다.",
+   src:"외교부", url:"https://www.mofa.go.kr/www/brd/m_4080/view.do?seq=325276",
+   yt:4, ytnote:"세계 어느 나라도 못 한 방향 전환 — 받던 나라에서 주는 나라로, 1961년 이후 유일",
+   videos:[{t:"[개발협력주간] OECD DAC 가입 10주년 기념 SBS 일요특선 다큐멘터리 요약본", u:"https://www.youtube.com/watch?v=wSH8TEkByDw"},
+           {t:"수원국에서 공여국이 된 세계 최초, 유일 국가 대한민국 [이슈 픽 쌤과 함께] | KBS", u:"https://www.youtube.com/watch?v=YofyNeUDmqk"},
+           {t:"[국민리포트] 원조받던 한국.. 이제 원조하는 나라로!", u:"https://www.youtube.com/watch?v=NryuS0TQWRw"}],
+   related:[{t:"선진공여국으로 우뚝 서다, OECD DAC 가입 (외교부 뉴포커스)", u:"https://www.mofa.go.kr/www/brd/m_4076/view.do?seq=325309"},
+            {t:"한국, OECD DAC 가입 '선진국 대열 합류' (오마이뉴스)", u:"https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0001269063"}]},
+
+  {cat:"culture", date:"2024-03-22", classic:true, aid:true, country:"에티오피아", econ:false, intl:true, pride:true,
+   title:"6·25 참전 에티오피아 강뉴부대…70여 년 뒤 한국이 그 후손들을 찾아간다",
+   desc:"1951년 하일레 셀라시에 황제는 황실근위대 6037명을 파병했고, 유엔군 강뉴부대로 253차례 전투에서 모두 승리했다. 그러나 귀국 후 정권이 바뀌며 참전용사들은 '한국을 도왔다'는 이유로 핍박받고 극빈층으로 밀려났다. 사단법인 따뜻한하루는 2016년부터 매년 이들의 가정을 찾아 생계비와 주거환경 개선을 지원하고, 2018년에는 후손들로 '강뉴합창단'을 창단해 장학사업을 이어오고 있다.",
+   legacy:"현지에서 참전용사를 돕는 한국인은 '짜이(형제)'로 불리며, 강뉴합창단 후손들은 초청을 받아 한국을 찾아 임진각과 춘천 에티오피아 참전기념탑을 방문한다.",
+   src:"한국일보", url:"https://www.hankookilbo.com/News/Read/A2024032210520005705",
+   yt:5, ytnote:"한국을 도왔다는 이유로 가난해진 사람들 — 강뉴부대 후손을 찾아가는 보은 프로젝트",
+   videos:[{t:"[호국보훈의 달 특집 다큐] 강뉴, 승리의 이름으로 — 에티오피아 참전용사들의 마지막 이야기", u:"https://www.youtube.com/watch?v=B3qNU6DrAdM"},
+           {t:"\"할아버지가 구한 나라, 손녀를 구하다\"…해외 참전용사 손녀 수술 지원 / KBS", u:"https://www.youtube.com/watch?v=0FAjPMcWsk0"},
+           {t:"한국을 도왔다는 이유로 핍박받은 에티오피아 참전용사들", u:"https://www.youtube.com/watch?v=3cUciXW4074"}],
+   related:[{t:"\"참전용사 돕는 한국인은 '짜이'\"… 에티오피아에 퍼진 韓 온기 (국민일보)", u:"https://v.daum.net/v/WLX26shDYD"},
+            {t:"LG, 6·25 에티오피아 참전용사 후손 '강뉴합창단' 방한 체류비 후원 (이데일리)", u:"https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01262806645484016"}]},
+
+  {cat:"culture", date:"2026-06-25", classic:true, aid:true, country:"콜롬비아", econ:false, intl:true, pride:true,
+   title:"중남미 유일 6·25 파병국 콜롬비아…한국 대사관이 노병들을 직접 찾아간다",
+   desc:"콜롬비아는 6·25 전쟁 당시 중남미에서 유일하게 지상군을 보낸 나라로, 현재 생존 참전용사는 380여 명으로 알려져 있다. 주콜롬비아 한국대사관은 6·25 발발 76주년을 맞아 수도 보고타를 벗어난 부카라망가 지역까지 '찾아가는 보훈 행사'를 열었다. 거동이 어려워 수도 행사에 오지 못하는 고령의 노병들을 한국 정부가 직접 찾아가는 방식이다.",
+   legacy:"보고타에서 열린 기념식에는 참전용사 35명과 가족 등 120명이 참석해 '대한민국 국민 보은 메달'을 받았고, 콜롬비아 현지에서는 이들을 '잊혀진 영웅들'로 다시 조명하는 행사가 해마다 이어지고 있다.",
+   src:"뉴스토마토", url:"http://www.newstomato.com/ReadNews.aspx?no=1305391",
+   yt:3, ytnote:"수도에 못 오는 노병에게 한국이 찾아간다 — 중남미 유일 파병국 콜롬비아 보훈 현장",
+   videos:[],
+   related:[{t:"\"중남미 유일 파병국 콜롬비아, 한국전 참전 헌신 재조명\" (GOODTV)", u:"https://news.goodtv.co.kr/news/articleView.html?idxno=23923"},
+            {t:"콜롬비아에서 대한민국 국민 보은 메달 헌정식 열려 (뉴스코리아)", u:"https://www.newskorea.ne.kr/news/articleView.html?idxno=12137"}]},
+
+  {cat:"culture", date:"2011-01-31", classic:true, aid:true, country:"탄자니아·르완다 등", econ:false, intl:true, pride:true,
+   title:"새마을운동, 74개국으로 수출…아프리카 오지 마을이 카사바 의존에서 벗어났다",
+   desc:"한국의 1970년대 농촌개발 모델인 새마을운동이 개발 협력 프로그램으로 재설계돼 아프리카·아시아 저개발국에 전파됐다. 탄자니아 운지아냐 마을에서는 마을 지도자가 한국에서 새마을 교육을 받고 돌아온 뒤 주민들이 카사바 뿌리 의존에서 벗어나기 시작했고, 탄자니아 정부는 팡가니 지역에 새마을 방식 마을 조성 계획을 세웠다. 2015년에는 우간다·케냐·에티오피아·세네갈·말라위 등 아프리카 6개국 지역개발 전문가들이 영남대에서 새마을운동을 집중 학습했다.",
+   legacy:"르완다는 새마을운동을 국가 농촌개발 모델로 벤치마킹했고, 아프리카 각국 공무원들이 지금도 한국에 연수를 오며 '새마을(Saemaul)'은 번역 없이 그대로 쓰이는 개발협력 용어가 됐다.",
+   src:"세계일보", url:"https://www.segye.com/newsView/20110131001473",
+   yt:4, ytnote:"'새마을'이 번역 없이 수출된 단어가 된 이유 — 르완다·탄자니아 현장 비교",
+   videos:[{t:"한국의 새마을 운동을 도입해 대박난 르완다 마을 방문기 【아프리카6】", u:"https://www.youtube.com/watch?v=OkGSeDPzXyQ"},
+           {t:"저개발국에 뿌리내린 '새마을운동' / YTN", u:"https://www.youtube.com/watch?v=26MeK2N0VQU"},
+           {t:"기근에 시달리던 르완다가 한국 쌀 심었더니 벌어진 일 | 새마을운동 벤치마킹 #골라듄다큐", u:"https://www.youtube.com/watch?v=3cxfJBZVscs"}],
+   related:[{t:"[전국] \"아프리카에 새마을운동을 전해주세요\" / YTN", u:"https://www.ytn.co.kr/_ln/0115_201511270142360461"},
+            {t:"아프리카 6개국 지역개발 전문가, 영남대서 '새마을운동' 집중 학습 (영남대 국제개발협력원)", u:"https://www.yu.ac.kr/iidc/board/news.do?mode=view&articleNo=1221711"}]},
+
+  {cat:"culture", date:"2026-06-16", classic:true, aid:true, country:"우간다·케냐·세네갈 등", econ:false, intl:true, pride:true,
+   title:"K-벼재배기술이 연 아프리카 녹색혁명…우간다 벼 수확량 2배, 농가 소득 132%↑",
+   desc:"농촌진흥청 KOPIA 우간다센터는 2013년 현지 국립농업연구청(NARO)과 함께 설립된 뒤 14개 협력 과제를 수행하고 농업전문가 22명을 파견해 현지 농업인 8666명을 교육했다. 시장가가 높은 향미벼 품종에 한국식 손이앙 기술과 공동재배 방식을 접목한 결과 벼 수확량은 2배 이상, 농가 소득은 132% 늘었다. KAFACI '아프리카 벼개발 파트너십'은 10년간 아프리카 15개국에 71개 벼품종을 개발·등록하고 23개국에서 벼 육종가 44명을 길러냈다.",
+   legacy:"세네갈·감비아·기니·가나·카메룬·우간다·케냐 7개국에 'K-라이스벨트' 종자생산단지가 들어서면서, 한국이 만든 벼 품종이 아프리카 농민의 논에서 자국 이름으로 등록돼 재배되고 있다.",
+   src:"농촌진흥청", url:"https://rda.go.kr/board/board.do?boardId=farmprmninfo&dataNo=100000811146&mode=updateCnt&prgId=day_farmprmninfoEntry",
+   yt:3, ytnote:"한국이 만든 벼가 아프리카 이름으로 등록된다 — 수확량 2배의 기술 이전 구조",
+   videos:[],
+   related:[{t:"K농업 심은 우간다의 기적…벼 소득 132%·오렌지 소득 309%↑ (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10814419"},
+            {t:"K-벼 재배기술, 아프리카에 뿌리 내린다 (한국농어민신문)", u:"https://www.agrinet.co.kr/news/articleView.html?idxno=404902"}]},
+
+  {cat:"culture", date:"2017-06-21", classic:true, aid:true, country:"에콰도르·탄자니아·카메룬 등", econ:true, intl:true, pride:true,
+   title:"전자통관시스템 '유니패스' 수출…한국 행정 시스템이 개도국 세관을 바꿨다",
+   desc:"관세청의 전자통관시스템 UNI-PASS는 2005년 카자흐스탄을 시작으로 에콰도르·탄자니아·카메룬 등 11개국에 3억4885만 달러 규모로 수출됐다. 특히 에콰도르 사업은 한국의 원조 자금이 아니라 상대국 자체 예산 2400만 달러로 체결돼, 원조가 아닌 실력으로 팔린 첫 사례로 평가된다. 수출입통관·징수·화물관리·관세환급·위험관리를 아우르는 관세행정 전 과정을 통째로 이식한다.",
+   legacy:"도미니카공화국·과테말라·탄자니아 등 도입국 세관은 통관 시간이 줄고 부패 여지가 축소됐다고 평가했고, UNI-PASS는 개도국 세관 공무원이 한국으로 연수를 오는 '행정 한류'의 대표 품목이 됐다.",
+   src:"한국일보", url:"https://www.hankookilbo.com/News/Read/201706211019855609",
+   yt:3, ytnote:"원조가 아니라 제값 받고 판 행정 시스템 — 유니패스가 개도국 세관을 바꾼 방식",
+   videos:[],
+   related:[{t:"관세청, 에콰도르에 전자통관시스템 수출 성사 (대한민국 정책브리핑)", u:"https://www.korea.kr/news/policyBriefingView.do?newsId=148706600"},
+            {t:"세계와 공유한다: 전자정부 시리즈 (2) 전자통관시스템 유니패스 (코리아넷)", u:"https://www.korean-culture.org/koreanet/view.do?seq=6492"}]}
 ];
-
-
-
-/* ====== 렌더링 ====== */
-let active = "all";
-let ytOnly = false;
-let econOnly = false;
-let intlOnly = false;
-let classicOnly = false;
-let sortMode = "yt";
-const grid = document.getElementById('grid');
-const filters = document.getElementById('filters');
-document.getElementById('s-total').textContent = NEWS.length;
-const ytCount = NEWS.filter(n=>(n.yt||0)>=4).length;
-document.getElementById('s-yt').textContent = ytCount;
-document.getElementById('s-econ').textContent = NEWS.filter(n=>n.econ).length;
-document.getElementById('s-intl').textContent = NEWS.filter(n=>n.intl).length;
-document.getElementById('s-classic').textContent = NEWS.filter(n=>n.classic).length;
-
-function makeFilters(){
-  const all = [["all","전체"],...Object.entries(CATS).map(([k,v])=>[k,v.name])];
-  filters.innerHTML = all.map(([k,label])=>
-    `<div class="chip ${k==='all'?'on':''}" data-k="${k}" onclick="setFilter('${k}')">${label}</div>`).join('')
-    + `<div class="chip yt-chip" id="ytchip" onclick="toggleYtOnly()">🎬 유튜브 추천만</div>`
-    + `<div class="chip econ-chip" id="econchip" onclick="toggleEconOnly()">💰 경제 채널용만</div>`
-    + `<div class="chip intl-chip" id="intlchip" onclick="toggleIntlOnly()">🌍 외신만</div>`
-    + `<div class="chip classic-chip" id="classicchip" onclick="toggleClassicOnly()">🏛️ 명예의 전당만</div>`
-    + `<div class="chip" id="sortchip" onclick="toggleSort()">🎬 유튜브 각 순</div>`;
-}
-function toggleYtOnly(){
-  ytOnly=!ytOnly;
-  document.getElementById('ytchip').classList.toggle('on',ytOnly);
-  render();
-}
-function toggleEconOnly(){
-  econOnly=!econOnly;
-  document.getElementById('econchip').classList.toggle('on',econOnly);
-  render();
-}
-function daysAgo(d){
-  if(!d) return null;
-  const t = new Date(d+'T00:00:00'); if(isNaN(t)) return null;
-  const now = new Date(); const today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-  return Math.round((today-t)/86400000);
-}
-function dateBadge(n){
-  const g = daysAgo(n.date);
-  if(g===null) return '';
-  if(n.classic) return `<span class="date">📅 ${n.date}</span>`;
-  const label = g<=0 ? '오늘' : g===1 ? '어제' : g+'일 전';
-  const cls = g<=2 ? ' fresh' : g>14 ? ' old' : '';
-  return `<span class="date${cls}">📅 ${n.date} · ${label}</span>`;
-}
-function toggleSort(){
-  sortMode = sortMode==='yt' ? 'date' : 'yt';
-  document.getElementById('sortchip').textContent = sortMode==='yt' ? '🎬 유튜브 각 순' : '🕒 최신 날짜 순';
-  render();
-}
-function toggleIntlOnly(){
-  intlOnly=!intlOnly;
-  document.getElementById('intlchip').classList.toggle('on',intlOnly);
-  render();
-}
-function toggleClassicOnly(){
-  classicOnly=!classicOnly;
-  document.getElementById('classicchip').classList.toggle('on',classicOnly);
-  render();
-}
-function setFilter(k){
-  active=k;
-  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.k===k));
-  render();
-}
-function ytBadge(n){
-  if(!n.yt) return '';
-  const stars = '★'.repeat(n.yt)+'☆'.repeat(5-n.yt);
-  const hot = n.yt>=4 ? ' hot' : '';
-  const note = n.ytnote ? ` title="${n.ytnote.replace(/"/g,'&quot;')}"` : '';
-  return `<div class="yt${hot}"${note}>🎬 유튜브 각 <b>${stars}</b>${n.ytnote?` · ${n.ytnote}`:''}</div>`;
-}
-function relatedBlock(n){
-  const vids = n.videos||[], rels = n.related||[];
-  if(!vids.length && !rels.length) return '';
-  const vLis = vids.map(v=>`<li>▶️ <a href="${v.u}" target="_blank" rel="noopener">${v.t}</a></li>`).join('');
-  const rLis = rels.map(r=>`<li>📰 <a href="${r.u}" target="_blank" rel="noopener">${r.t}</a></li>`).join('');
-  const links = [n.url, ...vids.map(v=>v.u), ...rels.map(r=>r.u)];
-  const enc = encodeURIComponent(links.join('\n'));
-  return `<details class="rel">
-    <summary>🔗 관련 자료 · 유튜브 ${vids.length} · 연관 ${rels.length}</summary>
-    <ul>${vLis}${rLis}</ul>
-    <button class="copybtn" data-links="${enc}" onclick="copyLinks(this)">📋 링크 전체 복사 (${links.length})</button>
-  </details>`;
-}
-function copyLinks(btn){
-  const text = decodeURIComponent(btn.dataset.links);
-  const done = ()=>{ const o=btn.textContent; btn.textContent='✅ 복사됨!'; btn.classList.add('ok');
-    setTimeout(()=>{btn.textContent=o; btn.classList.remove('ok');},1500); };
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
-  } else fallbackCopy(text,done);
-}
-function fallbackCopy(text,done){
-  const ta=document.createElement('textarea'); ta.value=text;
-  ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
-  ta.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(ta);
-}
-function render(){
-  let list = NEWS.filter(n=>active==='all'||n.cat===active);
-  if(ytOnly) list = list.filter(n=>(n.yt||0)>=4);
-  if(econOnly) list = list.filter(n=>n.econ);
-  if(intlOnly) list = list.filter(n=>n.intl);
-  if(classicOnly) list = list.filter(n=>n.classic);
-  list = list.slice().sort((a,b)=> sortMode==='date'
-    ? String(b.date||'').localeCompare(String(a.date||''))
-    : (b.yt||0)-(a.yt||0));
-  grid.innerHTML = list.map(n=>{
-    const c = CATS[n.cat];
-    return `<div class="card">
-      <span class="tag" style="background:${c.color}">${c.name}</span>
-      <h3>${n.title}</h3>
-      ${dateBadge(n)}
-      <p>${n.desc}</p>
-      ${n.econ?'<span class="econ">💰 경제 채널 적합</span>':''}
-      ${n.intl?`<span class="intl">🌍 외신${n.country?' · '+n.country:''}</span>`:''}
-      ${n.classic?'<span class="classic">🏛️ 명예의 전당</span>':''}
-      ${ytBadge(n)}
-      ${relatedBlock(n)}
-      <div class="foot">
-        <span class="src">${n.pride?'<span class="pride">🔥 국뽕</span> · ':''}${n.src}</span>
-        <a class="read" href="${n.url}" target="_blank" rel="noopener">기사 보기 →</a>
-      </div>
-    </div>`;
-  }).join('');
-}
-function toggleTheme(){
-  const cur = document.documentElement.getAttribute('data-theme');
-  const next = cur==='light'?'dark':(cur==='dark'?'light':'light');
-  document.documentElement.setAttribute('data-theme',next);
-}
-makeFilters(); render();
-</script>
