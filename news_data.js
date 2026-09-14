@@ -1,7 +1,38 @@
 /* 국뽕 뉴스 데이터 — 자동 수집기가 이 파일만 수정한다.
-   갱신일: 2026-09-13
+   갱신일: 2026-09-14
    index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
+  {cat:"tech", date:"2026-04-23", econ:true, intl:true, country:"미국", size:"스타트업", company:"포인투테크놀로지", wclass:"해외인정", world:"AI 반도체 패권을 쥔 엔비디아가 한국 기업으로는 처음으로 직접 전략 투자를 단행한 회사로, 구리도 광섬유도 못 푼 AI 데이터센터 인터커넥트 병목을 플라스틱 도파관으로 해결한 기술을 세계에서 유일하게 상용화 단계까지 끌고 왔다.", pride:true,
+   title:"엔비디아가 삼성·SK 놔두고 찍은 한국 무명기업…포인투테크놀로지, 1121억 유치",
+   desc:"KAIST 교수 창업 팹리스 포인투테크놀로지가 시리즈B에서 7600만달러(약 1121억원)를 조달하며 국내 기업 최초로 엔비디아의 전략적 투자를 받았다. 라운드에는 엔비디아와 함께 대만 파운드리 UMC, 매브릭실리콘 등이 참여했다. 핵심 기술 'e-Tube'는 플라스틱 도파관 안에 무선주파수(RF) 신호를 가둬 데이터를 보내는 방식으로, 구리 케이블 대비 전송 거리 10배, 광 인터커넥트 대비 전력과 비용은 각각 3분의 1, 지연시간은 1000분의 1 수준을 구현했다. AI 데이터센터에서 수천 개 가속기를 묶을 때 구리는 거리에서 막히고 광은 전력·비용에서 막히는데, 이 둘 사이의 빈틈을 정면으로 겨냥한 것이다. 업계에서는 e-Tube가 엔비디아 차세대 플랫폼 라인에 얹힐 가능성과 함께 'HBM 다음 타자'로 거론된다.",
+   src:"디일렉", url:"https://www.thelec.kr/news/articleView.html?idxno=55585",
+   yt:5, ytnote:"엔비디아가 삼성도 SK도 아닌 직원 100명 회사에 1121억을 넣은 이유 — 플라스틱 관에 전파를 가둔 기술",
+   videos:[{t:"\"삼성도 SK도 아니었다\"…엔비디아의 첫 한국 투자 1000억을 들고 찾아간 무명 회사의 정체", u:"https://www.youtube.com/watch?v=tWSN_UdzFgc"},
+           {t:"\"엔비디아 1000억 투자\" 세계가 탐내는 한국의 다크호스, HBM 다음 타자 등장", u:"https://www.youtube.com/watch?v=THWC5cM53og"},
+           {t:"엔비디아, 카이스트 포인투에 1127억 직접투자…광케이블 반값·전력 절반", u:"https://www.youtube.com/shorts/QUNanRntgD8"}],
+   related:[{t:"카이스트 창업기업 '포인투테크놀로지', 국내 첫 엔비디아 투자 유치 (교수신문)", u:"https://www.kyosu.net/news/articleView.html?idxno=204599"},
+            {t:"AI 데이터센터 케이블, 구리도 광도 아닌 '플라스틱'? 엔비디아가 베팅한 e튜브 인터커넥트 (인베스트)", u:"https://www.investnews.co.kr/news/articleView.html?idxno=3002485"}]},
+
+  {cat:"tech", date:"2026-08-31", econ:true, intl:true, country:"스페인", size:"대기업", company:"한화에어로스페이스", wclass:"글로벌수주", world:"독일·프랑스 자주포가 독점해온 서유럽 시장을 한국 K9이 처음으로 뚫어, 스페인이 K9을 도입하는 11번째 국가가 됐다.", pride:true,
+   title:"K9 자주포, 서유럽 뚫었다…한화에어로, 스페인과 6600억 수출 실행계약",
+   desc:"한화에어로스페이스가 스페인 방산기업 인드라시스템즈와 K9 자주포 등을 공급하는 수출 실행계약을 체결했다. 규모는 최소 6600억원대로 추산되며, 스페인은 K9을 운용하는 11번째 국가가 된다. 자주포는 독일 PzH2000과 프랑스 카이사르가 오래 지배해온 서유럽의 안방 시장으로, 한국 완성 무기체계가 이 시장에 실행계약 단계로 진입한 것은 처음이다. K9은 폴란드·핀란드·노르웨이·에스토니아·루마니아 등 유럽 전선 국가를 차례로 확보하며 나토 표준 155㎜ 자주포의 사실상 기본값으로 자리잡았고, 이번 계약으로 유럽 동부에서 서부로 전선을 넓혔다. 스페인 육군 차기 자주포 사업은 후속 물량을 포함해 최대 조 단위로 커질 수 있다.",
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026083113140748991",
+   yt:4, ytnote:"독일·프랑스 안방을 한국 대포가 열었다 — K9이 11개국을 먹은 진짜 이유",
+   videos:[{t:"K9 자주포, 서유럽 뚫었다…스페인과 '6600억' 수출 계약｜지금 이 뉴스", u:"https://www.youtube.com/watch?v=Yqh0KhpDa2E"},
+           {t:"한화에어로 K9, 스페인서 축포…서유럽 처음으로 뚫었다 (한국경제TV)", u:"https://www.youtube.com/watch?v=Qwp1WG7nKtc"},
+           {t:"[K9수출] K9 자주포, 스페인도 뚫었다! 최소 6675억원 규모 추산", u:"https://www.youtube.com/shorts/2XbZzuxtOK4"}],
+   related:[{t:"한화에어로, 서유럽 뚫었다…스페인 방산업체와 K9 수출 계약 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=03867126645552896"},
+            {t:"한화 K9 자주포, 서유럽 첫 진출…스페인과 수출 계약 (한국NGO신문)", u:"https://www.ngonews.kr/news/articleView.html?idxno=236811"}]},
+
+  {cat:"kpop", date:"2026-08-31", econ:false, intl:true, country:"미국", size:"대기업", company:"엔하이픈", wclass:"세계1위", world:"미국 빌보드 메인 앨범차트 '빌보드 200' 1위를 K팝 앨범이 3주 연속으로 이어받았다 — 스트레이 키즈·캣츠아이에 이어 엔하이픈까지, 팝 본토 차트 정상을 한국 기획사 아티스트가 연속 점령한 첫 사례다.", pride:true,
+   title:"엔하이픈도 빌보드 200 1위…K팝 앨범 3주 연속 미국 차트 정상",
+   desc:"엔하이픈이 미니 8집 '더 신: 블리스(THE SIN: BLISS)'로 빌보드 메인 앨범차트 '빌보드 200'에서 데뷔 6년 만에 첫 1위에 올랐다. 8월 22일자 스트레이 키즈 'THIS & THAT', 8월 29일자 캣츠아이 'WILD'에 이어 세 번째 주 연속으로 K팝(및 한국 기획사 제작) 앨범이 미국 앨범차트 정상을 지킨 것이다. 서로 다른 팀이 바통을 이어받는 방식으로 3주를 채운 것은 K팝 역사상 처음이다. 배경에는 기록적인 수출 확대가 있다. 2026년 상반기 K팝 앨범 수출액은 2억5700만달러로 반기 기준 신기록을 세웠고, 미국이 사상 처음 일본을 제치고 최대 구매국에 올랐다.",
+   src:"뉴시스", url:"https://www.newsis.com/view/NISX20260831_0003768639",
+   yt:4, ytnote:"3주 연속 빌보드 1위 — K팝이 미국 앨범차트를 '점령'으로 바꾼 순간",
+   videos:[{t:"K팝 가수들, '빌보드 200' 3주 연속 1위 [잇슈 컬처] / KBS 2026.09.01.", u:"https://www.youtube.com/watch?v=l88EvKP9pLk"}],
+   related:[{t:"엔하이픈, 데뷔 6년 만에 '빌보드 200' 1위 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10856879"},
+            {t:"엔하이픈, 빌보드200서 첫 1위…K팝 앨범 3주 연속 정상 차지 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=02168086645552896"}]},
+
   {cat:"tech", date:"2026-04-09", econ:true, intl:false, size:"대기업", company:"HD현대중공업", wclass:"세계최초", world:"암모니아 이중연료 엔진을 얹은 상업용 선박을 세계에서 처음으로 건조해냈고, 아직 어느 나라 조선소도 이 난도의 선박을 인도한 적이 없다.", pride:true,
    title:"세계 최초 암모니아 추진선, 한국이 만들었다…HD현대중공업 울산서 명명식",
    desc:"HD현대중공업이 울산조선소에서 암모니아 이중연료(DF) 엔진을 장착한 4만6000㎥급 중형 가스운반선 2척의 명명식을 열고 세계 최초 암모니아 추진선 건조에 성공했다. 두 선박은 벨기에 도시명을 따 '안트베르펜'과 '아를롱'으로 명명됐고, 엑스마르 LPG 프랑스로부터 수주한 4척 중 1·2호선으로 5월과 7월 말 선주사에 인도된다. 암모니아는 연소 시 이산화탄소를 배출하지 않는 무탄소 연료지만 독성과 낮은 연소성 탓에 연료 공급·누출 완화 설계 난도가 극도로 높아 '길들이기 어려운 연료'로 불려왔다. HD현대중공업은 엑스마르·트라피구라 등에서 암모니아 추진선 8척을 확보했고, 앞서 2016년 세계 최초 메탄올 추진 석유화학제품운반선, 2023년 세계 첫 메탄올 추진 컨테이너선도 인도한 바 있다. IEA는 해운 연료 중 암모니아 비중이 2030년 8%에서 2050년 46%로 커질 것으로 전망한다.",
@@ -77,17 +108,6 @@ const NEWS = [
    related:[{t:"한화 '차륜형 K9', 美 방산시장 뚫었다 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10845293"},
             {t:"한화에어로스페이스, 미국 육군에 '차륜형 K9 자주포' 시제품 6문 공급 계약 (비즈니스포스트)", u:"https://www.businesspost.co.kr/BP?command=article_view&num=445060"}]},
 
-  {cat:"tech", date:"2026-02-12", econ:true, intl:false, size:"대기업", company:"삼성전자", wclass:"세계최초", world:"6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하하며 JEDEC 표준(8Gbps)보다 46% 빠른 11.7Gbps를 구현, 엔비디아 차세대 GPU 공급망에 가장 먼저 진입했다.", pride:true,
-   title:"삼성전자, 세계 최초 HBM4 양산 출하…표준보다 46% 빠른 11.7Gbps로 엔비디아 뚫었다",
-   desc:"삼성전자가 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하하고 엔비디아 공급을 시작했다. 최선단 1c D램(10나노급 6세대)을 선제 도입해 재설계 없이 양산 초기부터 수율을 잡았고, 동작 속도 11.7Gbps는 국제반도체표준협의기구(JEDEC)의 HBM4 표준 8Gbps보다 약 46% 높다. 시장조사업체들은 올해 HBM4 시장에서 삼성이 28~30% 점유율을 확보할 것으로 본다. 삼성은 하반기 HBM4E 샘플 출하를 예고하며 AI 메모리 주도권 경쟁에서 선공을 날렸다.",
-   src:"머니투데이", url:"https://www.mt.co.kr/industry/2026/02/12/2026021215150041209",
-   yt:5, ytnote:"표준보다 46% 빠른 메모리 — HBM4 '세계 최초'가 AI 판도에서 갖는 진짜 의미",
-   videos:[{t:"삼성전자, 세계 최초 HBM4 양산 출하…\"업계 최고 성능\" / YTN 사이언스", u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},
-           {t:"삼성전자, HBM4 세계 최초 양산·출하…차세대 AI 메모리 '선공' / 머니투데이방송", u:"https://www.youtube.com/watch?v=m73O4Dh3n3g"},
-           {t:"삼성전자, 엔비디아 최신 GPU용 HBM4 세계 첫 양산 스타트!", u:"https://www.youtube.com/watch?v=upnoCjwYArM"}],
-   related:[{t:"삼성전자, 세계 최초 업계 최고 성능의 HBM4 양산 출하 (삼성반도체 뉴스룸)", u:"https://semiconductor.samsung.com/kr/news-events/news/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing/"},
-            {t:"삼성, HBM4 깃발 먼저 꽂았다…'세계 최초' 엔비디아에 양산 출하 (아시아경제)", u:"https://www.asiae.co.kr/article/2026021216022672651"}]},
-
   {cat:"tech", date:"2026-09-09", econ:true, intl:false, size:"스타트업", company:"리벨리온·퓨리오사AI", wclass:"글로벌수주", world:"세계 최대 석유기업 사우디 아람코가 엔비디아 대신 한국 스타트업의 AI 반도체로 기술검증(PoC)을 통과시켜 중동 AI 인프라에 국산 NPU를 채택한 첫 사례가 됐다.", pride:true,
    title:"리벨리온·퓨리오사AI, 사우디 아람코 기술검증 통과…엔비디아 아닌 'K-NPU'가 중동으로",
    desc:"국내 AI 반도체 기업 리벨리온과 퓨리오사AI가 사우디아라비아 국영 석유기업 아람코의 기술검증(PoC)을 나란히 통과했다. 지난 2월 체결한 AI 협력 양해각서가 실제 성능 검증으로 이어지면서, 세계 최대 에너지 기업의 데이터센터에 국산 NPU를 공급할 길이 열렸다. 리벨리온은 리벨 NPU 4개를 하나로 묶은 '리벨 쿼드'를 앞세워 일본·미국까지 실증을 확대하고 있고, 퓨리오사AI는 같은 전력으로 엔비디아 대비 최대 수배 빠른 추론 성능을 내세운다. 두 회사 모두 국민성장펀드에서 각각 6400억·8000억원 규모 투자를 유치했다.",
@@ -110,17 +130,6 @@ const NEWS = [
    related:[{t:"DEEPX Secures 27 Commercial Orders Across 8 Countries Within 7 Months of Mass Production (The Korea Herald)", u:"https://www.koreaherald.com/article/10704582"},
             {t:"DEEPX Sets New Pace in Physical AI Commercialization—27 Global Deals in 7 Months (EE Times)", u:"https://www.eetimes.com/deepx-sets-new-pace-in-physical-ai-commercialization-27-global-deals-in-7-months/"}]},
 
-  {cat:"tech", date:"2026-04-28", econ:true, intl:true, country:"미국", size:"대기업", company:"한화오션·HD현대중공업", wclass:"대체불가", world:"세계 최강 미 해군이 자국 조선소로는 감당이 안 돼 차세대 군수지원함(NGLS) 설계와 함정 정비를 한국에 맡겼고, 올해 석 달여 만에 MRO 수주가 작년 연간 실적의 3배로 늘었다.", pride:true,
-   title:"美 해군, 차세대 군수지원함 설계까지 한국에 맡겼다…MRO 넘어 '군함 건조'로",
-   desc:"미 해군이 차세대 군수지원함(NGLS) 개념설계 사업에 한화디펜스USA와 한화필리조선소가 참여하는 계약이 체결됐다. 정비(MRO)를 넘어 미국 군함의 '설계'로 한국 조선의 영역이 넓어진 것이다. 한화오션은 2024년 국내 최초로 미 해군 군수지원함 '월리 쉬라'함 정비를 수주한 뒤 '유콘'함 등으로 실적을 쌓았고, 올해는 HD현대중공업과 각각 2건씩 총 4건을 수주해 석 달여 만에 작년 연간 실적을 3배 가까이 넘어섰다. 업계는 2026~2028년 42건 발주를 예상한다.",
-   src:"글로벌이코노믹", url:"https://m.g-enews.com/view.php?ud=202604282106365580fbbec65dfb_1",
-   yt:5, ytnote:"미국이 자기 군함을 한국에 맡긴 날 — 세계 1위 해군의 조선소가 무너진 자리",
-   videos:[{t:"(2부) 미 해군도 극찬한 한국형 MRO, 미국이 K-조선을 원하는 이유", u:"https://www.youtube.com/watch?v=Yfj4Hx8MJY4"},
-           {t:"[K-방산] 미 해군 MRO 수주 1년 새 벌써 4척을.. 마스가 프로젝트 최종 목표는 미 군함 건조", u:"https://www.youtube.com/watch?v=1wpWAMExdj0"},
-           {t:"'20조 시장 포문 열다'...한화오션, 미 해군 MRO 사업 수주 / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=7ceHbc7OLIk"}],
-   related:[{t:"마스가 첨병 한화오션, 美 국방부와 밀착 (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202605290758039110"},
-            {t:"3개월 만에 작년 美 해군 MRO 수주 3배…HD현대중·한화오션 독식", u:"https://trader.ai.kr/news/hd-hyundai-hanwha-ocean-us-navy-mro-4-wins-2026"}]},
-
   {cat:"tech", date:"2026-02-13", econ:true, intl:false, size:"중견", company:"파크시스템스", wclass:"세계1위", world:"원자현미경(AFM) 세계 시장에서 점유율 20.6%로 미국 브루커(18.5%)·영국 옥스퍼드인스트루먼트(10.5%)를 제치고 1위를 지키는, 계측 분야에서 드문 한국산 세계 1등 장비다.", pride:true,
    title:"파크시스템스, 원자현미경 세계 1위 굳히기…미국 브루커·영국 옥스퍼드를 눌렀다",
    desc:"파크시스템스가 원자현미경(AFM) 세계 시장 점유율 20.6%로 미국 브루커(18.5%), 영국 옥스퍼드인스트루먼트(10.5%) 등 전통 강자를 제치고 선두를 이어가고 있다. 2018년 산업용 AFM 1위에 오른 뒤 2022년 전체 시장 1위를 차지했고 이후 격차를 계속 벌렸다. AFM을 반도체 검사 공정에 적용하면서 2014~2024년 연평균 매출 성장률 27.9%를 기록했는데, 같은 기간 AFM 시장 성장률(7~9%)의 3배를 넘는다. 올해는 2.5D·첨단 패키징용 양산 장비 수주가 예상된다.",
@@ -130,17 +139,6 @@ const NEWS = [
            {t:"온디바이스 AI반도체, 미래를 열다 / KBS대전 (국내 계측장비 조명)", u:"https://www.youtube.com/watch?v=DM_RxFLTtE4"}],
    related:[{t:"파크시스템스, \"최첨단 패키징서 연내 성과 기대…AFM 장비 공급 논의\" (ZDNet Korea)", u:"https://zdnet.co.kr/view/?no=20260529172052"},
             {t:"\"원자현미경 세계 1위… 글로벌 계측장비 회사로 도약\" (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202504141815292029"}]},
-
-  {cat:"kpop", date:"2026-03-30", econ:false, intl:true, country:"미국", size:"대기업", company:"BTS(방탄소년단)", wclass:"세계1위", world:"정규 5집 'ARIRANG'이 K팝 최초로 빌보드200 3주 연속 1위를 기록하고 타이틀곡 'Swim'이 핫100 정상에 오르며, 미국·영국 앨범차트를 동시에 석권했다.", pride:true,
-   title:"BTS 'ARIRANG', 빌보드200 3주 연속 1위…K팝 최초, 핫100까지 정상",
-   desc:"완전체로 돌아온 방탄소년단의 정규 5집 'ARIRANG'이 미국 빌보드 메인 앨범차트 '빌보드 200' 1위로 진입한 뒤 3주 연속 정상을 지켰다. K팝 앨범이 빌보드200에서 3주 연속 1위를 차지한 것은 처음이며, 그룹 가수로는 13년 만의 기록이다. 영국 오피셜 앨범차트까지 동시에 석권했고, 타이틀곡 'Swim'은 빌보드 '핫100' 1위에 올라 BTS의 통산 일곱 번째 핫100 정상이 됐다. 한국어 제목을 그대로 단 앨범이 미국·영국 차트를 함께 지배했다는 점에서 의미가 크다.",
-   src:"국민일보", url:"https://www.kmib.co.kr/article/view.asp?arcid=0029607609",
-   yt:5, ytnote:"'아리랑'이라는 제목으로 빌보드 3주 1위 — BTS 복귀 성적표를 차트로 뜯어보기",
-   videos:[{t:"완전체 복귀 BTS '아리랑', '빌보드 200' 1위…영·미 앨범 차트 석권 / KBS", u:"https://www.youtube.com/watch?v=P7oYyUh0RSM"},
-           {t:"BTS '아리랑', '빌보드 200' 3주 연속 1위…K팝 최초 [자막뉴스]", u:"https://www.youtube.com/watch?v=PscdLMHhzpE"},
-           {t:"BTS 빌보드 '핫100' 1위…\"롤링스톤스 이어 대기록\" [세상만사]", u:"https://www.youtube.com/watch?v=SowhjeYJ8dI"}],
-   related:[{t:"방탄소년단, 한국 가수 최초 '빌보드 200' 2주 연속 1위 (빌보드코리아)", u:"https://www.billboard.co.kr/editorial/news/article/bts-30/"},
-            {t:"BTS '아리랑', 빌보드 3주 연속 1위…'그룹 가수 13년만' / KBS", u:"https://www.youtube.com/watch?v=UN782BOrmbQ"}]},
 
   {cat:"sports", date:"2026-07-30", econ:false, intl:true, country:"중국(홍콩)", size:"중소", company:"대한민국 펜싱 국가대표팀", wclass:"세계1위", world:"세계펜싱선수권에서 금1·은2·동1로 종합 2위에 올랐고, 여자 에페 송세라가 개인전 세계 챔피언에 등극했다.", pride:true,
    title:"세계펜싱선수권 종합 2위…송세라, 4년 만에 한국에 개인전 금메달",
