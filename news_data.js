@@ -2,6 +2,26 @@
    갱신일: 2026-09-17
    index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
+  {cat:"tech", date:"2026-06-17", econ:true, intl:true, country:"미국", size:"중견", company:"태웅", wclass:"글로벌수주", world:"빌 게이츠가 세운 테라파워의 미국 첫 상업용 4세대 SMR에 들어갈 핵심 주기기 '회전 플러그'를 부산의 단조업체가 따내, 나트륨냉각 4세대 SMR 부품을 공급하는 몇 안 되는 회사가 됐다.", pride:true,
+   title:"빌 게이츠의 원자로에 부산 단조기업이 들어간다…태웅, 테라파워 4세대 SMR 핵심부품 첫 수주",
+   desc:"자유단조 전문기업 태웅이 미국 테라파워의 차세대 소형모듈원자로(SMR) 프로젝트에 4세대 주기기 핵심부품인 '회전 플러그(Rotating Plug)'를 공급하는 계약을 따냈다. 회전 플러그는 액체 나트륨을 냉각재로 쓰는 비경수로형 4세대 SMR에만 적용되는 고난도 부품으로, 온도에 따라 핵연료봉에 들어가는 냉각재를 조절하는 역할을 한다. 경수로용 부품과 달리 대형 단조물의 정밀도와 소재 물성을 동시에 요구해 만들 수 있는 업체가 세계적으로 극소수다. 테라파워는 빌 게이츠가 설립한 회사로 미국 와이오밍주에 첫 상업용 4세대 SMR '나트륨(Natrium)'을 짓고 있어, 이번 수주는 미국 상업용 SMR 공급망에 한국 중견기업이 직접 편입됐다는 의미를 갖는다. 태웅은 앞서 체코 스코다JS에 사용후핵연료 저장용기(캐스크) 단조품 풀세트를 공급하며 한국 기업 최초로 고정형 캐스크를 수출했고, 11m급 해상풍력 단조에서는 중국을 빼면 사실상 세계 유일 공급자로 꼽힌다. 회사는 테라파워 2호기 후속 물량도 추진 중이다.",
+   src:"부산일보", url:"https://www.busan.com/view/busan/view.php?code=2026061618232205577",
+   yt:3, ytnote:"빌 게이츠 원자로의 뚜껑을 만드는 회사가 부산에 있다 — 4세대 SMR 회전 플러그의 정체",
+   videos:[],
+   related:[{t:"태웅, 미국 테라파워 SMR 프로젝트 4세대 핵심 부품 수주 (한국경제)", u:"https://www.hankyung.com/article/202606171757h"},
+            {t:"태웅, 테라파워 뚫고 후속 수주 정조준…내년 초 추가 물량 기대 (아주경제)", u:"https://www.ajunews.com/view/20260915120353506"}]},
+
+  {cat:"kpop", date:"2026-09-15", econ:false, intl:true, country:"미국", size:"대기업", company:"제니(블랙핑크)", wclass:"세계1위", world:"미국 빌보드 메인 싱글차트 '핫 100' 톱10에 16주 연속 머무르며 BTS '버터'의 15주를 넘어 K팝 역대 최장 톱10 기록을 새로 썼다.", pride:true,
+   title:"제니, 빌보드 핫100 톱10 16주…BTS 기록 넘어 K팝 최장",
+   desc:"제니가 호주 밴드 테임 임팔라와 함께한 협업곡 '드라큘라(Dracula)'로 9월 19일자 빌보드 메인 싱글차트 '핫 100'에서 6위를 지키며 통산 16주째 톱10에 머물렀다. 이는 BTS '버터'가 갖고 있던 15주 기록을 넘어선 K팝 최장 톱10 기록이다. 한 주 반짝 진입했다가 사라지는 차트인이 아니라 4개월 가까이 미국 라디오와 스트리밍에서 소비가 유지됐다는 뜻이어서, K팝이 현지 주류 팝 시장의 '롱런 상품'이 됐음을 보여주는 지표로 읽힌다. '드라큘라'는 빌보드 어덜트 팝 에어플레이 차트에서도 1위에 올랐는데, 이 부문은 미국 성인 대상 라디오 방송 횟수로 순위를 매기는 곳이라 팬덤 화력이 아닌 대중성이 반영되는 차트로 꼽힌다.",
+   src:"서울신문", url:"https://www.seoul.co.kr/news/life/pop-culture/2026/09/15/20260915500197",
+   yt:4, ytnote:"팬덤이 아니라 미국 라디오가 틀어준 16주 — 제니가 BTS 기록을 넘은 방식",
+   videos:[{t:"제니·테임 임팔라 '드라큘라' 빌보드 핫100 10위 올랐다 / SBS 굿모닝연예", u:"https://www.youtube.com/watch?v=eNO1DYxKPZI"},
+           {t:"제니, 빌보드 라디오 차트 1위..'골든' 이어 두 번째 / SBS 모닝와이드", u:"https://www.youtube.com/watch?v=tzdLUm_6RNo"},
+           {t:"제니 드라큘라 빌보드 진입 인터뷰", u:"https://www.youtube.com/shorts/-bHjVIBbOtM"}],
+   related:[{t:"빌보드가 선정한 2026년 최고의 K-POP 노래 25곡", u:"https://fanplus.co.kr/community/misc/132921383"},
+            {t:"코르티스 'GREENGREEN', 빌보드 200 18주 연속 진입 (EPN)", u:"https://www.enpnow.com/news/articleView.html?idxno=109646"}]},
+
   {cat:"tech", date:"2026-02-12", econ:true, intl:true, country:"미국", size:"대기업", company:"삼성전자", wclass:"세계최초", world:"6세대 고대역폭메모리 HBM4를 SK하이닉스·마이크론보다 먼저, 세계에서 처음으로 양산 출하했고 엔비디아 품질 승인까지 통과해 AI 가속기의 다음 세대 메모리 공급 순번을 한국이 먼저 끊었다.", pride:true,
    title:"세계 첫 HBM4는 한국이 찍었다…삼성전자, 최대 13Gbps 6세대 HBM 양산 출하",
    desc:"삼성전자가 업계 최고 성능의 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다. 10나노급 6세대(1c) D램을 선제 도입해 재설계 없이 양산 초기부터 안정적인 수율을 확보한 것이 핵심으로, JEDEC 표준(8Gbps)을 크게 웃도는 11.7Gbps를 안정적으로 내고 최대 13Gbps까지 구현한다. 당초 계획보다 일주일가량 앞당긴 출하이며, 최대 고객인 엔비디아의 품질 승인을 받은 물량이라는 점에서 SK하이닉스·마이크론보다 한 발 앞선 출발로 평가된다. HBM4는 AI 가속기의 연산 속도를 좌우하는 병목 부품으로, 이 메모리를 먼저 양산하는 기업이 차세대 AI 인프라의 공급 순서를 정한다. 삼성전자는 하반기 HBM4E 샘플 출하, 2027년 고객 맞춤형 Custom HBM 샘플링을 예고했고 올해 HBM 매출이 지난해의 3배를 넘을 것으로 보고 있다.",
@@ -77,14 +97,6 @@ const NEWS = [
    related:[{t:"한화에어로, 서유럽 뚫었다…스페인 방산업체와 K9 수출 계약 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=03867126645552896"},
             {t:"한화 K9 자주포, 서유럽 첫 진출…스페인과 수출 계약 (한국NGO신문)", u:"https://www.ngonews.kr/news/articleView.html?idxno=236811"}]},
 
-  {cat:"kpop", date:"2026-08-31", econ:false, intl:true, country:"미국", size:"대기업", company:"엔하이픈", wclass:"세계1위", world:"미국 빌보드 메인 앨범차트 '빌보드 200' 1위를 K팝 앨범이 3주 연속으로 이어받았다 — 스트레이 키즈·캣츠아이에 이어 엔하이픈까지, 팝 본토 차트 정상을 한국 기획사 아티스트가 연속 점령한 첫 사례다.", pride:true,
-   title:"엔하이픈도 빌보드 200 1위…K팝 앨범 3주 연속 미국 차트 정상",
-   desc:"엔하이픈이 미니 8집 '더 신: 블리스(THE SIN: BLISS)'로 빌보드 메인 앨범차트 '빌보드 200'에서 데뷔 6년 만에 첫 1위에 올랐다. 8월 22일자 스트레이 키즈 'THIS & THAT', 8월 29일자 캣츠아이 'WILD'에 이어 세 번째 주 연속으로 K팝(및 한국 기획사 제작) 앨범이 미국 앨범차트 정상을 지킨 것이다. 서로 다른 팀이 바통을 이어받는 방식으로 3주를 채운 것은 K팝 역사상 처음이다. 배경에는 기록적인 수출 확대가 있다. 2026년 상반기 K팝 앨범 수출액은 2억5700만달러로 반기 기준 신기록을 세웠고, 미국이 사상 처음 일본을 제치고 최대 구매국에 올랐다.",
-   src:"뉴시스", url:"https://www.newsis.com/view/NISX20260831_0003768639",
-   yt:4, ytnote:"3주 연속 빌보드 1위 — K팝이 미국 앨범차트를 '점령'으로 바꾼 순간",
-   videos:[{t:"K팝 가수들, '빌보드 200' 3주 연속 1위 [잇슈 컬처] / KBS 2026.09.01.", u:"https://www.youtube.com/watch?v=l88EvKP9pLk"}],
-   related:[{t:"엔하이픈, 데뷔 6년 만에 '빌보드 200' 1위 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10856879"},
-            {t:"엔하이픈, 빌보드200서 첫 1위…K팝 앨범 3주 연속 정상 차지 (이데일리)", u:"https://www.edaily.co.kr/News/Read?newsId=02168086645552896"}]},
 
   {cat:"tech", date:"2026-03-23", econ:true, intl:false, size:"중소", company:"예스티·HPSP", wclass:"대체불가", world:"반도체 전공정 필수 장비인 고압수소어닐링 장비는 세계에서 유일하게 인증을 보유한 HPSP가 점유율 95%를 지켜왔고, 이제 예스티까지 양산 공급에 성공해 이 장비는 사실상 한국 두 중소기업 밖에서는 살 수 없다.", pride:true,
    title:"세계에서 한국 두 회사만 만든다…예스티, 고압수소어닐링 장비 첫 출하로 HPSP 독점 깼다",
@@ -119,15 +131,6 @@ const NEWS = [
    related:[{t:"DEEPX Secures 27 Commercial Orders Across 8 Countries Within 7 Months of Mass Production (The Korea Herald)", u:"https://www.koreaherald.com/article/10704582"},
             {t:"DEEPX Sets New Pace in Physical AI Commercialization—27 Global Deals in 7 Months (EE Times)", u:"https://www.eetimes.com/deepx-sets-new-pace-in-physical-ai-commercialization-27-global-deals-in-7-months/"}]},
 
-  {cat:"tech", date:"2026-02-13", econ:true, intl:false, size:"중견", company:"파크시스템스", wclass:"세계1위", world:"원자현미경(AFM) 세계 시장에서 점유율 20.6%로 미국 브루커(18.5%)·영국 옥스퍼드인스트루먼트(10.5%)를 제치고 1위를 지키는, 계측 분야에서 드문 한국산 세계 1등 장비다.", pride:true,
-   title:"파크시스템스, 원자현미경 세계 1위 굳히기…미국 브루커·영국 옥스퍼드를 눌렀다",
-   desc:"파크시스템스가 원자현미경(AFM) 세계 시장 점유율 20.6%로 미국 브루커(18.5%), 영국 옥스퍼드인스트루먼트(10.5%) 등 전통 강자를 제치고 선두를 이어가고 있다. 2018년 산업용 AFM 1위에 오른 뒤 2022년 전체 시장 1위를 차지했고 이후 격차를 계속 벌렸다. AFM을 반도체 검사 공정에 적용하면서 2014~2024년 연평균 매출 성장률 27.9%를 기록했는데, 같은 기간 AFM 시장 성장률(7~9%)의 3배를 넘는다. 올해는 2.5D·첨단 패키징용 양산 장비 수주가 예상된다.",
-   src:"더벨", url:"https://www.thebell.co.kr/front/newsview.asp?key=202602131140361560106234",
-   yt:4, ytnote:"현미경으로 원자를 본다 — 세계 1등이 미국도 독일도 아닌 수원의 회사인 이유",
-   videos:[{t:"[파워 강소기업] '원자현미경' 파크시스템스, 반도체→바이오 확장", u:"https://www.youtube.com/watch?v=6dE8Ns9vfDc"},
-           {t:"온디바이스 AI반도체, 미래를 열다 / KBS대전 (국내 계측장비 조명)", u:"https://www.youtube.com/watch?v=DM_RxFLTtE4"}],
-   related:[{t:"파크시스템스, \"최첨단 패키징서 연내 성과 기대…AFM 장비 공급 논의\" (ZDNet Korea)", u:"https://zdnet.co.kr/view/?no=20260529172052"},
-            {t:"\"원자현미경 세계 1위… 글로벌 계측장비 회사로 도약\" (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202504141815292029"}]},
 
   {cat:"sports", date:"2002-06-22", classic:true, econ:false, intl:false, pride:true, title:"2002 한일월드컵, 스페인 꺾고 아시아 최초 4강…'4강 신화'가 시작된 날",
    desc:"2002년 6월 22일 광주에서 열린 한일월드컵 8강전에서 한국이 스페인과 120분 혈투 끝에 승부차기 5-3으로 승리하며 아시아 국가 최초로 월드컵 4강에 올랐다. 이운재의 선방과 홍명보의 마지막 킥이 역사를 만들었고, 전국 거리에는 수백만 명의 붉은 물결이 쏟아졌다. 1954년 첫 출전 이후 48년 만에 본선 첫 승(폴란드전)을 거둔 대회이기도 하다.",
