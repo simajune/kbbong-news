@@ -1,7 +1,40 @@
 /* 국뽕 뉴스 데이터 — 자동 수집기가 이 파일만 수정한다.
-   갱신일: 2026-09-27
+   갱신일: 2026-09-29
    index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
+  {cat:"tech", date:"2026-02-12", econ:true, intl:true, country:"미국", size:"대기업", company:"삼성전자", wclass:"세계최초", world:"6세대 고대역폭메모리 HBM4를 세계에서 가장 먼저 양산·출하했고, 그 첫 물량을 엔비디아가 가져갔다 — AI 가속기의 다음 세대 성능 상한을 한국 메모리가 먼저 열었다.", pride:true,
+   title:"HBM4 깃발을 세계에서 먼저 꽂았다…첫 양산 물량은 엔비디아행",
+   desc:"삼성전자가 6세대 고대역폭메모리 HBM4를 세계 최초로 양산·출하했다고 2026년 2월 밝혔다. 엔비디아향 HBM4 샘플 품질 테스트를 가장 먼저 통과한 데 이어 양산·출하까지 당초 일정보다 약 일주일 앞당겼다. 국제산업표준기구(JEDEC) 기준을 웃도는 성능 목표를 개발 착수 단계부터 잡았고, 최선단 1c D램과 4나노 베이스 다이를 적용해 재설계 없이 양산 초기부터 안정적 수율과 업계 최고 성능을 확보했다. HBM4는 엔비디아 차세대 GPU의 성능을 좌우하는 부품으로, 누가 먼저 양산하느냐가 곧 다음 2년의 AI 메모리 판도를 정한다.",
+   src:"머니투데이", url:"https://www.mt.co.kr/industry/2026/02/12/2026021215150041209",
+   yt:5, ytnote:"1c D램과 4나노 베이스 다이 — 삼성이 HBM4에서 '재설계 없이' 수율을 잡은 설계 선택 해부",
+   videos:[{t:"삼성전자, 세계 최초 HBM4 양산 출하…\"업계 최고 성능\" / YTN 사이언스", u:"https://www.youtube.com/watch?v=2QtsNRhllbA"},
+            {t:"삼성전자, HBM4 세계 최초 양산·출하…차세대 AI 메모리 '선공' / 머니투데이방송", u:"https://www.youtube.com/watch?v=m73O4Dh3n3g"},
+            {t:"삼성전자, 엔비디아 최신 GPU용 HBM4 세계 첫 양산 스타트!", u:"https://www.youtube.com/watch?v=upnoCjwYArM"}],
+   related:[{t:"삼성, HBM4 깃발 먼저 꽂았다…'세계 최초' 엔비디아에 양산 출하 (아시아경제)", u:"https://view.asiae.co.kr/article/2026021216022672651"},
+            {t:"삼성전자, HBM4 세계 첫 양산…엔비디아 공급 뚫었다 (다음뉴스)", u:"https://v.daum.net/v/20260212162019401"}]},
+
+  {cat:"tech", date:"2026-06-04", econ:true, intl:true, country:"대만·미국", size:"중소", company:"파두(FADU)", wclass:"글로벌수주", world:"글로벌 빅테크가 이미 채택해 운용 중인 Gen5 SSD 컨트롤러에 이어, 대만에서만 604억원 규모 기업용 SSD 공급계약을 따내며 누적 신규 수주 3000억원을 넘겼다 — 삼성·마벨이 과점하던 데이터센터 SSD 컨트롤러 시장에 한국 중소 팹리스가 실제 매출로 진입했다.", pride:true,
+   title:"삼성·마벨이 나눠 먹던 시장…한국 팹리스가 수주 3000억을 넘겼다",
+   desc:"데이터센터 반도체 팹리스 파두가 대만 '컴퓨텍스 2026'에서 차세대 Gen6 SSD 컨트롤러를 처음 공개하고 아시아 데이터센터·서버 시장 공략에 나섰다. 올해 대만 시장에서만 604억원 규모 기업용 SSD 완제품 공급계약을 따냈고, 6월 초 기준 공시 누적 신규 수주액이 3000억원을 넘어섰다. Gen6는 이전 세대 대비 성능과 전력효율이 두 배 이상 개선됐고, AI 추론용 스토리지에서 중요한 대용량 블록 랜덤 읽기·쓰기 성능이 업계 최고 수준이다. 글로벌 빅테크가 이미 파두의 Gen5 컨트롤러를 채택해 운용 중이다.",
+   src:"디지털데일리", url:"https://www.ddaily.co.kr/page/view/2026060415373207347",
+   yt:4, ytnote:"SSD의 두뇌를 누가 만드나 — 국내 팹리스가 데이터센터 컨트롤러 시장을 뚫은 경로 추적",
+   videos:[{t:"파두ㅣ삼성전자 수준의 SSD 컨트롤러 기술력 보유ㅣ공시진단ㅣ한국경제TV", u:"https://www.youtube.com/watch?v=6fD3liWy3g0"},
+            {t:"[기업분석] 파두, SSD 시장 글로벌 도약 기대", u:"https://www.youtube.com/watch?v=SSLWZKrb2_8"},
+            {t:"파두, 신규 고객사 확보 '자신감' [기업INSIDE] / 머니투데이방송", u:"https://www.youtube.com/watch?v=gz8BMnmImnQ"}],
+   related:[{t:"파두, 컴퓨텍스서 Gen6 SSD 공개…대만 수주 3000억 돌파 (아이뉴스24)", u:"https://inews24.com/view/1973746"},
+            {t:"[컴퓨텍스2026] 파두, Gen6 SSD 컨트롤러로 글로벌 시장 공략 (블로터)", u:"https://www.bloter.net/news/articleView.html?idxno=664373"}]},
+
+  {cat:"sports", date:"2026-09-27", econ:false, intl:true, country:"일본", pride:true,
+   title:"일본 안방에서 3-1…아시안게임 야구 5연패, 하계 AG 통산 800번째 금메달",
+   desc:"한국 야구대표팀이 2026년 9월 27일 일본 아이치현 도요하시 시민구장에서 열린 아이치·나고야 아시안게임 결승에서 일본을 3-1로 꺾고 대회 5회 연속 우승을 차지했다. 선발 곽빈이 일본 타선을 묶었고 김도영이 결승타를 쳤다. 이 금메달은 한국의 하계 아시안게임 통산 800번째 금메달과 맞물린 상징적인 승리로, 개최국 안방에서 일본을 잡고 만든 기록이라는 점에서 의미가 컸다.",
+   src:"Olympics.com", url:"https://www.olympics.com/ko/news/baseball-korea-japan-final-asian-games-aichi-nagoya-2026",
+   yt:4, ytnote:"개최국 안방에서 5연패 — 곽빈의 투구 배합과 김도영의 결승타를 다시 본다",
+   videos:[{t:"[2026 아시안게임] 야구 결승전 대한민국 vs 일본 | 한국 AG 5연패!", u:"https://www.youtube.com/watch?v=B_wdRn5be-8"},
+            {t:"[2026아시안게임] 곽빈이 막았고 김도영이 때렸다 ⚾ 야구 결승 대한민국 vs 일본", u:"https://www.youtube.com/watch?v=6jq_wSnrHOM"},
+            {t:"[정민철·오승환의 말말말] 일본에 설욕하고 5회 연속 금메달 | 2026 아시안게임", u:"https://www.youtube.com/watch?v=u-KYbR7s3EU"}],
+   related:[{t:"나고야 아시안게임 개막…한국 800호 금메달까지 13개 (매일신문)", u:"https://www.imaeil.com/page/view/2026091908352894222"},
+            {t:"아시안게임: 한국 선수단 전 종목 메달리스트 모아보기 (Olympics.com)", u:"https://www.olympics.com/ko/news/korea-complete-list-winners-medallists-asian-games-2026"}]},
+
   {cat:"tech", date:"2026-09-22", econ:true, intl:true, country:"글로벌", size:"중견", company:"한미반도체", wclass:"세계최초", world:"기존 20mm급이 한계였던 인터포저를 75mm×75mm까지 키운 대면적 2.5D 플립칩 본딩 장비를 세계 최초로 양산 출하해, AI 가속기 패키징 장비를 사실상 한국 중견기업이 먼저 상용화했다.", pride:true,
    title:"AI 가속기 패키징의 다음 장비, 세계 최초 출하는 한국 중견기업이었다",
    desc:"한미반도체가 AI 시스템반도체용 대면적 2.5D 패키징 장비 'FC 본더 75'를 글로벌 고객사에 첫 출하했다. 75mm×75mm 크기의 대형 인터포저 패키징을 지원해, 범용 패키징 크기인 20mm×20mm의 벽을 열 배 이상 넓혔다. CPU·GPU·HBM을 한 패키지에 묶는 2.5D 수요가 파운드리·OSAT로 번지면서 고스펙 장비를 먼저 낸 쪽이 표준을 쥐는 구조다. 한미반도체는 올해 FC 본더 3.5, 2.5D TC 본더 40 C2S·C2W를 잇따라 내놓고 '2.5D TC 본더 120' 출시를 앞뒀으며, 10월 미국 법인 '한미USA' 설립도 예정했다.",
@@ -12,17 +45,6 @@ const NEWS = [
             {t:"한미반도체, 어드밴스드 패키징 관련 TSV 본딩 장비", u:"https://www.youtube.com/watch?v=e8zWORHnZjQ"}],
    related:[{t:"한미반도체, AI 시스템반도체용 'FC 본더 75' 첫 출하 (헤럴드경제)", u:"https://biz.heraldcorp.com/article/10882235"},
             {t:"한미반도체, HBM 넘어 AI 패키징으로…'FC 본더 75' 첫 출하 (글로벌이코노믹)", u:"https://www.g-enews.com/article/Industry/2026/09/202609220913392793084322ec9_1"}]},
-
-  {cat:"tech", date:"2026-09-21", econ:true, intl:true, country:"글로벌", size:"대기업", company:"LG에너지솔루션·KAIST", wclass:"세계최초", world:"급속충전 시 리튬메탈 표면에 덴드라이트가 자라는 근본 원인을 규명하고 이를 막는 '응집 억제형 액체 전해액'을 세계 최초로 개발해 네이처 에너지에 실었다 — 전고체 경쟁에서 일본·중국이 못 낸 숫자를 액체 전해액으로 먼저 냈다.", pride:true,
-   title:"12분 충전에 800km…한국이 '꿈의 배터리' 숙제를 세계 최초로 풀었다",
-   desc:"LG에너지솔루션과 KAIST 공동연구센터(FRL)가 1회 충전 800km 주행, 누적 30만km 이상 수명, 12분 초고속 충전을 동시에 달성한 리튬메탈전지 연구를 네이처 에너지에 게재했다. 연구팀은 급속충전 시 덴드라이트가 생기는 원인이 리튬메탈 표면의 불균일한 반응임을 밝히고, 세계 최초로 응집 억제형 신규 액체 전해액을 개발해 이를 눌렀다. 기존 리튬이온전지가 600km에서 멈춰 있던 벽을 200km 밀어낸 수치다.",
-   src:"헬로디디", url:"https://www.hellodd.com/news/articleView.html?idxno=109125",
-   yt:5, ytnote:"덴드라이트라는 20년 숙제 — 전해액 한 줄 바꿔 800km와 12분을 동시에 얻은 원리 해부",
-   videos:[{t:"1회 충전에 '800km', '12분' 초고속 충전까지…한국이 개발한 차세대 배터리 기술 / YTN 사이언스", u:"https://www.youtube.com/watch?v=qbzANthgT4U"},
-            {t:"LG엔솔, 기술 혁신 미쳤다…리튬메탈 '12분 급속 충전' 개발", u:"https://www.youtube.com/watch?v=VG8LENYCTIs"},
-            {t:"[이 시각 시황] LG엔솔, 리튬메탈전지 '12분 급속 충전' 기술 개발", u:"https://www.youtube.com/watch?v=lMwk_h8VvNs"}],
-   related:[{t:"KAIST 리튬메탈전지 12분 급속 충전 기술 개발 (LG)", u:"https://www.lg.co.kr/media/release/29331"},
-            {t:"'12분 충전·800km 주행' KAIST, 차세대 배터리 원천기술 개발 (헬로티)", u:"https://www.hellot.net/news/article.html?no=104949"}]},
 
   {cat:"tech", date:"2026-09-25", econ:true, intl:true, country:"글로벌", size:"대기업", company:"SK하이닉스", wclass:"세계1위", world:"AI 시대의 병목인 HBM에서 세계 점유율 50%를 쥐고 74조원 시장의 1위를 지키고 있다 — 엔비디아 가속기에 들어갈 메모리를 한국 두 회사가 합쳐 80% 이상 공급하는 구조다.", pride:true,
    title:"엔비디아가 사갈 HBM의 절반은 이 회사 것…74조 시장 1위를 지켰다",
@@ -98,15 +120,6 @@ const NEWS = [
    related:[{t:"예스티, HPSP 독점 깼다…메모리 업체에 고압수소어닐링 장비 공급 (디일렉)", u:"https://www.thelec.kr/news/articleView.html?idxno=45363"},
             {t:"예스티, HPSP 상대 고압수소어닐링 특허 소송 2심 승소 (디일렉)", u:"https://www.thelec.kr/news/articleView.html?idxno=58330"}]},
 
-  {cat:"tech", date:"2026-09-12", econ:true, intl:true, country:"일본·미국", size:"중소", company:"글루가(오호라)", wclass:"세계최초", world:"액상 젤을 60%만 굳혀 유통하는 '반경화 젤네일'을 세계 최초로 상용화해 출시 4년 만에 글로벌 누적 매출 3000억원을 냈고, 쇼피파이 누적 100만 주문 상위 9개 브랜드에 한국 브랜드로는 유일하게 들었다.", pride:true,
-   title:"세계 최초 '반쯤 굳힌 젤네일'…한국 중소기업이 만든 카테고리",
-   desc:"글루가의 셀프 젤네일 브랜드 오호라는 액상 젤을 60%만 경화시켜 유통하는 반경화 젤네일 기술을 세계 최초로 상용화했다. 플라스틱 팁과 스티커가 전부였던 시장에 들어가 3년 만에 국내 젤네일 1위에 올랐고, 출시 4년 만에 글로벌 누적 매출 3000억원, 누적 판매 2500만 세트를 넘겼다. 쇼피파이가 누적 주문 100만 건을 넘긴 상위 9개 브랜드에 주는 '골드 마일스톤 어워드'에 한국 브랜드로는 유일하게 선정됐고, 일본이 최대 해외 시장이다. 기술이 아니라 제품 카테고리 자체를 한국이 만들어 수출한 사례다.",
-   src:"한국경제", url:"https://www.hankyung.com/article/202511066852P",
-   yt:3, ytnote:"기술을 팔지 않고 카테고리를 만들어 팔았다 — 공대 출신 창업자의 젤네일 역설계",
-   videos:[],
-   related:[{t:"오호라, 출시 4년만에 글로벌 누적 매출 3천억 원 달성 (스타트업엔)", u:"https://www.startupn.kr/news/articleView.html?idxno=43759"},
-            {t:"공대오빠의 '남다른' 네일 성공담 (헤럴드경제)", u:"https://v.daum.net/v/20240809080149717"}]},
-
   {cat:"kpop", date:"2026-09-20", econ:false, intl:true, country:"미국", pride:true,
    title:"빌보드가 뽑은 '2026 최고의 K팝' 1위…키키의 '404 (New Era)'",
    desc:"미국 빌보드가 선정한 '2026년 최고의 K팝' 1위에 키키의 '404 (New Era)'가 올랐다. 국내 차트 성적이 아니라 미국 음악 매체의 연간 결산에서 1위로 호명된 것으로, 같은 달 보이그룹 브랜드평판에서는 방탄소년단이 1위, 빅뱅과 에이티즈가 뒤를 이었다. 데뷔 연차가 짧은 아티스트의 곡이 연간 1위로 뽑히는 흐름은 K팝의 세대 교체가 해외 평단 기준으로도 진행되고 있음을 보여준다.",
@@ -115,15 +128,6 @@ const NEWS = [
    videos:[],
    related:[{t:"빌보드 '최고의 K팝' 1위 키키, LCK 결승전 무대 정조준", u:"https://www.msn.com/ko-kr/news/other/ar-AA2c6ttj"},
             {t:"Billboard Korea 차트", u:"https://www.billboard.co.kr/charts/billboard-korea-global-k-songs/"}]},
-
-  {cat:"sports", date:"2026-09-24", econ:false, intl:true, country:"일본", pride:true,
-   title:"'2026 아시아 TOP 6'에 한국 3명…1위는 손흥민",
-   desc:"글로벌 축구 콘텐츠 매체가 대륙별 최고 선수 6명을 뽑은 '2026 아시아 TOP 6'에서 손흥민(LAFC)이 1위, 김민재(바이에른 뮌헨)와 이강인(파리 생제르맹)이 함께 이름을 올렸다. 한국 3명, 일본 2명, 우즈베키스탄 1명으로 한국이 최다였다. 34세가 된 손흥민이 여전히 아시아 1순위로 호명된다는 점, 그리고 뮌헨·PSG 주전으로 뛰는 선수가 동시에 들어간다는 점이 지금 한국 축구가 서 있는 자리를 보여준다.",
-   src:"다음 스포츠", url:"https://v.daum.net/v/20hIxs1yTl",
-   yt:3, ytnote:"아시아 TOP 6에 한국 3명 — 유럽 빅클럽 주전이라는 지표로 본 한일 격차",
-   videos:[],
-   related:[{t:"FIFA 월드컵 2026, 26명의 슈퍼스타: 손흥민 (FIFA)", u:"https://www.fifa.com/ko/tournaments/mens/worldcup/canadamexicousa2026/articles/26-superstars-son-heungmin-ko"},
-            {t:"손흥민, 네 번째 월드컵에서 대기록 도전 (Olympics.com)", u:"https://www.olympics.com/ko/news/football-son-heungmin-fourth-time-lucky-fifa-world-cup-2026"}]},
 
   {cat:"sports", date:"2002-06-22", classic:true, econ:false, intl:false, pride:true, title:"2002 한일월드컵, 스페인 꺾고 아시아 최초 4강…'4강 신화'가 시작된 날",
    desc:"2002년 6월 22일 광주에서 열린 한일월드컵 8강전에서 한국이 스페인과 120분 혈투 끝에 승부차기 5-3으로 승리하며 아시아 국가 최초로 월드컵 4강에 올랐다. 이운재의 선방과 홍명보의 마지막 킥이 역사를 만들었고, 전국 거리에는 수백만 명의 붉은 물결이 쏟아졌다. 1954년 첫 출전 이후 48년 만에 본선 첫 승(폴란드전)을 거둔 대회이기도 하다.",
