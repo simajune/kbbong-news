@@ -1,5 +1,5 @@
 /* 국뽕 뉴스 데이터 — 자동 수집기가 이 파일만 수정한다.
-   갱신일: 2026-09-29
+   갱신일: 2026-09-30
    index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
   {cat:"tech", date:"2026-02-12", econ:true, intl:true, country:"미국", size:"대기업", company:"삼성전자", wclass:"세계최초", world:"6세대 고대역폭메모리 HBM4를 세계에서 가장 먼저 양산·출하했고, 그 첫 물량을 엔비디아가 가져갔다 — AI 가속기의 다음 세대 성능 상한을 한국 메모리가 먼저 열었다.", pride:true,
@@ -57,16 +57,16 @@ const NEWS = [
    related:[{t:"Global HBM Market Share Q2 2026 (Counterpoint Research)", u:"https://counterpointresearch.com/ko/insights/global-hbm-market-share-q2-2026"},
             {t:"삼성전자, 내년 HBM 점유율 SK하이닉스 추월 전망", u:"https://www.youtube.com/watch?v=SZZzkDr7ZgY"}]},
 
-  {cat:"tech", date:"2026-09-07", econ:true, intl:true, country:"미국·유럽", size:"중견", company:"한미약품·에이비엘바이오 등", wclass:"해외인정", world:"릴리·로슈 같은 빅파마가 한국 바이오에 선급금 수천억원을 얹어 후보물질을 사갔고, 연간 기술수출 규모가 21조원을 넘었다 — 한국의 신약 플랫폼이 글로벌 파이프라인 조달처로 인정받았다는 숫자다.", pride:true,
-   title:"빅파마가 한국에 줄 섰다…올해 신약 기술수출 벌써 21조원",
-   desc:"국내 제약·바이오 기업의 올해 기술수출 규모가 21조원을 넘어서며 역대 최대 기록 경신을 넘봤다. 에이비엘바이오가 일라이릴리와 3조8000억원, 한미약품이 로슈 자회사 제넨텍에 비만 신약을 최대 3조2000억원 규모로 넘겼고, 릴리에 희귀질환 후보물질을 1조9000억원에 이전했다. 알츠하이머·비만·항암·희귀질환·망막질환으로 대상이 넓어졌고, 선급금만 수천억원에 지분 거래까지 붙는 계약 구조로 바뀌었다. 2030년 전후 대형 의약품 특허 만료를 앞둔 빅파마가 한국 플랫폼을 조달처로 택한 결과다.",
-   src:"머니투데이 더바이오", url:"https://www.mt.co.kr/thebio/2026/09/07/2026090619570577205",
-   yt:4, ytnote:"기술수출 21조의 해부 — 선급금·마일스톤·지분, 계약서 어디에 진짜 돈이 있나",
-   videos:[{t:"에이비엘바이오, 미 일라이릴리에 3.8조 기술수출 / 한국경제TV", u:"https://www.youtube.com/watch?v=I_xlkh_fj00"},
-            {t:"한미약품, '살만 빼는' 비만약 터졌다…3.2조 기술수출 / 한국경제TV", u:"https://www.youtube.com/watch?v=_xieujEtoTQ"},
-            {t:"한미, 릴리에 1.9조 기술수출…6년 만에 '빅딜'", u:"https://www.youtube.com/watch?v=FCMaHWXOwoA"}],
-   related:[{t:"'벌써 21조' 글로벌 빅딜로 기술력 입증…K바이오 새역사 (머니투데이)", u:"https://www.mt.co.kr/thebio/2026/09/06/2026090613244280629"},
-            {t:"선급금만 수천억, 빅파마와 지분거래도…K-바이오 달라졌다 (머니투데이)", u:"https://www.mt.co.kr/thebio/2026/06/28/2026062513325250233"}]},
+  {cat:"tech", date:"2026-07-22", econ:true, intl:true, country:"프랑스·EU", size:"대기업", company:"HD현대중공업·한국핵융합에너지연구원", wclass:"해외인정", world:"7개국이 함께 짓는 세계 최대 핵융합로 ITER의 진공용기 9개 섹터 중 한국이 배정분 2개를 넘어 EU 몫 2개까지 넘겨받아 4개를 만들었고, 마지막 섹터 조립·설치까지 한국이 끝냈다 — EU가 못 해낸 초대형 정밀 용접을 한국 조선소에 맡겨야 했다는 뜻이다.", pride:true,
+   title:"EU가 못 만든 걸 한국이 만들었다…세계 최대 핵융합로 '심장' 완성",
+   desc:"과학기술정보통신부는 2026년 7월 22일 프랑스 카다라슈 ITER 건설현장에서 한국이 주도한 마지막 진공용기 섹터 모듈의 조립과 토카막 피트 설치가 완료됐다고 밝혔다. 진공용기는 1억도가 넘는 초고온 플라즈마를 가두는 ITER의 핵심 설비로, 오차 허용치가 밀리미터 단위인 초대형 정밀 용접 구조물이다. 한국은 당초 배정받은 2개 섹터에 더해 EU 배정분 2개를 추가로 수주해 전체 9개 중 4개를 제작했다. 제작은 HD현대중공업이 맡았고, 한국·EU·미국·일본·중국·러시아·인도 7개 회원국 가운데 한국이 이 공정의 사실상 기준 공급자가 됐다.",
+   src:"아시아경제", url:"https://view.asiae.co.kr/article/2026072213475928139",
+   yt:4, ytnote:"1억도를 가두는 통을 왜 한국 조선소가 만드나 — ITER 진공용기 정밀 용접의 난이도 해부",
+   videos:[{t:"국제핵융합실험로 ITER 조립, 우리나라 기술 없으면 불가능?!", u:"https://www.youtube.com/watch?v=AIqQ6QLJ17U"},
+            {t:"한국 기술이 중심이 된 최고의 핵융합 장치! ITER / YTN 사이언스", u:"https://www.youtube.com/watch?v=NZ7L1xN9unY"},
+            {t:"한국이 주도하는 '인공태양' 프로젝트, 핵융합 에너지 기술력 '대박' / YTN 사이언스", u:"https://www.youtube.com/watch?v=aQwxD1WpCVc"}],
+   related:[{t:"HD현대중공업, 세계 최대 핵융합 프로젝트 핵심 장치 제작 완료 (아시아경제)", u:"https://view.asiae.co.kr/article/2026072308282555202"},
+            {t:"한국, ITER 마지막 퍼즐 완성…세계 최대 핵융합 프로젝트 핵심 이정표 (올리브뉴스)", u:"https://www.allrevenews.com/news/506491"}]},
 
   {cat:"tech", date:"2026-09-17", econ:true, intl:true, country:"폴란드", size:"대기업", company:"현대로템", wclass:"글로벌수주", world:"EU 회원국이 자국·독일 전차를 제치고 K2를 누적 226대 들여왔고, 납기 속도에 폴란드 국방부가 '방산 동반자'라고 공개 평가했다 — 유럽 육상 전력 조달의 기준이 한국산으로 옮겨간 실증이다.", pride:true,
    title:"유럽이 자국 전차를 버렸다…폴란드에 들어간 K2, 누적 226대",
@@ -130,17 +130,6 @@ const NEWS = [
             {t:"제니 드라큘라 빌보드 진입 인터뷰", u:"https://www.youtube.com/shorts/-bHjVIBbOtM"}],
    related:[{t:"Billboard Korea 차트", u:"https://www.billboard.co.kr/charts/billboard-korea-global-k-songs/"},
             {t:"올데프·NCT위시·엔플라잉까지…연휴 끝나고 K팝 시장 열린다 (뉴스핌)", u:"https://www.newspim.com/news/view/20260928000749"}]},
-
-  {cat:"tech", date:"2026-08-31", econ:true, intl:true, country:"스페인", size:"대기업", company:"한화에어로스페이스", wclass:"글로벌수주", world:"독일·프랑스 자주포의 텃밭이던 서유럽에서 스페인 육군 차기 자주포 사업의 뼈대로 K9이 채택돼 최소 6675억원 규모 실행계약을 맺었다 — 무기 수출국이 아니라 무기를 만들어 온 나라들의 안방을 한국 화력장비가 처음 열었다.", pride:true,
-   title:"독일·프랑스의 안방을 뚫었다…K9 자주포, 서유럽 첫 계약",
-   desc:"한화에어로스페이스가 2026년 8월 28일 스페인 방산기업 인드라시스템스(INDRA SISTEMAS)와 K9 자주포 등의 수출 실행계약을 체결했다고 8월 31일 공시했다. 계약금액은 경영상 비밀을 이유로 비공개지만 업계는 최소 6675억원 규모로 추산하며, K9 자주포 128문과 탄약운반차 120대 등이 포함된 것으로 알려졌다. 스페인 포병 현대화 사업 전체 규모는 최대 7조7000억원까지 커질 수 있다. 자주포는 오랫동안 독일·프랑스가 지켜온 서유럽 시장으로, K9이 서유럽에 진입한 것은 이번이 처음이다.",
-   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260831000694",
-   yt:5, ytnote:"가격도 납기도 아니라면 무엇인가 — 서유럽이 K9을 고른 진짜 이유 3가지",
-   videos:[{t:"K9 자주포, 서유럽 뚫었다…스페인과 '6600억' 수출 계약 | 지금 이 뉴스", u:"https://www.youtube.com/watch?v=Yqh0KhpDa2E"},
-            {t:"한화에어로 K9, 스페인서 축포…서유럽 처음으로 뚫었다 / 한국경제TV뉴스", u:"https://www.youtube.com/watch?v=Qwp1WG7nKtc"},
-            {t:"[K9수출] K9 자주포, 스페인도 뚫었다! 최소 6675억 원 규모 추산", u:"https://www.youtube.com/shorts/2XbZzuxtOK4"}],
-   related:[{t:"\"탱크 본고장 유럽마저 들썩\"… K9 자주포, 스페인 영토 밟는다 (서울신문)", u:"https://www.seoul.co.kr/news/politics/diplomacy/2026/08/31/20260831500156"},
-            {t:"[공시] 한화에어로스페이스, 스페인 K9 자주포 등 실행계약 체결 (글로벌이코노믹)", u:"https://www.g-enews.com/article/Securities/2026/08/20260831103109851944093b5d4e_1"}]},
 
   {cat:"sports", date:"2002-06-22", classic:true, econ:false, intl:false, pride:true, title:"2002 한일월드컵, 스페인 꺾고 아시아 최초 4강…'4강 신화'가 시작된 날",
    desc:"2002년 6월 22일 광주에서 열린 한일월드컵 8강전에서 한국이 스페인과 120분 혈투 끝에 승부차기 5-3으로 승리하며 아시아 국가 최초로 월드컵 4강에 올랐다. 이운재의 선방과 홍명보의 마지막 킥이 역사를 만들었고, 전국 거리에는 수백만 명의 붉은 물결이 쏟아졌다. 1954년 첫 출전 이후 48년 만에 본선 첫 승(폴란드전)을 거둔 대회이기도 하다.",
