@@ -2,6 +2,37 @@
    갱신일: 2026-10-06
    index.html 의 CSS/함수는 절대 건드리지 말 것. */
 const NEWS = [
+  {cat:"tech", date:"2026-09-24", econ:true, intl:true, country:"미국", size:"중견", company:"HLB(엘레바 테라퓨틱스)", wclass:"해외인정", world:"미국 FDA가 한국 기업이 직접 제출한 글로벌 항암 신약 허가신청서를 승인했고, 객관적반응률 46%·반응지속 11.8개월의 임상 데이터로 미국 담관암 환자의 새 치료 선택지가 됐다.", pride:true,
+   title:"미국 FDA가 승인한 담관암 신약, 심사서류를 낸 곳은 한국 회사였다",
+   desc:"HLB의 미국 자회사 엘레바 테라퓨틱스가 개발한 담관암 표적항암제 '리라푸그라티닙'(미국 제품명 리픽투)이 2026년 9월 23일(현지시간) 미국 FDA 품목허가를 받았다. 이전 치료 경험이 있는 절제 불가능한 국소진행성·전이성 담관암 환자 중 종양에서 FGFR2 유전자 융합·재배열이 확인된 성인이 투여 대상이다. 글로벌 임상 'REFOCUS' 데이터에서 독립평가위원회 분석 기준 객관적반응률(ORR) 46%, 반응지속기간 중앙값 11.8개월을 기록했다. 다국적 제약사에 기술만 넘기는 방식이 아니라 한국 기업이 FDA에 신약허가신청서(NDA)를 직접 제출해 허가까지 받아낸 사례다. 승인 직전인 9월 15일에는 유럽의약품청(EMA)에도 허가신청서를 냈고, 4분기 미국 시장 출시를 준비 중이다.",
+   src:"비즈워치", url:"https://news.bizwatch.co.kr/article/healthcare/2026/09/24/0001",
+   yt:3, ytnote:"기술수출로 끝내지 않고 미국에서 직접 판다 — 한국 바이오의 상업화 단계 진입이 갖는 의미",
+   videos:[],
+   related:[{t:"리보세라닙 아쉬움 턴 HLB, '리픽투'로 FDA 신약 승인 (다음뉴스)", u:"https://v.daum.net/v/20260927175729138"},
+            {t:"HLB 첫 FDA 신약, '상업화·적응증' 미국 시험무대 오른다 (비즈워치)", u:"https://news.bizwatch.co.kr/article/healthcare/2026/09/29/0016"}]},
+
+  {cat:"tech", date:"2026-04-09", econ:true, intl:true, country:"핀란드", size:"대기업", company:"한화에어로스페이스", wclass:"글로벌수주", world:"9년간 K9을 실제로 굴려본 NATO 회원국 핀란드가 유럽산 대신 한국산을 다시 골라 초도 물량보다 많은 112문을 5억 4600만 유로에 추가 발주했다.", pride:true,
+   title:"9년 써본 핀란드가 유럽산 대신 다시 고른 자주포, 이번엔 112문",
+   desc:"방위사업청은 2026년 4월 9일 핀란드 헬싱키에서 코트라와 핀란드 국방부 간 K9 자주포 112문 공급을 위한 정부 간(G2G) 2차 수출계약이 체결됐다고 밝혔다. 계약 규모는 5억 4600만 유로, 약 9400억원으로 K9 수출 역사상 세 번째로 큰 규모다. 핀란드는 2017년 K9 96문을 도입해 '묠니르'라는 이름으로 운용해 왔는데, 혹한과 폭설이 일상인 북유럽 환경에서 9년간 실제 운용한 끝에 초도 물량보다 많은 수량을 추가로 주문했다. 유럽 방산 자립을 밀어붙이는 EU 기조 속에서도 성능·납기·가격을 이유로 한국산을 재선택했다는 점이 핵심이다. 납품은 2032년까지 이어진다.",
+   src:"경향신문", url:"https://www.khan.co.kr/article/202604092030001",
+   yt:5, ytnote:"써본 나라가 또 산다 — 핀란드 9년 운용 데이터로 보는 K9의 혹한 경쟁력과 유럽 방산 지형",
+   videos:[{t:"8년 혹한에서 검증받았다…핀란드에 K9 자주포 112문 추가 수출 / 연합뉴스", u:"https://www.youtube.com/watch?v=Ki6gkJ3EnnI"},
+            {t:"K9 자주포, 핀란드에 112문 추가 수출‥9천4백억 원 규모 (2026.04.09/뉴스데스크/MBC)", u:"https://www.youtube.com/watch?v=FNkVv3ovggI"},
+            {t:"[자막뉴스] 9년간 K-9 써본 핀란드, 유럽 정책까지 외면한 '파격 계약'", u:"https://www.youtube.com/watch?v=zEwgWZSLBhg"}],
+   related:[{t:"북유럽 혹한 뚫은 K9 자주포, 핀란드와 9400억 규모 2차 수출 계약 (파이낸셜뉴스)", u:"https://www.fnnews.com/news/202604100913048444"},
+            {t:"K9 자주포 9400억원 핀란드 2차 수출… K방산 위력 입증 (서울신문)", u:"https://www.seoul.co.kr/news/politics/diplomacy/2026/04/10/20260410008003"}]},
+
+  {cat:"tech", date:"2026-08-25", econ:true, intl:true, country:"글로벌", size:"중견", company:"HPSP", wclass:"대체불가", world:"고압 수소 어닐링(HPA) 장비를 세계 최초로 상용화해 사실상 단독 공급해 왔고, 삼성·SK하이닉스는 물론 TSMC·인텔까지 이 한국 중견기업 장비를 거쳐야 최선단 칩의 계면 결함을 잡을 수 있다.", pride:true,
+   title:"엔비디아 AI칩도, TSMC 2나노도 이 한국 회사 장비를 거쳐야 완성된다",
+   desc:"2017년 설립돼 2022년 코스닥에 상장한 HPSP는 반도체 열처리 공정에 고압을 도입한 고압 수소 어닐링(HPA) 장비 '제니시스'를 세계 최초로 상용화했다. 미세화가 진행될수록 심해지는 트랜지스터 계면 결함을 수소로 치유하는 공정으로, 삼성전자·SK하이닉스뿐 아니라 TSMC·인텔 등 전 세계 10여 개 주요 반도체 고객사가 이 장비를 쓴다. 최선단 로직·메모리 라인에서 사실상 대체재가 없던 탓에 2025년 영업이익률 52%로 3년 연속 50%를 넘겼다. 2025년 12월 국내 경쟁사 예스티가 글로벌 메모리 업체로부터 HPA 장비 수주를 확인했고 2026년 3월 첫 양산 평가용 장비를 출하하면서 독점 구도에 균열이 생겼지만, 그 경쟁자 역시 한국 기업이다. 장비 강국 일본·네덜란드가 비워둔 공정 한 칸을 한국 기업들이 채우고 있는 셈이다.",
+   src:"Kotaro Invest(Korea's Semiconductor Equipment Value Chain)", url:"https://kotaroinvest.com/2026/08/25/koreas-semiconductor-equipment-value-chain/",
+   yt:4, ytnote:"수소로 결함을 치유하는 공정 — 고압 어닐링이 2나노 시대에 필수가 된 이유와 한국의 독점 구간",
+   videos:[{t:"세계 유일 고압 열처리 기술 'HPSP'…시장 점유 100%_산업뉴스[산업방송 채널i]", u:"https://www.youtube.com/watch?v=9UVuo-j-E1U"},
+            {t:"엔비디아 AI칩도 결국 이 회사 장비를 거친다", u:"https://www.youtube.com/watch?v=4lblHGgToQs"},
+            {t:"HPSP, 코스닥 숨은 독점기업의 2026년 진짜 턴어라운드", u:"https://www.youtube.com/watch?v=5j9dAeMJpuI"}],
+   related:[{t:"[IPO IR] HPSP - 반도체 소자 계면상의 문제점을 개선하는 고압 열처리 장비 제조 전문기업", u:"https://www.youtube.com/watch?v=8AX43AeeGC4"},
+            {t:"HPSP Expands Its R&D Capabilities and Study on High-Pressure Annealing and Oxidation (PR Newswire)", u:"https://www.prnewswire.com/news-releases/korean-semiconductor-equipment-provider-hpsp-expands-its-rd-capabilities-and-study-on-high-pressure-annealing-and-oxidation-302036724.html"}]},
+
   {cat:"tech", date:"2026-02-12", econ:true, intl:true, country:"미국", size:"대기업", company:"삼성전자", wclass:"세계최초", world:"6세대 HBM4를 SK하이닉스·마이크론보다 먼저 양산 출하했고, 동작 속도 11.7Gbps·최고 13Gbps로 JEDEC 업계 표준(8Gbps)을 46% 웃도는 성능을 세계에서 처음 상용 물량으로 찍어냈다.", pride:true,
    title:"업계 표준보다 46% 빠른 메모리를, 세계에서 제일 먼저 찍어낸 건 한국이었다",
    desc:"삼성전자가 2026년 2월 12일 6세대 고대역폭메모리 HBM4를 세계 최초로 양산 출하했다고 밝혔다. 당초 계획보다 일주일가량 앞당긴 출하로, 고객사 엔비디아의 품질 테스트도 일찌감치 통과했다. 삼성 HBM4의 동작 속도는 초당 11.7기가비트로 엔비디아가 요구한 11Gb 기준을 넘겼고 최고 속도는 13Gb를 기록했다 — JEDEC 업계 표준 8Gbps를 약 46% 상회하는 수치다. 최선단 1c D램(10나노급 6세대)을 처음부터 도입해 재설계 없이 양산 초기부터 수율과 성능을 동시에 잡았다. 이 물량은 TSMC 최첨단 패키징을 거쳐 엔비디아 차세대 AI 가속기 '베라 루빈'에 실린다. 출하 4개월 만에 HBM4 매출 10억 달러를 돌파했다.",
